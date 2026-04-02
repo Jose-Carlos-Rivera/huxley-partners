@@ -255,26 +255,39 @@ export default function NuestraFirma() {
       <section className="py-24 lg:py-32 bg-surface">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <div className="text-center mb-16">
+            <div className="text-center mb-6">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
                 Nuestro Espacio
               </span>
-              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark">
+              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-4">
                 Donde la creatividad se encuentra con el derecho
               </h2>
+              <p className="text-text-light max-w-2xl mx-auto leading-relaxed">
+                Nuestro espacio de trabajo refleja quiénes somos: un equipo
+                joven, dinámico y apasionado que combina la rigurosidad legal
+                con un ambiente que inspira creatividad e innovación.
+              </p>
             </div>
           </AnimatedSection>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[1, 2, 3, 4, 5, 6].map((n, i) => (
-              <AnimatedSection key={n} delay={i * 0.1}>
-                <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-lg relative group">
+          <div className="mt-12 grid grid-cols-2 lg:grid-cols-3 gap-4 lg:gap-6">
+            {[
+              { n: 1, span: "col-span-2 lg:col-span-1 lg:row-span-2", aspect: "aspect-square" },
+              { n: 2, span: "", aspect: "aspect-[4/3]" },
+              { n: 3, span: "", aspect: "aspect-[4/3]" },
+              { n: 4, span: "", aspect: "aspect-[4/3]" },
+              { n: 5, span: "", aspect: "aspect-[4/3]" },
+              { n: 6, span: "col-span-2 lg:col-span-1", aspect: "aspect-[4/3]" },
+            ].map((item, i) => (
+              <AnimatedSection key={item.n} delay={i * 0.08} className={item.span}>
+                <div className={`${item.aspect} rounded-2xl overflow-hidden shadow-lg relative group`}>
                   <Image
-                    src={`/images/office/office-${n}.jpeg`}
-                    alt={`Oficina Huxley Partners ${n}`}
+                    src={`/images/office/office-${item.n}.jpeg`}
+                    alt={`Oficina Huxley Partners`}
                     fill
                     className="object-cover group-hover:scale-105 transition-transform duration-700"
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
                 </div>
               </AnimatedSection>
             ))}
