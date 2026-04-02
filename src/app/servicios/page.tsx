@@ -13,14 +13,14 @@ const services = [
     slug: "corporativo-societario",
     title: "Corporativo y Societario",
     description:
-      "Asesoría integral en estructuración corporativa, constitución de sociedades, contratos mercantiles, gobierno de sociedades y cumplimiento regulatorio. Acompañamos a nuestros clientes en todas las etapas de su vida corporativa.",
+      "Asesoramos a corporaciones multinacionales, grupos empresariales y fondos de inversión en la estructuración, operación y gobierno de sus entidades en México, garantizando cumplimiento regulatorio, eficiencia corporativa y alineación con estándares internacionales.",
     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
   },
   {
-    slug: "fusiones-adquisiciones",
-    title: "Fusiones, Adquisiciones y Reestructuras",
+    slug: "ma-reestructuras",
+    title: "M&A y Reestructuras",
     description:
-      "Acompañamiento estratégico en operaciones de M&A, incluyendo due diligence legal, negociación de contratos, reestructuras corporativas y operaciones transfronterizas.",
+      "Asesoramos a clientes nacionales e internacionales en transacciones complejas de fusiones, adquisiciones y reorganizaciones corporativas en México y en operaciones transfronterizas. Nuestra asesoría integra análisis legal, financiero y estratégico.",
     icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
   },
   {
@@ -31,53 +31,95 @@ const services = [
     icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
   },
   {
-    slug: "laboral",
-    title: "Laboral",
+    slug: "inversiones-extranjeras-nearshoring",
+    title: "Inversiones Extranjeras y Nearshoring",
     description:
-      "Soluciones integrales en relaciones laborales individuales y colectivas, cumplimiento normativo, litigio laboral especializado, outsourcing y subcontratación conforme a la legislación vigente.",
-    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
-  },
-  {
-    slug: "migratorio",
-    title: "Migratorio",
-    description:
-      "Gestión integral de trámites migratorios para empresas y profesionales con presencia internacional. Visas de trabajo, permisos de residencia y regularización migratoria.",
-    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
-  },
-  {
-    slug: "nearshoring",
-    title: "Nearshoring e Inversión Extranjera",
-    description:
-      "Asesoría especializada para empresas que buscan establecerse en México mediante esquemas de nearshoring, inversión extranjera directa y operaciones transfronterizas.",
+      "Acompañamos a inversionistas extranjeros y corporaciones multinacionales en su establecimiento, expansión y relocalización de operaciones en México, particularmente en contextos de nearshoring y proyectos estratégicos de largo plazo.",
     icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
   },
   {
-    slug: "comercio-exterior",
-    title: "Comercio Exterior y Aduanas",
+    slug: "laboral",
+    title: "Laboral",
     description:
-      "Asesoría en regulaciones aduaneras, clasificación arancelaria, programas de comercio exterior (IMMEX, drawback), y cumplimiento de tratados internacionales.",
-    icon: "M20 7l-8-4-8 4m16 0l-8 4m8-4v10l-8 4m0-10L4 7m8 4v10M4 7v10l8 4",
+      "Asesoramos a corporaciones multinacionales en la gestión integral de sus relaciones laborales en México, con un enfoque preventivo orientado a la continuidad operativa y la mitigación de contingencias laborales.",
+    icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
+  },
+  {
+    slug: "financiero",
+    title: "Financiero",
+    description:
+      "Asesoramos a clientes nacionales e internacionales en proyectos financieros que respaldan decisiones estratégicas de inversión, crecimiento o reestructuración en México.",
+    icon: "M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    slug: "mercantil",
+    title: "Mercantil",
+    description:
+      "Asesoramos a nuestros clientes en relaciones comerciales complejas con un enfoque preventivo que reduzca riesgos y evite litigios futuros, sin perder capacidad de reacción cuando surgen controversias.",
+    icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+  },
+  {
+    slug: "civil",
+    title: "Civil",
+    description:
+      "Ofrecemos asesoría integral en materia civil, combinando experiencia contenciosa con soluciones preventivas para proteger intereses personales y patrimoniales.",
+    icon: "M3 6l3 1m0 0l-3 9a5.002 5.002 0 006.001 0M6 7l3 9M6 7l6-2m6 2l3-1m-3 1l-3 9a5.002 5.002 0 006.001 0M18 7l3 9m-3-9l-6-2m0-2v2m0 16V5m0 16H9m3 0h3",
   },
   {
     slug: "derecho-administrativo",
     title: "Derecho Administrativo",
     description:
-      "Representación ante autoridades gubernamentales, licitaciones públicas, permisos y licencias, contencioso administrativo y cumplimiento regulatorio.",
+      "Asesoramos y representamos a nuestros clientes frente a autoridades federales, estatales y municipales, brindando soluciones sólidas ante controversias administrativas y regulatorias.",
     icon: "M8 14v3m4-3v3m4-3v3M3 21h18M3 10h18M3 7l9-4 9 4M4 10h16v11H4V10z",
   },
   {
-    slug: "propiedad-intelectual",
-    title: "Propiedad Intelectual",
+    slug: "fiscal-controversias",
+    title: "Fiscal y Controversias",
     description:
-      "Protección y gestión de marcas, patentes, derechos de autor y secretos industriales. Litigio en materia de propiedad intelectual y contratos de licenciamiento.",
+      "Asesoramos y representamos a nuestros clientes frente a autoridades fiscales, brindando defensa estratégica en controversias administrativas y regulatorias.",
+    icon: "M9 14l6-6m-5.5.5h.01m4.99 5h.01M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16l3.5-2 3.5 2 3.5-2 3.5 2z",
+  },
+  {
+    slug: "derecho-de-autor",
+    title: "Derecho de Autor",
+    description:
+      "Asesoramos a empresas y creadores en la protección, explotación y defensa de derechos de autor en México.",
+    icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
+  },
+  {
+    slug: "propiedad-industrial",
+    title: "Propiedad Industrial",
+    description:
+      "Protegemos y gestionamos los activos de propiedad industrial de nuestros clientes, alineándolos con sus estrategias comerciales y de expansión.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
   },
   {
-    slug: "compliance",
-    title: "Compliance y Prevención de Riesgos",
+    slug: "migratorio",
+    title: "Migratorio",
     description:
-      "Diseño e implementación de programas de cumplimiento normativo, prevención de lavado de dinero, anticorrupción y gestión integral de riesgos legales.",
+      "Asesoramos a empresas y ejecutivos extranjeros en todos los aspectos migratorios necesarios para operar legalmente en México.",
+    icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
+  },
+  {
+    slug: "industria-familiar-wealth-management",
+    title: "Industria Familiar y Wealth Management",
+    description:
+      "Asesoramos a grupos familiares y family offices en procesos de institucionalización, sucesión y protección patrimonial, combinando visión legal, corporativa y fiscal.",
+    icon: "M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6",
+  },
+  {
+    slug: "proteccion-al-consumidor",
+    title: "Protección al Consumidor",
+    description:
+      "Asesoramos a empresas en el cumplimiento de la legislación de protección al consumidor y defensa ante PROFECO.",
     icon: "M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z",
+  },
+  {
+    slug: "newlaw-legal-ai",
+    title: "NewLaw y Legal AI",
+    description:
+      "Asesoramos a empresas y departamentos legales en la adopción de soluciones NewLaw, automatización y herramientas de Legal AI para optimizar la gestión legal, mejorar eficiencia y reducir riesgos operativos.",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
   },
 ];
 

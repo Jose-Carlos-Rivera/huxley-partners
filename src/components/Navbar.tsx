@@ -10,6 +10,7 @@ const links = [
   { href: "/nuestra-firma", label: "Nuestra Firma" },
   { href: "/servicios", label: "Servicios" },
   { href: "/newlaw", label: "NewLaw" },
+  { href: "/blog", label: "Blog" },
   { href: "/contacto", label: "Contacto" },
 ];
 
