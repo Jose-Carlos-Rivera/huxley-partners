@@ -56,13 +56,19 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
                 <a
-                  href="mailto:contacto@huxleypartners.com.mx"
+                  href="mailto:contacto@huxleypartners.com"
                   className="hover:text-white transition-colors"
                 >
-                  contacto@huxleypartners.com.mx
+                  contacto@huxleypartners.com
                 </a>
               </li>
-              <li>Ciudad de México, México</li>
+              <li>
+                Bosque de Ciruelos 160, Piso 1
+                <br />
+                Bosque de las Lomas
+                <br />
+                Ciudad de México 11700, MX
+              </li>
             </ul>
             <div className="mt-6">
               <a
@@ -86,8 +92,8 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Huxley Partners. Todos los
-            derechos reservados.
+            &copy; {new Date().getFullYear()} Huxley Partners, S.C. Todos
+            los derechos reservados.
           </p>
         </div>
       </div>

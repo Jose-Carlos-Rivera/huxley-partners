@@ -161,10 +161,10 @@ export default function Contacto() {
                       <div>
                         <p className="text-sm font-medium text-text">Email</p>
                         <a
-                          href="mailto:contacto@huxleypartners.com.mx"
+                          href="mailto:contacto@huxleypartners.com"
                           className="text-sm text-primary hover:text-primary-dark transition-colors"
                         >
-                          contacto@huxleypartners.com.mx
+                          contacto@huxleypartners.com
                         </a>
                       </div>
                     </div>
@@ -196,7 +196,11 @@ export default function Contacto() {
                           Ubicación
                         </p>
                         <p className="text-sm text-text-light">
-                          Ciudad de México, México
+                          Bosque de Ciruelos 160, Piso 1
+                          <br />
+                          Bosque de las Lomas
+                          <br />
+                          Ciudad de México 11700, MX
                         </p>
                       </div>
                     </div>
