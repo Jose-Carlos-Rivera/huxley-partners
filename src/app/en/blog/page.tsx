@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 const articles = [
   {
-    slug: "nearshoring-mexico-legal-opportunities-2026",
+    slug: "nearshoring-mexico-oportunidades-legales-2026",
     title: "Nearshoring in Mexico: Legal Opportunities and Challenges for Foreign Companies in 2026",
     excerpt:
       "Mexico has established itself as a key nearshoring destination. Learn about the essential legal aspects for establishing successful operations in the Mexican market.",
@@ -19,7 +19,7 @@ const articles = [
     readTime: "8 min",
   },
   {
-    slug: "legal-tech-transforming-law-firms-mexico",
+    slug: "legal-tech-transformacion-despachos-mexico",
     title: "Legal Tech and AI: How Technology Is Transforming Law Firms in Mexico",
     excerpt:
       "The adoption of Legal AI tools and automation is redefining legal practice. We explore trends and opportunities for Mexican firms.",
@@ -28,7 +28,7 @@ const articles = [
     readTime: "6 min",
   },
   {
-    slug: "corporate-governance-best-practices",
+    slug: "gobierno-corporativo-mejores-practicas",
     title: "Corporate Governance in Mexico: Best Practices for Growing Companies",
     excerpt:
       "Strong corporate governance is key to attracting investment and ensuring sustainability. Learn about best practices and applicable regulatory frameworks.",
@@ -37,7 +37,7 @@ const articles = [
     readTime: "7 min",
   },
   {
-    slug: "due-diligence-ma-mexico-guide",
+    slug: "due-diligence-ma-mexico-guia",
     title: "Due Diligence Guide for M&A Operations in Mexico",
     excerpt:
       "Due diligence is a critical stage in any merger and acquisition transaction. We present the key points every company should consider.",
@@ -46,7 +46,7 @@ const articles = [
     readTime: "9 min",
   },
   {
-    slug: "labor-compliance-nom-035-037",
+    slug: "cumplimiento-laboral-nom-035-037",
     title: "Labor Compliance in Mexico: NOM-035, NOM-037, and Employer Obligations",
     excerpt:
       "Mexican official standards impose specific obligations on employers. We analyze key requirements and compliance strategies.",
@@ -83,45 +83,47 @@ export default function Blog() {
           <div className="space-y-12">
             {articles.map((article, i) => (
               <AnimatedSection key={article.slug} delay={i * 0.1}>
-                <article className="group border-b border-gray-100 pb-12 last:border-0">
-                  <div className="flex flex-col md:flex-row md:items-start gap-6">
-                    <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-semibold tracking-wide uppercase text-accent bg-accent/10 px-3 py-1 rounded-full">
-                          {article.category}
-                        </span>
-                        <span className="text-xs text-text-light">
-                          {article.date}
-                        </span>
-                        <span className="text-xs text-text-light">
-                          {article.readTime} read
+                <Link href={`/en/blog/${article.slug}`}>
+                  <article className="group border-b border-gray-100 pb-12 last:border-0 cursor-pointer">
+                    <div className="flex flex-col md:flex-row md:items-start gap-6">
+                      <div className="flex-1">
+                        <div className="flex flex-wrap items-center gap-3 mb-3">
+                          <span className="text-xs font-semibold tracking-wide uppercase text-primary bg-primary/10 px-3 py-1 rounded-full">
+                            {article.category}
+                          </span>
+                          <span className="text-xs text-text-light">
+                            {article.date}
+                          </span>
+                          <span className="text-xs text-text-light">
+                            {article.readTime} read
+                          </span>
+                        </div>
+                        <h2 className="text-xl md:text-2xl font-bold text-primary-dark mb-3 group-hover:text-primary transition-colors leading-tight">
+                          {article.title}
+                        </h2>
+                        <p className="text-text-light leading-relaxed mb-4">
+                          {article.excerpt}
+                        </p>
+                        <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-primary-dark transition-colors">
+                          Read article
+                          <svg
+                            className="w-4 h-4 group-hover:translate-x-1 transition-transform"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M17 8l4 4m0 0l-4 4m4-4H3"
+                            />
+                          </svg>
                         </span>
                       </div>
-                      <h2 className="text-xl md:text-2xl font-bold text-primary-dark mb-3 group-hover:text-primary transition-colors leading-tight">
-                        {article.title}
-                      </h2>
-                      <p className="text-text-light leading-relaxed mb-4">
-                        {article.excerpt}
-                      </p>
-                      <span className="inline-flex items-center gap-2 text-sm font-semibold text-primary group-hover:text-primary-dark transition-colors">
-                        Read article
-                        <svg
-                          className="w-4 h-4 group-hover:translate-x-1 transition-transform"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </span>
                     </div>
-                  </div>
-                </article>
+                  </article>
+                </Link>
               </AnimatedSection>
             ))}
           </div>
