@@ -56,7 +56,7 @@ export default function NewLaw() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
               Legal Innovation
             </span>
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white italic mb-8">
@@ -139,7 +139,7 @@ export default function NewLaw() {
             <div className="mt-12">
               <Link
                 href="/en/contacto"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-primary-dark font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 tracking-wide"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-dark font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 tracking-wide"
               >
                 Discover how we can help you
               </Link>

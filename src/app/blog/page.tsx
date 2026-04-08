@@ -63,7 +63,7 @@ export default function Blog() {
       <section className="pt-32 pb-20 bg-gradient-to-b from-primary-dark to-primary">
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
               Conocimiento Legal
             </span>
             <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6">
@@ -83,11 +83,12 @@ export default function Blog() {
           <div className="space-y-12">
             {articles.map((article, i) => (
               <AnimatedSection key={article.slug} delay={i * 0.1}>
-                <article className="group border-b border-gray-100 pb-12 last:border-0">
+                <Link href={`/blog/${article.slug}`}>
+                <article className="group border-b border-gray-100 pb-12 last:border-0 cursor-pointer">
                   <div className="flex flex-col md:flex-row md:items-start gap-6">
                     <div className="flex-1">
-                      <div className="flex items-center gap-3 mb-3">
-                        <span className="text-xs font-semibold tracking-wide uppercase text-accent bg-accent/10 px-3 py-1 rounded-full">
+                      <div className="flex flex-wrap items-center gap-3 mb-3">
+                        <span className="text-xs font-semibold tracking-wide uppercase text-primary bg-primary/10 px-3 py-1 rounded-full">
                           {article.category}
                         </span>
                         <span className="text-xs text-text-light">
@@ -122,6 +123,7 @@ export default function Blog() {
                     </div>
                   </div>
                 </article>
+                </Link>
               </AnimatedSection>
             ))}
           </div>

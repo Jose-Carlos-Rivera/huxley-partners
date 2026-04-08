@@ -50,15 +50,25 @@ export default function Home() {
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-primary-dark/40" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
+          <AnimatedSection>
+            <Image
+              src="/images/logos/logo-full.jpeg"
+              alt="Huxley Partners Law Firm"
+              width={320}
+              height={140}
+              className="mx-auto mb-8 rounded-lg shadow-2xl w-[180px] sm:w-[240px] md:w-[300px] lg:w-[320px] h-auto"
+              priority
+            />
+          </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
+            <h1 className="font-[family-name:var(--font-display)] text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold text-white leading-tight mb-6 md:mb-8">
               Bienvenido a{" "}
-              <span className="text-accent">Huxley Partners</span>
+              <span className="text-white/90">Huxley Partners</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-10">
+            <p className="text-base sm:text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-8 md:mb-10">
               Transformamos su estrategia de negocios a través de nuestra
               experiencia internacional, innovación jurídica e integridad
               profesional.
@@ -68,13 +78,13 @@ export default function Home() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
                 href="/servicios"
-                className="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary-dark font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 tracking-wide"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 bg-white text-primary font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 tracking-wide text-sm sm:text-base"
               >
                 Conozca nuestras soluciones
               </Link>
               <Link
                 href="/contacto"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 tracking-wide"
+                className="inline-flex items-center justify-center px-6 sm:px-8 py-3 sm:py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 tracking-wide text-sm sm:text-base"
               >
                 Contáctenos
               </Link>
@@ -167,7 +177,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-16">
-              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-gray-300 mb-4 block">
                 Áreas de Práctica
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-white mb-6">
@@ -186,9 +196,9 @@ export default function Home() {
             {featuredServices.map((service, i) => (
               <AnimatedSection key={service.title} delay={i * 0.1}>
                 <div className="group bg-white/5 backdrop-blur-sm border border-white/10 rounded-2xl p-8 hover:bg-white/10 transition-all duration-500 h-full">
-                  <div className="w-14 h-14 bg-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-accent/30 transition-colors">
+                  <div className="w-14 h-14 bg-white/10 rounded-xl flex items-center justify-center mb-6 group-hover:bg-white/20 transition-colors">
                     <svg
-                      className="w-7 h-7 text-accent"
+                      className="w-7 h-7 text-white/80"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -216,7 +226,7 @@ export default function Home() {
             <div className="text-center mt-12">
               <Link
                 href="/servicios"
-                className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-primary-dark font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 tracking-wide"
+                className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary-dark font-semibold rounded-lg hover:bg-gray-100 transition-all duration-300 tracking-wide"
               >
                 Ver todos los servicios
                 <svg
