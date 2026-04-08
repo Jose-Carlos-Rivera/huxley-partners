@@ -1,5 +1,6 @@
 import AnimatedSection from "@/components/AnimatedSection";
 import Link from "next/link";
+import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const services = [
   {
     slug: "corporativo-societario",
+    image: "/images/services/corporativo.jpg",
     title: "Corporativo y Societario",
     description:
       "Asesoramos a corporaciones multinacionales, grupos empresariales y fondos de inversión en la estructuración, operación y gobierno de sus entidades en México, garantizando cumplimiento regulatorio, eficiencia corporativa y alineación con estándares internacionales.",
@@ -26,6 +28,7 @@ const services = [
   },
   {
     slug: "ma-reestructuras",
+    image: "/images/services/fusiones.jpg",
     title: "M&A y Reestructuras",
     description:
       "Asesoramos a clientes nacionales e internacionales en transacciones complejas de fusiones, adquisiciones y reorganizaciones corporativas en México y en operaciones transfronterizas. Nuestra asesoría integra análisis legal, financiero y estratégico.",
@@ -41,6 +44,7 @@ const services = [
   },
   {
     slug: "gobierno-corporativo",
+    image: "/images/services/gobierno-corporativo.jpg",
     title: "Gobierno Corporativo",
     description:
       "Diseño e implementación de estructuras de gobernanza, políticas de cumplimiento, programas de compliance y mejores prácticas que fortalecen la toma de decisiones empresariales.",
@@ -54,6 +58,7 @@ const services = [
   },
   {
     slug: "inversiones-extranjeras-nearshoring",
+    image: "/images/services/nearshoring.jpg",
     title: "Inversiones Extranjeras y Nearshoring",
     description:
       "Acompañamos a inversionistas extranjeros y corporaciones multinacionales en su establecimiento, expansión y relocalización de operaciones en México, particularmente en contextos de nearshoring y proyectos estratégicos de largo plazo.",
@@ -70,6 +75,7 @@ const services = [
   },
   {
     slug: "laboral",
+    image: "/images/services/laboral.jpg",
     title: "Laboral",
     description:
       "Asesoramos a corporaciones multinacionales en la gestión integral de sus relaciones laborales en México, con un enfoque preventivo orientado a la continuidad operativa y la mitigación de contingencias laborales.",
@@ -85,6 +91,7 @@ const services = [
   },
   {
     slug: "financiero",
+    image: "/images/services/corporativo.jpg",
     title: "Financiero",
     description:
       "Asesoramos a clientes nacionales e internacionales en proyectos financieros que respaldan decisiones estratégicas de inversión, crecimiento o reestructuración en México.",
@@ -100,6 +107,7 @@ const services = [
   },
   {
     slug: "mercantil",
+    image: "/images/services/litigio.jpg",
     title: "Mercantil",
     description:
       "Asesoramos a nuestros clientes en relaciones comerciales complejas con un enfoque preventivo que reduzca riesgos y evite litigios futuros, sin perder capacidad de reacción cuando surgen controversias.",
@@ -115,6 +123,7 @@ const services = [
   },
   {
     slug: "civil",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Civil",
     description:
       "Ofrecemos asesoría integral en materia civil, combinando experiencia contenciosa con soluciones preventivas para proteger intereses personales y patrimoniales.",
@@ -128,6 +137,7 @@ const services = [
   },
   {
     slug: "derecho-administrativo",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Derecho Administrativo",
     description:
       "Asesoramos y representamos a nuestros clientes frente a autoridades federales, estatales y municipales, brindando soluciones sólidas ante controversias administrativas y regulatorias.",
@@ -143,6 +153,7 @@ const services = [
   },
   {
     slug: "fiscal-controversias",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Fiscal y Controversias",
     description:
       "Asesoramos y representamos a nuestros clientes frente a autoridades fiscales, brindando defensa estratégica en controversias administrativas y regulatorias.",
@@ -156,6 +167,7 @@ const services = [
   },
   {
     slug: "derecho-de-autor",
+    image: "/images/services/propiedad-intelectual.jpg",
     title: "Derecho de Autor",
     description:
       "Asesoramos a empresas y creadores en la protección, explotación y defensa de derechos de autor en México.",
@@ -171,6 +183,7 @@ const services = [
   },
   {
     slug: "propiedad-industrial",
+    image: "/images/services/propiedad-intelectual.jpg",
     title: "Propiedad Industrial",
     description:
       "Protegemos y gestionamos los activos de propiedad industrial de nuestros clientes, alineándolos con sus estrategias comerciales y de expansión.",
@@ -186,6 +199,7 @@ const services = [
   },
   {
     slug: "migratorio",
+    image: "/images/services/migratorio.jpg",
     title: "Migratorio",
     description:
       "Asesoramos a empresas y ejecutivos extranjeros en todos los aspectos migratorios necesarios para operar legalmente en México.",
@@ -201,6 +215,7 @@ const services = [
   },
   {
     slug: "industria-familiar-wealth-management",
+    image: "/images/services/industria-familiar.jpg",
     title: "Industria Familiar y Wealth Management",
     description:
       "Asesoramos a grupos familiares y family offices en procesos de institucionalización, sucesión y protección patrimonial, combinando visión legal, corporativa y fiscal.",
@@ -216,6 +231,7 @@ const services = [
   },
   {
     slug: "proteccion-al-consumidor",
+    image: "/images/services/proteccion-consumidor.jpg",
     title: "Protección al Consumidor",
     description:
       "Asesoramos a empresas en el cumplimiento de la legislación de protección al consumidor y defensa ante PROFECO.",
@@ -231,6 +247,7 @@ const services = [
   },
   {
     slug: "newlaw-legal-ai",
+    image: "/images/services/newlaw.jpg",
     title: "NewLaw y Legal AI",
     description:
       "Asesoramos a empresas y departamentos legales en la adopción de soluciones NewLaw, automatización y herramientas de Legal AI para optimizar la gestión legal, mejorar eficiencia y reducir riesgos operativos.",
@@ -274,7 +291,12 @@ export default function Servicios() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
               <AnimatedSection key={service.slug} delay={i * 0.05}>
-                <div className="group border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-500 h-full">
+                <div className="group border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-500 h-full relative">
+                  {service.image && (
+                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-4 -mx-2 -mt-2">
+                      <Image src={service.image} alt={service.title} fill className="object-cover" />
+                    </div>
+                  )}
                   <div className="flex items-start gap-6">
                     <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                       <svg

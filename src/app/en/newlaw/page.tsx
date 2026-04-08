@@ -52,7 +52,7 @@ export default function NewLaw() {
     <>
       {/* Hero */}
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=1920&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
           <AnimatedSection>

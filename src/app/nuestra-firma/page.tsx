@@ -13,7 +13,7 @@ export default function NuestraFirma() {
     <>
       {/* Hero */}
       <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1920&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/60" />
         <div className="relative z-10 text-center px-6">
           <AnimatedSection>
@@ -66,7 +66,7 @@ export default function NuestraFirma() {
 
       {/* Live Work Create Divider */}
       <section className="relative h-[40vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504805572947-34fad45aed93?w=1920&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/50" />
         <AnimatedSection>
           <div className="relative z-10 text-center px-6">
@@ -109,7 +109,7 @@ export default function NuestraFirma() {
 
       {/* Do Something Great Divider */}
       <section className="relative h-[40vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=1920&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/dividers/do-something-great.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/60" />
         <AnimatedSection>
           <div className="relative z-10 text-center px-6">

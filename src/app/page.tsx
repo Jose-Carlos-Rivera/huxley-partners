@@ -47,7 +47,7 @@ export default function Home() {
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1920&q=80')] bg-cover bg-center opacity-20" />
+        <div className="absolute inset-0 bg-[url('/images/hero/skyscraper.jpg')] bg-cover bg-center opacity-20" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-primary-dark/40" />
 
         <div className="relative z-10 max-w-6xl mx-auto px-6 text-center pt-24 pb-20">
@@ -145,10 +145,11 @@ export default function Home() {
             <AnimatedSection delay={0.2}>
               <div className="relative">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
-                  <img
-                    src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
+                  <Image
+                    src="/images/hero/skyscraper.jpg"
                     alt="Oficinas Huxley Partners"
-                    className="object-cover w-full h-full"
+                    fill
+                    className="object-cover"
                   />
                 </div>
                 <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
@@ -161,7 +162,7 @@ export default function Home() {
 
       {/* Passion Image Divider */}
       <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1519834785169-98be25ec3f84?w=1920&q=80')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
         <div className="absolute inset-0 bg-black/50" />
         <AnimatedSection>
           <div className="relative z-10 text-center px-6">

@@ -234,7 +234,7 @@ export default function Contacto() {
 
                 {/* Inspirational image */}
                 <div className="relative rounded-2xl overflow-hidden aspect-[16/9]">
-                  <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=800&q=80')] bg-cover bg-center" />
+                  <div className="absolute inset-0 bg-[url('/images/dividers/this-is-the-sign.jpg')] bg-cover bg-center" />
                   <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <p className="font-[family-name:var(--font-display)] text-2xl font-bold text-white italic">

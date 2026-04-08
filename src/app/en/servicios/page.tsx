@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -11,6 +12,7 @@ export const metadata: Metadata = {
 const services = [
   {
     slug: "corporate-governance",
+    image: "/images/services/corporativo.jpg",
     title: "Corporate & Governance",
     description:
       "We advise multinational corporations, business groups, and investment funds on the structuring, operation, and governance of their entities in Mexico, ensuring regulatory compliance, corporate efficiency, and alignment with international standards.",
@@ -18,6 +20,7 @@ const services = [
   },
   {
     slug: "mergers-acquisitions",
+    image: "/images/services/fusiones.jpg",
     title: "Mergers & Acquisitions",
     description:
       "We advise domestic and international clients on complex merger, acquisition, and corporate reorganization transactions in Mexico and cross-border operations. Our advisory integrates legal, financial, and strategic analysis.",
@@ -25,6 +28,7 @@ const services = [
   },
   {
     slug: "corporate-governance-advisory",
+    image: "/images/services/gobierno-corporativo.jpg",
     title: "Corporate Governance",
     description:
       "Design and implementation of governance structures, compliance policies, compliance programs, and best practices that strengthen business decision-making.",
@@ -32,6 +36,7 @@ const services = [
   },
   {
     slug: "foreign-investment-nearshoring",
+    image: "/images/services/nearshoring.jpg",
     title: "Foreign Investment & Nearshoring",
     description:
       "We accompany foreign investors and multinational corporations in their establishment, expansion, and relocation of operations in Mexico, particularly in nearshoring contexts and long-term strategic projects.",
@@ -39,6 +44,7 @@ const services = [
   },
   {
     slug: "labor",
+    image: "/images/services/laboral.jpg",
     title: "Labor",
     description:
       "We advise multinational corporations on the comprehensive management of their labor relations in Mexico, with a preventive approach oriented toward operational continuity and mitigation of labor contingencies.",
@@ -46,6 +52,7 @@ const services = [
   },
   {
     slug: "finance",
+    image: "/images/services/corporativo.jpg",
     title: "Finance",
     description:
       "We advise domestic and international clients on financial projects that support strategic investment, growth, or restructuring decisions in Mexico.",
@@ -53,6 +60,7 @@ const services = [
   },
   {
     slug: "commercial",
+    image: "/images/services/litigio.jpg",
     title: "Commercial",
     description:
       "We advise our clients on complex commercial relationships with a preventive approach that reduces risks and avoids future litigation, without losing the capacity to react when disputes arise.",
@@ -60,6 +68,7 @@ const services = [
   },
   {
     slug: "civil",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Civil",
     description:
       "We offer comprehensive civil law advisory, combining litigation experience with preventive solutions to protect personal and patrimonial interests.",
@@ -67,6 +76,7 @@ const services = [
   },
   {
     slug: "regulatory-administrative",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Regulatory & Administrative",
     description:
       "We advise and represent our clients before federal, state, and municipal authorities, providing solid solutions to administrative and regulatory disputes.",
@@ -74,6 +84,7 @@ const services = [
   },
   {
     slug: "tax-disputes",
+    image: "/images/services/derecho-administrativo.jpg",
     title: "Tax & Disputes",
     description:
       "We advise and represent our clients before tax authorities, providing strategic defense in administrative and regulatory disputes.",
@@ -81,6 +92,7 @@ const services = [
   },
   {
     slug: "copyright",
+    image: "/images/services/propiedad-intelectual.jpg",
     title: "Copyright",
     description:
       "We advise businesses and creators on the protection, exploitation, and defense of copyright in Mexico.",
@@ -88,6 +100,7 @@ const services = [
   },
   {
     slug: "industrial-property",
+    image: "/images/services/propiedad-intelectual.jpg",
     title: "Industrial Property",
     description:
       "We protect and manage our clients' industrial property assets, aligning them with their commercial and expansion strategies.",
@@ -95,6 +108,7 @@ const services = [
   },
   {
     slug: "immigration",
+    image: "/images/services/migratorio.jpg",
     title: "Immigration",
     description:
       "We advise companies and foreign executives on all immigration aspects necessary to operate legally in Mexico.",
@@ -102,6 +116,7 @@ const services = [
   },
   {
     slug: "family-business-wealth-management",
+    image: "/images/services/industria-familiar.jpg",
     title: "Family Business & Wealth Management",
     description:
       "We advise family groups and family offices on institutionalization, succession, and asset protection processes, combining legal, corporate, and tax vision.",
@@ -109,6 +124,7 @@ const services = [
   },
   {
     slug: "consumer-protection",
+    image: "/images/services/proteccion-consumidor.jpg",
     title: "Consumer Protection",
     description:
       "We advise companies on compliance with consumer protection legislation and defense before PROFECO.",
@@ -116,6 +132,7 @@ const services = [
   },
   {
     slug: "newlaw-legal-ai",
+    image: "/images/services/newlaw.jpg",
     title: "NewLaw & Legal AI",
     description:
       "We advise companies and legal departments on the adoption of NewLaw solutions, automation, and Legal AI tools to optimize legal management, improve efficiency, and reduce operational risks.",
@@ -151,7 +168,12 @@ export default function Services() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
               <AnimatedSection key={service.slug} delay={i * 0.05}>
-                <div className="group border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-500 h-full">
+                <div className="group border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-500 h-full relative">
+                  {service.image && (
+                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-4 -mx-2 -mt-2">
+                      <Image src={service.image} alt={service.title} fill className="object-cover" />
+                    </div>
+                  )}
                   <div className="flex items-start gap-6">
                     <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
                       <svg
