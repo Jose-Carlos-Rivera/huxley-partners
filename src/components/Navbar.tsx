@@ -3,9 +3,11 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
+import LanguageToggle from "./LanguageToggle";
 
-const links = [
+const linksEs = [
   { href: "/", label: "Inicio" },
   { href: "/nuestra-firma", label: "Nuestra Firma" },
   { href: "/servicios", label: "Servicios" },
@@ -14,23 +16,41 @@ const links = [
   { href: "/contacto", label: "Contacto" },
 ];
 
+const linksEn = [
+  { href: "/en", label: "Home" },
+  { href: "/en/nuestra-firma", label: "Our Firm" },
+  { href: "/en/servicios", label: "Services" },
+  { href: "/en/newlaw", label: "NewLaw" },
+  { href: "/en/blog", label: "Blog" },
+  { href: "/en/contacto", label: "Contact" },
+];
+
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const pathname = usePathname();
+  const isEnglish = pathname.startsWith("/en");
+  const links = isEnglish ? linksEn : linksEs;
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white/90 backdrop-blur-md border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex items-center justify-between h-20">
-          <Link href="/" className="flex items-center gap-3">
+          <Link
+            href={isEnglish ? "/en" : "/"}
+            className="flex items-center gap-3"
+          >
             <Image
               src="/images/logos/logo-icon.jpeg"
               alt="Huxley Partners"
-              width={40}
-              height={40}
-              className="rounded"
+              width={48}
+              height={48}
+              className="rounded w-10 h-10 sm:w-12 sm:h-12"
             />
             <div className="hidden sm:block">
-              <span className="text-lg font-semibold tracking-wide text-primary-dark">
+              <span
+                className="text-lg font-semibold tracking-wide"
+                style={{ color: "#325EA8" }}
+              >
                 HUXLEY PARTNERS
               </span>
               <span className="block text-[10px] tracking-[0.25em] text-text-light uppercase">
@@ -40,7 +60,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             {links.map((link) => (
               <Link
                 key={link.href}
@@ -50,27 +70,31 @@ export default function Navbar() {
                 {link.label}
               </Link>
             ))}
+            <LanguageToggle />
           </div>
 
-          {/* Mobile hamburger */}
-          <button
-            onClick={() => setOpen(!open)}
-            className="md:hidden flex flex-col gap-1.5 p-2"
-            aria-label="Menu"
-          >
-            <motion.span
-              animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-primary-dark"
-            />
-            <motion.span
-              animate={open ? { opacity: 0 } : { opacity: 1 }}
-              className="block w-6 h-0.5 bg-primary-dark"
-            />
-            <motion.span
-              animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
-              className="block w-6 h-0.5 bg-primary-dark"
-            />
-          </button>
+          {/* Mobile controls */}
+          <div className="md:hidden flex items-center gap-3">
+            <LanguageToggle />
+            <button
+              onClick={() => setOpen(!open)}
+              className="flex flex-col gap-1.5 p-2"
+              aria-label="Menu"
+            >
+              <motion.span
+                animate={open ? { rotate: 45, y: 6 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-0.5 bg-primary-dark"
+              />
+              <motion.span
+                animate={open ? { opacity: 0 } : { opacity: 1 }}
+                className="block w-6 h-0.5 bg-primary-dark"
+              />
+              <motion.span
+                animate={open ? { rotate: -45, y: -6 } : { rotate: 0, y: 0 }}
+                className="block w-6 h-0.5 bg-primary-dark"
+              />
+            </button>
+          </div>
         </div>
       </div>
 

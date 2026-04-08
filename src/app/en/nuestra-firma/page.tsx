@@ -3,12 +3,12 @@ import Image from "next/image";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Nuestra Firma | Huxley Partners",
+  title: "Our Firm | Huxley Partners",
   description:
-    "Conoce a Huxley Partners: una firma de abogados mexicana que asesora a corporaciones multinacionales, inversionistas institucionales y empresas globales en sus asuntos legales más estratégicos.",
+    "Learn about Huxley Partners: a Mexico-based law firm advising multinational corporations, institutional investors and global enterprises on their most strategic legal matters.",
 };
 
-export default function NuestraFirma() {
+export default function OurFirm() {
   return (
     <>
       {/* Hero */}
@@ -21,8 +21,8 @@ export default function NuestraFirma() {
               Passion Led Us Here
             </h1>
             <p className="text-xl text-gray-200 max-w-2xl mx-auto font-[family-name:var(--font-display)] italic">
-              &ldquo;Huxley Partners es una firma legal con visión, innovación y
-              cercanía.&rdquo;
+              &ldquo;Huxley Partners is a legal firm with vision, innovation,
+              and proximity.&rdquo;
             </p>
           </AnimatedSection>
         </div>
@@ -33,32 +33,31 @@ export default function NuestraFirma() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-              Quiénes Somos
+              Who We Are
             </span>
             <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-8 leading-tight">
-              Nuestra Firma
+              Our Firm
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <p className="text-text-light leading-relaxed mb-6 text-lg">
-              Huxley Partners es una firma de abogados mexicana que asesora a
-              corporaciones multinacionales, inversionistas institucionales y
-              empresas globales en sus asuntos legales más estratégicos en el
-              mercado mexicano.
+              Huxley Partners is a Mexico-based law firm advising multinational
+              corporations, institutional investors and global enterprises on
+              their most strategic legal matters in the Mexican market.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <p className="text-text-light leading-relaxed mb-6 text-lg">
-              Operamos en la intersección entre transacciones, regulación y
-              gobierno corporativo, apoyando decisiones de alto impacto que
-              definen resultados de largo plazo.
+              We operate at the intersection of transactions, regulation and
+              governance, supporting clients in high-impact decisions that
+              define long-term outcomes.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.3}>
             <p className="text-text-light leading-relaxed text-lg">
-              Nuestra práctica está profundamente arraigada en el marco legal,
-              regulatorio e institucional de México, y plenamente alineada con
-              estándares internacionales de transacciones y gobierno corporativo.
+              Our practice is deeply rooted in Mexico&apos;s legal, regulatory,
+              and institutional framework, and fully aligned with international
+              standards for transactions and corporate governance.
             </p>
           </AnimatedSection>
         </div>
@@ -82,26 +81,25 @@ export default function NuestraFirma() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-              Lo que nos mueve
+              What Drives Us
             </span>
             <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-8">
-              Enfoque en el negocio, no solo en lo legal
+              Business-First, Not Just Legal
             </h2>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <p className="text-text-light leading-relaxed mb-6 text-lg">
-              No concebimos la asesoría legal de manera aislada. Nuestro rol es
-              apoyar los objetivos del negocio, gestionar riesgos y facilitar la
-              toma de decisiones informadas en todas las etapas de una inversión,
-              transacción u operación.
+              We do not conceive legal advice in isolation. Our role is to
+              support business objectives, manage risks, and facilitate
+              informed decision-making at every stage of an investment,
+              transaction, or operation.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
             <p className="text-text-light leading-relaxed text-lg">
-              Ya sea en procesos de entrada a México, gobierno corporativo, M&A,
-              exposición regulatoria u operaciones diarias, nuestro análisis está
-              basado en una comprensión práctica de cómo operan las empresas en
-              México.
+              Whether in market entry processes, corporate governance, M&A,
+              regulatory exposure, or daily operations, our analysis is based
+              on a practical understanding of how businesses operate in Mexico.
             </p>
           </AnimatedSection>
         </div>
@@ -126,10 +124,10 @@ export default function NuestraFirma() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-                Nuestros Valores
+                Our Values
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-4">
-                Nos guiamos por tres principios fundamentales
+                We are guided by three fundamental principles
               </h2>
             </div>
           </AnimatedSection>
@@ -137,21 +135,21 @@ export default function NuestraFirma() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
             {[
               {
-                title: "Integridad",
+                title: "Integrity",
                 description:
-                  "Nuestros clientes valoran la discreción, el criterio y la confiabilidad, especialmente cuando los resultados son críticos y la visibilidad es alta.",
+                  "Our clients value discretion, judgment, and reliability, especially when outcomes are critical and visibility is high.",
                 icon: "M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z",
               },
               {
-                title: "Innovación",
+                title: "Innovation",
                 description:
-                  "A través de nuestra práctica de NewLaw y Legal AI, apoyamos a nuestros clientes en la modernización de sus operaciones legales, esquemas de gobierno corporativo y gestión contractual.",
+                  "Through our NewLaw and Legal AI practice, we support our clients in modernizing their legal operations, corporate governance frameworks, and contract management.",
                 icon: "M13 10V3L4 14h7v7l9-11h-7z",
               },
               {
-                title: "Compromiso de largo plazo",
+                title: "Long-term Commitment",
                 description:
-                  "Construimos relaciones, no transacciones. Muchas de nuestras relaciones con clientes se extienden a lo largo de múltiples proyectos, años y ciclos de inversión.",
+                  "We build relationships, not transactions. Many of our client relationships span multiple projects, years, and investment cycles.",
                 icon: "M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z",
               },
             ].map((principle, i) => (
@@ -191,36 +189,36 @@ export default function NuestraFirma() {
           <AnimatedSection>
             <div className="text-center mb-8">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-                Nuestro Modelo
+                Our Model
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-6">
-                Un modelo ágil, senior y altamente involucrado
+                Lean, Senior, and Highly Engaged
               </h2>
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <p className="text-text-light leading-relaxed text-lg text-center max-w-3xl mx-auto mb-16">
-              Nuestro modelo privilegia la atención a nivel socio, la eficiencia
-              y la rendición de cuentas.
+              Our model prioritizes partner-level attention, efficiency, and
+              accountability.
             </p>
           </AnimatedSection>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                title: "Participación directa de socios",
+                title: "Direct partner involvement",
                 icon: "M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z",
               },
               {
-                title: "Supervisión estratégica constante",
+                title: "Constant strategic oversight",
                 icon: "M15 12a3 3 0 11-6 0 3 3 0 016 0z M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z",
               },
               {
-                title: "Comunicación clara y oportuna",
+                title: "Clear and timely communication",
                 icon: "M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z",
               },
               {
-                title: "Ejecución eficiente sin capas innecesarias",
+                title: "Efficient execution without unnecessary layers",
                 icon: "M13 10V3L4 14h7v7l9-11h-7z",
               },
             ].map((item, i) => (
@@ -256,8 +254,8 @@ export default function NuestraFirma() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
             <p className="font-[family-name:var(--font-display)] text-2xl md:text-4xl font-bold text-white italic leading-relaxed">
-              &ldquo;Creemos que el derecho no solo debe responder, sino
-              transformar.&rdquo;
+              &ldquo;We believe the law should not only respond, but
+              transform.&rdquo;
             </p>
           </AnimatedSection>
         </div>

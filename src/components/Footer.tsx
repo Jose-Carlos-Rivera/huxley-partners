@@ -1,6 +1,9 @@
-import Link from "next/link";
+"use client";
 
-const navLinks = [
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+
+const navLinksEs = [
   { href: "/", label: "Inicio" },
   { href: "/nuestra-firma", label: "Nuestra Firma" },
   { href: "/servicios", label: "Servicios" },
@@ -9,7 +12,20 @@ const navLinks = [
   { href: "/contacto", label: "Contacto" },
 ];
 
+const navLinksEn = [
+  { href: "/en", label: "Home" },
+  { href: "/en/nuestra-firma", label: "Our Firm" },
+  { href: "/en/servicios", label: "Services" },
+  { href: "/en/newlaw", label: "NewLaw" },
+  { href: "/en/blog", label: "Blog" },
+  { href: "/en/contacto", label: "Contact" },
+];
+
 export default function Footer() {
+  const pathname = usePathname();
+  const isEnglish = pathname.startsWith("/en");
+  const navLinks = isEnglish ? navLinksEn : navLinksEs;
+
   return (
     <footer className="bg-primary-dark text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
@@ -23,16 +39,16 @@ export default function Footer() {
               Law Firm
             </p>
             <p className="text-sm text-gray-300 leading-relaxed">
-              Transformamos su estrategia de negocios a través de nuestra
-              experiencia internacional, innovación jurídica e integridad
-              profesional.
+              {isEnglish
+                ? "We transform your business strategy through our international experience, legal innovation, and professional integrity."
+                : "Transformamos su estrategia de negocios a través de nuestra experiencia internacional, innovación jurídica e integridad profesional."}
             </p>
           </div>
 
           {/* Navigation */}
           <div>
             <h4 className="text-sm font-semibold tracking-wide uppercase mb-4 text-accent">
-              Navegación
+              {isEnglish ? "Navigation" : "Navegación"}
             </h4>
             <ul className="space-y-3">
               {navLinks.map((link) => (
@@ -51,7 +67,7 @@ export default function Footer() {
           {/* Contact */}
           <div>
             <h4 className="text-sm font-semibold tracking-wide uppercase mb-4 text-accent">
-              Contacto
+              {isEnglish ? "Contact" : "Contacto"}
             </h4>
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
@@ -92,8 +108,10 @@ export default function Footer() {
 
         <div className="mt-16 pt-8 border-t border-gray-700 text-center">
           <p className="text-xs text-gray-500">
-            &copy; {new Date().getFullYear()} Huxley Partners, S.C. Todos
-            los derechos reservados.
+            &copy; {new Date().getFullYear()} Huxley Partners, S.C.{" "}
+            {isEnglish
+              ? "All rights reserved."
+              : "Todos los derechos reservados."}
           </p>
         </div>
       </div>

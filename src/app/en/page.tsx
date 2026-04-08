@@ -4,39 +4,39 @@ import Image from "next/image";
 
 const featuredServices = [
   {
-    title: "Corporativo y Societario",
+    title: "Corporate & Governance",
     description:
-      "Estructuración, operación y gobierno de entidades en México con cumplimiento regulatorio y estándares internacionales.",
+      "Structuring, operation, and governance of entities in Mexico with regulatory compliance and international standards.",
     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
   },
   {
-    title: "M&A y Reestructuras",
+    title: "Mergers & Acquisitions",
     description:
-      "Transacciones complejas de fusiones, adquisiciones y reorganizaciones corporativas en México y operaciones transfronterizas.",
+      "Complex merger, acquisition, and corporate reorganization transactions in Mexico and cross-border operations.",
     icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
   },
   {
-    title: "Gobierno Corporativo",
+    title: "Corporate Governance",
     description:
-      "Estructuras de gobernanza, políticas de cumplimiento y mejores prácticas que fortalecen la toma de decisiones.",
+      "Governance structures, compliance policies, and best practices that strengthen business decision-making.",
     icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z",
   },
   {
     title: "NewLaw & Legal AI",
     description:
-      "Soluciones de automatización, Legal Tech y Legal AI para optimizar la gestión legal y reducir riesgos operativos.",
+      "Automation solutions, Legal Tech, and Legal AI to optimize legal management and reduce operational risks.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
   },
   {
-    title: "Laboral",
+    title: "Labor",
     description:
-      "Gestión integral de relaciones laborales con enfoque preventivo orientado a la continuidad operativa.",
+      "Comprehensive labor relations management with a preventive approach oriented toward operational continuity.",
     icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z",
   },
   {
-    title: "Inversiones Extranjeras y Nearshoring",
+    title: "Foreign Investment & Nearshoring",
     description:
-      "Establecimiento, expansión y relocalización de operaciones en México en contextos de nearshoring.",
+      "Establishment, expansion, and relocation of operations in Mexico in nearshoring contexts.",
     icon: "M3.055 11H5a2 2 0 012 2v1a2 2 0 002 2 2 2 0 012 2v2.945M8 3.935V5.5A2.5 2.5 0 0010.5 8h.5a2 2 0 012 2 2 2 0 104 0 2 2 0 012-2h1.064M15 20.488V18a2 2 0 012-2h3.064M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
   },
 ];
@@ -53,30 +53,29 @@ export default function Home() {
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
           <AnimatedSection delay={0.2}>
             <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-8">
-              Bienvenido a{" "}
+              Welcome to{" "}
               <span className="text-accent">Huxley Partners</span>
             </h1>
           </AnimatedSection>
           <AnimatedSection delay={0.4}>
             <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed mb-10">
-              Transformamos su estrategia de negocios a través de nuestra
-              experiencia internacional, innovación jurídica e integridad
-              profesional.
+              We transform your business strategy through our international
+              experience, legal innovation, and professional integrity.
             </p>
           </AnimatedSection>
           <AnimatedSection delay={0.6}>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link
-                href="/servicios"
+                href="/en/servicios"
                 className="inline-flex items-center justify-center px-8 py-4 bg-accent text-primary-dark font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 tracking-wide"
               >
-                Conozca nuestras soluciones
+                Discover our solutions
               </Link>
               <Link
-                href="/contacto"
+                href="/en/contacto"
                 className="inline-flex items-center justify-center px-8 py-4 border-2 border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-all duration-300 tracking-wide"
               >
-                Contáctenos
+                Contact us
               </Link>
             </div>
           </AnimatedSection>
@@ -95,27 +94,27 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-                Nuestra Firma
+                Our Firm
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-6 leading-tight">
-                Una firma legal con visión, innovación y cercanía
+                A legal firm with vision, innovation, and proximity
               </h2>
               <p className="text-text-light leading-relaxed mb-6">
-                Huxley Partners es una firma de abogados mexicana que asesora a
-                corporaciones multinacionales, inversionistas institucionales y
-                empresas globales en sus asuntos legales más estratégicos en el
-                mercado mexicano.
+                Huxley Partners is a Mexico-based law firm advising
+                multinational corporations, institutional investors and global
+                enterprises on their most strategic legal matters in the
+                Mexican market.
               </p>
               <p className="text-text-light leading-relaxed mb-8">
-                Operamos en la intersección entre transacciones, regulación y
-                gobierno corporativo, apoyando decisiones de alto impacto que
-                definen resultados de largo plazo.
+                We operate at the intersection of transactions, regulation and
+                governance, supporting clients in high-impact decisions that
+                define long-term outcomes.
               </p>
               <Link
-                href="/nuestra-firma"
+                href="/en/nuestra-firma"
                 className="inline-flex items-center gap-2 text-primary font-semibold hover:text-primary-dark transition-colors group"
               >
-                Conocer más
+                Learn more
                 <svg
                   className="w-5 h-5 group-hover:translate-x-1 transition-transform"
                   fill="none"
@@ -137,7 +136,7 @@ export default function Home() {
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
                   <img
                     src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=800&q=80"
-                    alt="Oficinas Huxley Partners"
+                    alt="Huxley Partners Offices"
                     className="object-cover w-full h-full"
                   />
                 </div>
@@ -168,16 +167,16 @@ export default function Home() {
           <AnimatedSection>
             <div className="text-center mb-16">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-                Áreas de Práctica
+                Practice Areas
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-white mb-6">
-                Nuestros Servicios
+                Our Services
               </h2>
               <p className="text-gray-300 max-w-3xl mx-auto leading-relaxed">
-                Nuestros servicios van más allá de la asesoría legal. Combinamos
-                visión estratégica, experiencia internacional e innovación para
-                desarrollar soluciones que respondan a las necesidades más
-                complejas del mercado mexicano.
+                Our services go beyond legal advice. We combine strategic
+                vision, international experience, and innovation to develop
+                solutions that address the most complex needs of the Mexican
+                market.
               </p>
             </div>
           </AnimatedSection>
@@ -215,10 +214,10 @@ export default function Home() {
           <AnimatedSection delay={0.3}>
             <div className="text-center mt-12">
               <Link
-                href="/servicios"
+                href="/en/servicios"
                 className="inline-flex items-center gap-2 px-8 py-4 bg-accent text-primary-dark font-semibold rounded-lg hover:bg-accent-light transition-all duration-300 tracking-wide"
               >
-                Ver todos los servicios
+                View all services
                 <svg
                   className="w-5 h-5"
                   fill="none"
@@ -258,17 +257,17 @@ export default function Home() {
               </svg>
             </div>
             <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-4">
-              Suscríbete
+              Subscribe
             </h2>
             <p className="text-text-light mb-8 leading-relaxed">
-              Suscríbete a nuestro boletín y mantente actualizado con las
-              últimas novedades legales. No te preocupes, no te enviaremos
-              demasiado contenido.
+              Subscribe to our newsletter and stay updated with the latest
+              legal developments. Don&apos;t worry, we won&apos;t send you too
+              much content.
             </p>
             <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
               <input
                 type="email"
-                placeholder="Tu dirección de email"
+                placeholder="Your email address"
                 className="flex-1 px-5 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm"
                 required
               />
@@ -276,12 +275,12 @@ export default function Home() {
                 type="submit"
                 className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-sm tracking-wide"
               >
-                Suscribir
+                Subscribe
               </button>
             </form>
             <p className="text-xs text-text-light mt-4">
-              Al suscribirte, aceptas recibir comunicaciones electrónicas.
-              Puedes cancelar tu suscripción en cualquier momento.
+              By subscribing, you agree to receive electronic communications.
+              You can unsubscribe at any time.
             </p>
           </AnimatedSection>
         </div>
