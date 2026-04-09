@@ -65,11 +65,11 @@ export default function NuestraFirma() {
       </section>
 
       {/* Live Work Create Divider */}
-      <section className="relative h-[40vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/50" />
+      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-[center_55%]" />
+        <div className="absolute inset-0 bg-black/10" />
         <AnimatedSection>
-          <div className="relative z-10 text-center px-6">
+          <div className="relative z-10 text-center px-6 sr-only">
             <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white italic">
               Live, Work, Create.
             </h2>

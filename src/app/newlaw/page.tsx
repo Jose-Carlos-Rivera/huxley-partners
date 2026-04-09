@@ -51,17 +51,14 @@ export default function NewLaw() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/80" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+      <section className="relative min-h-[70vh] flex items-end justify-center overflow-hidden mt-20">
+        <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-[center_70%]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pb-16">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
               Innovación Jurídica
             </span>
-            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white italic mb-8">
-              Dream Big.
-            </h1>
             <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Impulsamos una práctica legal que evoluciona al ritmo de la
               transformación digital, integrando tecnología de vanguardia con

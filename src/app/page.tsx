@@ -146,8 +146,8 @@ export default function Home() {
               <div className="relative">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
                   <Image
-                    src="/images/hero/skyscraper.jpg"
-                    alt="Oficinas Huxley Partners"
+                    src="/images/hero/nuestra-firma.jpg"
+                    alt="Huxley Partners"
                     fill
                     className="object-cover"
                   />
