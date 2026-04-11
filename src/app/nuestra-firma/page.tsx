@@ -12,18 +12,12 @@ export default function NuestraFirma() {
   return (
     <>
       {/* Hero */}
-      <section className="relative h-[60vh] min-h-[500px] flex items-center justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 text-center px-6">
+      <section className="py-16 lg:py-24 bg-surface mt-20">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white italic mb-6">
-              Passion Led Us Here
-            </h1>
-            <p className="text-xl text-gray-200 max-w-2xl mx-auto font-[family-name:var(--font-display)] italic">
-              &ldquo;Huxley Partners es una firma legal con visión, innovación y
-              cercanía.&rdquo;
-            </p>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
+              <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -65,16 +59,14 @@ export default function NuestraFirma() {
       </section>
 
       {/* Live Work Create Divider */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-[center_55%]" />
-        <div className="absolute inset-0 bg-black/10" />
-        <AnimatedSection>
-          <div className="relative z-10 text-center px-6 sr-only">
-            <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white italic">
-              Live, Work, Create.
-            </h2>
-          </div>
-        </AnimatedSection>
+      <section className="py-16 lg:py-24 bg-surface">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
+              <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-center" />
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
 
       {/* Philosophy */}
@@ -108,16 +100,14 @@ export default function NuestraFirma() {
       </section>
 
       {/* Do Something Great Divider */}
-      <section className="relative h-[40vh] min-h-[350px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/dividers/do-something-great.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/60" />
-        <AnimatedSection>
-          <div className="relative z-10 text-center px-6">
-            <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white italic">
-              Do Something Great
-            </h2>
-          </div>
-        </AnimatedSection>
+      <section className="py-16 lg:py-24 bg-surface">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
+              <div className="absolute inset-0 bg-[url('/images/dividers/do-something-great.jpg')] bg-cover bg-center" />
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
 
       {/* Principles */}

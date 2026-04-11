@@ -51,19 +51,22 @@ export default function NewLaw() {
   return (
     <>
       {/* Hero */}
-      <section className="relative min-h-[70vh] flex items-end justify-center overflow-hidden mt-20">
-        <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-[center_70%]" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/20" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center pb-16">
+      <section className="pt-32 pb-16 bg-surface">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
-              Legal Innovation
-            </span>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              We drive a legal practice that evolves with digital
-              transformation, integrating cutting-edge technology with
-              strategic thinking.
-            </p>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-8">
+              <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-center" />
+            </div>
+            <div className="text-center">
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-primary mb-4 block">
+                Legal Innovation
+              </span>
+              <p className="text-lg md:text-xl text-text-light max-w-3xl mx-auto leading-relaxed">
+                We drive a legal practice that evolves with digital
+                transformation, integrating cutting-edge technology with
+                strategic thinking.
+              </p>
+            </div>
           </AnimatedSection>
         </div>
       </section>

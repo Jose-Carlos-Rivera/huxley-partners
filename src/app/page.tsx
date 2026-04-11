@@ -161,16 +161,14 @@ export default function Home() {
       </section>
 
       {/* Passion Image Divider */}
-      <section className="relative h-[50vh] min-h-[400px] flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
-        <div className="absolute inset-0 bg-black/50" />
-        <AnimatedSection>
-          <div className="relative z-10 text-center px-6">
-            <h2 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white italic">
-              Passion Led Us Here
-            </h2>
-          </div>
-        </AnimatedSection>
+      <section className="py-16 lg:py-24 bg-surface">
+        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
+              <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
+            </div>
+          </AnimatedSection>
+        </div>
       </section>
 
       {/* Services Section */}

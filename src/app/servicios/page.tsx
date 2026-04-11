@@ -1,13 +1,8 @@
+"use client";
+
 import AnimatedSection from "@/components/AnimatedSection";
 import Link from "next/link";
-import Image from "next/image";
-import type { Metadata } from "next";
-
-export const metadata: Metadata = {
-  title: "Nuestros Servicios | Huxley Partners",
-  description:
-    "Servicios legales especializados: corporativo, fusiones y adquisiciones, gobierno corporativo, laboral, migratorio, nearshoring, comercio exterior y más.",
-};
+import FlipCard from "@/components/FlipCard";
 
 const services = [
   {
@@ -91,7 +86,7 @@ const services = [
   },
   {
     slug: "financiero",
-    image: "/images/services/corporativo.jpg",
+    image: "/images/services/financiero.jpg",
     title: "Financiero",
     description:
       "Asesoramos a clientes nacionales e internacionales en proyectos financieros que respaldan decisiones estratégicas de inversión, crecimiento o reestructuración en México.",
@@ -107,7 +102,7 @@ const services = [
   },
   {
     slug: "mercantil",
-    image: "/images/services/litigio.jpg",
+    image: "/images/services/mercantil.jpg",
     title: "Mercantil",
     description:
       "Asesoramos a nuestros clientes en relaciones comerciales complejas con un enfoque preventivo que reduzca riesgos y evite litigios futuros, sin perder capacidad de reacción cuando surgen controversias.",
@@ -123,7 +118,7 @@ const services = [
   },
   {
     slug: "civil",
-    image: "/images/services/derecho-administrativo.jpg",
+    image: "/images/services/civil.jpg",
     title: "Civil",
     description:
       "Ofrecemos asesoría integral en materia civil, combinando experiencia contenciosa con soluciones preventivas para proteger intereses personales y patrimoniales.",
@@ -153,7 +148,7 @@ const services = [
   },
   {
     slug: "fiscal-controversias",
-    image: "/images/services/derecho-administrativo.jpg",
+    image: "/images/services/fiscal.jpg",
     title: "Fiscal y Controversias",
     description:
       "Asesoramos y representamos a nuestros clientes frente a autoridades fiscales, brindando defensa estratégica en controversias administrativas y regulatorias.",
@@ -167,7 +162,7 @@ const services = [
   },
   {
     slug: "derecho-de-autor",
-    image: "/images/services/propiedad-intelectual.jpg",
+    image: "/images/services/derecho-autor.jpg",
     title: "Derecho de Autor",
     description:
       "Asesoramos a empresas y creadores en la protección, explotación y defensa de derechos de autor en México.",
@@ -291,63 +286,13 @@ export default function Servicios() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, i) => (
               <AnimatedSection key={service.slug} delay={i * 0.05}>
-                <div className="group border border-gray-100 rounded-2xl p-8 hover:border-primary/20 hover:shadow-lg transition-all duration-500 h-full relative">
-                  {service.image && (
-                    <div className="relative aspect-[16/9] rounded-xl overflow-hidden mb-4 -mx-2 -mt-2">
-                      <Image src={service.image} alt={service.title} fill className="object-cover" />
-                    </div>
-                  )}
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center shrink-0 group-hover:bg-primary/20 transition-colors">
-                      <svg
-                        className="w-7 h-7 text-primary"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={1.5}
-                          d={service.icon}
-                        />
-                      </svg>
-                    </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-primary-dark mb-3 group-hover:text-primary transition-colors">
-                        {service.title}
-                      </h3>
-                      <p className="text-text-light leading-relaxed mb-4">
-                        {service.description}
-                      </p>
-                      {service.details && service.details.length > 0 && (
-                        <ul className="space-y-2">
-                          {service.details.map((detail, j) => (
-                            <li
-                              key={j}
-                              className="flex items-start gap-2 text-sm text-text-light/80"
-                            >
-                              <svg
-                                className="w-4 h-4 text-primary/60 mt-0.5 shrink-0"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                              >
-                                <path
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  strokeWidth={2}
-                                  d="M5 13l4 4L19 7"
-                                />
-                              </svg>
-                              <span>{detail}</span>
-                            </li>
-                          ))}
-                        </ul>
-                      )}
-                    </div>
-                  </div>
-                </div>
+                <FlipCard
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  details={service.details}
+                  icon={service.icon}
+                />
               </AnimatedSection>
             ))}
           </div>
