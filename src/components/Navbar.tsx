@@ -13,6 +13,7 @@ const linksEs = [
   { href: "/servicios", label: "Servicios" },
   { href: "/newlaw", label: "NewLaw" },
   { href: "/blog", label: "Blog" },
+  { href: "/ubicaciones", label: "Ubicaciones" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -22,6 +23,7 @@ const linksEn = [
   { href: "/en/servicios", label: "Services" },
   { href: "/en/newlaw", label: "NewLaw" },
   { href: "/en/blog", label: "Blog" },
+  { href: "/en/ubicaciones", label: "Locations" },
   { href: "/en/contacto", label: "Contact" },
 ];
 
