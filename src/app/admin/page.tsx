@@ -39,6 +39,7 @@ interface LocationItem {
   address: string | null;
   area: string | null;
   description: string;
+  googleMapsUrl: string;
 }
 
 interface BlogArticle {
@@ -125,9 +126,9 @@ const defaultServicesEu: ServiceItem[] = [
 ];
 
 const defaultLocations: LocationItem[] = [
-  { id: "loc1", city: "Ciudad de México", country: "México", badge: "Oficina Principal", badgeColor: "bg-accent text-white", address: "Bosque de Ciruelos 160, Piso 1", area: "Bosque de las Lomas, 11700", description: "Nuestra sede principal, desde donde coordinamos todas las operaciones de la firma y atendemos a clientes nacionales e internacionales con presencia en el mercado mexicano." },
-  { id: "loc2", city: "España", country: "Europa", badge: "Oficina Europa", badgeColor: "bg-primary text-white", address: null, area: null, description: "Nuestra oficina europea nos permite atender directamente a clientes en la Unión Europea, facilitar transacciones transfronterizas y coordinar asuntos regulatorios bajo marcos europeos." },
-  { id: "loc3", city: "República Checa", country: "Europa", badge: "Presencia Europa", badgeColor: "bg-primary-dark text-white", address: null, area: null, description: "Nuestra presencia en Europa Central fortalece nuestra capacidad de operar en múltiples jurisdicciones y atender asuntos corporativos con alcance continental." },
+  { id: "loc1", city: "Ciudad de México", country: "México", badge: "Oficina Principal", badgeColor: "bg-accent text-white", address: "Bosque de Ciruelos 160, Piso 1", area: "Bosque de las Lomas, 11700", description: "Nuestra sede principal, desde donde coordinamos todas las operaciones de la firma y atendemos a clientes nacionales e internacionales con presencia en el mercado mexicano.", googleMapsUrl: "https://maps.google.com/?q=Bosque+de+Ciruelos+160+Bosque+de+las+Lomas+CDMX" },
+  { id: "loc2", city: "España", country: "Europa", badge: "Oficina Europa", badgeColor: "bg-primary text-white", address: null, area: null, description: "Nuestra oficina europea nos permite atender directamente a clientes en la Unión Europea, facilitar transacciones transfronterizas y coordinar asuntos regulatorios bajo marcos europeos.", googleMapsUrl: "" },
+  { id: "loc3", city: "República Checa", country: "Europa", badge: "Presencia Europa", badgeColor: "bg-primary-dark text-white", address: null, area: null, description: "Nuestra presencia en Europa Central fortalece nuestra capacidad de operar en múltiples jurisdicciones y atender asuntos corporativos con alcance continental.", googleMapsUrl: "" },
 ];
 
 const defaultBlog: BlogArticle[] = [
@@ -428,7 +429,14 @@ export default function AdminPanel() {
                   </div>
                   <FieldTextarea label="Descripción" value={item.description} onChange={(v) => { const u = [...items]; u[idx] = { ...item, description: v }; setItems(u); markChanged(); }} rows={3} />
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <Field label="Imagen (ruta)" value={item.image} onChange={(v) => { const u = [...items]; u[idx] = { ...item, image: v }; setItems(u); markChanged(); }} placeholder="/images/services/..." />
+                    <div className="mb-3">
+                      <label className="block text-xs font-medium text-gray-400 mb-1">Imagen</label>
+                      <input type="text" value={item.image} onChange={(e) => { const u = [...items]; u[idx] = { ...item, image: e.target.value }; setItems(u); markChanged(); }} placeholder="URL o ruta de imagen..." className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg text-sm text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/50 mb-2" />
+                      <div className="border-2 border-dashed border-gray-600 rounded-lg p-4 text-center hover:border-blue-500 transition-colors cursor-pointer" onDragOver={(e) => e.preventDefault()} onDrop={(e) => { e.preventDefault(); const file = e.dataTransfer.files[0]; if (file && file.type.startsWith("image/")) { const reader = new FileReader(); reader.onload = (ev) => { const u = [...items]; u[idx] = { ...item, image: ev.target?.result as string }; setItems(u); markChanged(); toast("Imagen cargada"); }; reader.readAsDataURL(file); } }}>
+                        <p className="text-xs text-gray-500">Arrastra una imagen aquí o ingresa URL arriba</p>
+                        {item.image && <img src={item.image} alt="" className="mt-2 h-16 mx-auto rounded object-cover" />}
+                      </div>
+                    </div>
                     <Field label="Icono SVG (path d)" value={item.icon} onChange={(v) => { const u = [...items]; u[idx] = { ...item, icon: v }; setItems(u); markChanged(); }} placeholder="M19 21V5..." />
                   </div>
 
@@ -525,6 +533,7 @@ export default function AdminPanel() {
                   <Field label="Badge Color (Tailwind)" value={loc.badgeColor} onChange={(v) => { const u = [...locations]; u[idx] = { ...loc, badgeColor: v }; setLocations(u); markChanged(); }} placeholder="bg-accent text-white" />
                   <Field label="Dirección" value={loc.address || ""} onChange={(v) => { const u = [...locations]; u[idx] = { ...loc, address: v || null }; setLocations(u); markChanged(); }} placeholder="(Opcional)" />
                   <Field label="Zona / CP" value={loc.area || ""} onChange={(v) => { const u = [...locations]; u[idx] = { ...loc, area: v || null }; setLocations(u); markChanged(); }} placeholder="(Opcional)" />
+                  <Field label="Google Maps URL" value={loc.googleMapsUrl || ""} onChange={(v) => { const u = [...locations]; u[idx] = { ...loc, googleMapsUrl: v }; setLocations(u); markChanged(); }} placeholder="https://maps.google.com/?q=..." />
                   <FieldTextarea label="Descripción" value={loc.description} onChange={(v) => { const u = [...locations]; u[idx] = { ...loc, description: v }; setLocations(u); markChanged(); }} rows={3} />
                   <div className="flex gap-2">
                     <button onClick={() => { setEditingId(null); showToast("Ubicación guardada", "success"); }} className="px-3 py-2 bg-emerald-600 text-white text-xs font-medium rounded-lg hover:bg-emerald-700 transition-colors">Guardar</button>
@@ -645,6 +654,12 @@ export default function AdminPanel() {
     return (
       <div className="space-y-8">
         <SectionHeader title="Contenido de Páginas" subtitle="Textos editables de las páginas principales" />
+
+        <div className="bg-blue-900/30 border border-blue-700/50 rounded-xl p-4 mb-4">
+          <p className="text-sm text-blue-300 leading-relaxed">
+            <strong>Nota sobre idiomas:</strong> Los cambios que realice aquí aplican a la versión en español. La versión en inglés se genera automáticamente al exportar el JSON. Para contenido personalizado en inglés, edite los archivos de la carpeta <code className="bg-blue-800/50 px-1 rounded">/en/</code> en el código fuente, o contacte a su equipo de desarrollo.
+          </p>
+        </div>
 
         {/* Home */}
         <ContentBlock title="Página de Inicio">
