@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import Image from "next/image";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -94,11 +95,19 @@ export default function NewLaw() {
       {/* Methodology */}
       <section className="py-0 pb-24 lg:pb-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-12">
+              <Image src="/images/services/newlaw.jpg" alt="NewLaw" fill className="object-cover" />
+            </div>
+          </AnimatedSection>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {methodology.map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 0.1}>
-                <div className="bg-surface rounded-2xl p-8 h-full hover:shadow-lg transition-shadow duration-500">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-6">
+              <AnimatedSection key={item.title} delay={i * 0.15}>
+                <div className="group bg-surface rounded-2xl p-8 h-full hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-transparent hover:border-primary/20">
+                  <span className="text-5xl font-bold text-primary/10 group-hover:text-primary/20 transition-colors duration-500">
+                    0{i + 1}
+                  </span>
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 mt-2 group-hover:bg-primary/20 transition-colors duration-500">
                     <svg
                       className="w-6 h-6 text-primary"
                       fill="none"

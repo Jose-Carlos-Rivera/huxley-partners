@@ -86,147 +86,111 @@ export default function Locations() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="relative w-full aspect-[2/1] max-w-4xl mx-auto">
-              <svg
-                viewBox="0 0 1000 500"
-                className="w-full h-full"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                {/* World map dot grid */}
-                {/* North America */}
-                {[
-                  [120,120],[140,130],[160,130],[180,140],[200,140],[220,150],
-                  [140,150],[160,150],[180,160],[200,160],[220,170],[240,170],
-                  [160,170],[180,180],[200,180],[220,190],[240,190],[260,190],
-                  [180,200],[200,200],[220,210],[240,210],[260,210],
-                  [200,220],[220,230],[240,230],
-                ].map(([cx, cy], i) => (
-                  <circle key={`na-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+            <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto"
+              style={{ perspective: '1000px' }}>
+              {/* Globe glow */}
+              <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-110" />
 
-                {/* Central America & Caribbean */}
-                {[
-                  [220,250],[240,250],[260,260],[240,270],[260,270],
-                ].map(([cx, cy], i) => (
-                  <circle key={`ca-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+              {/* Globe sphere */}
+              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary-light/30 shadow-2xl"
+                style={{
+                  background: 'radial-gradient(circle at 30% 30%, #4A7AC4 0%, #325EA8 40%, #1B3A6B 70%, #0f2440 100%)',
+                  boxShadow: '0 0 80px rgba(74,122,196,0.3), inset 0 0 60px rgba(0,0,0,0.3)',
+                }}>
 
-                {/* South America */}
-                {[
-                  [280,290],[300,290],[280,310],[300,310],[320,310],
-                  [280,330],[300,330],[320,330],[300,350],[320,350],
-                  [300,370],[320,370],[310,390],[320,390],[310,410],
-                ].map(([cx, cy], i) => (
-                  <circle key={`sa-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+                {/* Animated meridian lines */}
+                <div className="absolute inset-0"
+                  style={{ animation: 'spin 20s linear infinite' }}>
+                  {[0, 30, 60, 90, 120, 150].map(deg => (
+                    <div key={deg} className="absolute inset-[8%] rounded-full border border-white/10"
+                      style={{ transform: `rotateY(${deg}deg)` }} />
+                  ))}
+                </div>
 
-                {/* Europe */}
-                {[
-                  [440,100],[460,100],[480,100],[500,100],[520,100],
-                  [440,120],[460,120],[480,120],[500,120],[520,120],[540,120],
-                  [440,140],[460,140],[480,140],[500,140],[520,140],[540,140],
-                  [460,160],[480,160],[500,160],[520,160],[540,160],
-                  [480,180],[500,180],[520,180],
-                ].map(([cx, cy], i) => (
-                  <circle key={`eu-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+                {/* Latitude lines */}
+                {[25, 40, 55, 70, 85].map(pct => {
+                  const widthPct = Math.sin((pct / 100) * Math.PI) * 100;
+                  return (
+                    <div key={pct} className="absolute left-1/2 rounded-full border border-white/[0.06]"
+                      style={{
+                        top: `${pct}%`,
+                        width: `${widthPct}%`,
+                        height: '0px',
+                        transform: 'translateX(-50%)',
+                      }} />
+                  );
+                })}
 
-                {/* Africa */}
-                {[
-                  [460,200],[480,200],[500,200],[520,200],
-                  [460,220],[480,220],[500,220],[520,220],
-                  [480,240],[500,240],[520,240],
-                  [480,260],[500,260],[520,260],
-                  [500,280],[520,280],[500,300],[520,300],
-                  [510,320],[520,340],
-                ].map(([cx, cy], i) => (
-                  <circle key={`af-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+                {/* Continent-like patches */}
+                <div className="absolute opacity-[0.12]">
+                  {/* North America */}
+                  <div className="absolute rounded-full bg-white/40"
+                    style={{ top: '28%', left: '12%', width: '22%', height: '18%', filter: 'blur(8px)' }} />
+                  {/* South America */}
+                  <div className="absolute rounded-full bg-white/30"
+                    style={{ top: '52%', left: '22%', width: '14%', height: '22%', filter: 'blur(8px)' }} />
+                  {/* Europe */}
+                  <div className="absolute rounded-full bg-white/40"
+                    style={{ top: '22%', left: '42%', width: '16%', height: '14%', filter: 'blur(6px)' }} />
+                  {/* Africa */}
+                  <div className="absolute rounded-full bg-white/30"
+                    style={{ top: '40%', left: '44%', width: '14%', height: '24%', filter: 'blur(8px)' }} />
+                  {/* Asia */}
+                  <div className="absolute rounded-full bg-white/30"
+                    style={{ top: '20%', left: '58%', width: '28%', height: '22%', filter: 'blur(10px)' }} />
+                  {/* Australia */}
+                  <div className="absolute rounded-full bg-white/25"
+                    style={{ top: '58%', left: '74%', width: '14%', height: '12%', filter: 'blur(6px)' }} />
+                </div>
 
-                {/* Asia */}
-                {[
-                  [560,100],[580,100],[600,100],[620,100],[640,100],[660,100],[680,100],
-                  [560,120],[580,120],[600,120],[620,120],[640,120],[660,120],[680,120],[700,120],
-                  [580,140],[600,140],[620,140],[640,140],[660,140],[680,140],[700,140],[720,140],
-                  [600,160],[620,160],[640,160],[660,160],[680,160],[700,160],[720,160],
-                  [620,180],[640,180],[660,180],[680,180],[700,180],[720,180],
-                  [640,200],[660,200],[680,200],[700,200],
-                  [660,220],[680,220],[700,220],
-                ].map(([cx, cy], i) => (
-                  <circle key={`as-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
+                {/* Specular highlight */}
+                <div className="absolute rounded-full"
+                  style={{
+                    top: '8%', left: '15%', width: '35%', height: '35%',
+                    background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)',
+                  }} />
+              </div>
 
-                {/* Australia */}
-                {[
-                  [740,280],[760,280],[780,280],[800,280],
-                  [740,300],[760,300],[780,300],[800,300],
-                  [760,320],[780,320],[800,320],
-                  [770,340],[790,340],
-                ].map(([cx, cy], i) => (
-                  <circle key={`au-${i}`} cx={cx} cy={cy} r={2} fill="rgba(255,255,255,0.12)" />
-                ))}
-
-                {/* Connection lines */}
-                <line
-                  x1="230" y1="225" x2="480" y2="140"
-                  stroke="rgba(255,255,255,0.15)"
-                  strokeWidth={1}
-                  strokeDasharray="6 4"
-                />
-                <line
-                  x1="480" y1="140" x2="520" y2="135"
-                  stroke="rgba(255,255,255,0.15)"
-                  strokeWidth={1}
-                  strokeDasharray="6 4"
-                />
-                <line
-                  x1="230" y1="225" x2="520" y2="135"
-                  stroke="rgba(255,255,255,0.1)"
-                  strokeWidth={1}
-                  strokeDasharray="6 4"
-                />
-
-                {/* Mexico City - Pulsing dot */}
-                <circle cx="230" cy="225" r="16" fill="rgba(196,167,118,0.15)">
-                  <animate attributeName="r" values="12;20;12" dur="3s" repeatCount="indefinite" />
-                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="230" cy="225" r="8" fill="rgba(196,167,118,0.3)">
-                  <animate attributeName="r" values="6;10;6" dur="3s" repeatCount="indefinite" />
-                </circle>
-                <circle cx="230" cy="225" r="4" fill="#C4A776" />
-
-                {/* Spain - Pulsing dot */}
-                <circle cx="480" cy="140" r="14" fill="rgba(196,167,118,0.15)">
-                  <animate attributeName="r" values="10;18;10" dur="3s" repeatCount="indefinite" begin="0.5s" />
-                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite" begin="0.5s" />
-                </circle>
-                <circle cx="480" cy="140" r="6" fill="rgba(196,167,118,0.3)">
-                  <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite" begin="0.5s" />
-                </circle>
-                <circle cx="480" cy="140" r="3.5" fill="#C4A776" />
-
-                {/* Czech Republic - Pulsing dot */}
-                <circle cx="520" cy="135" r="14" fill="rgba(196,167,118,0.15)">
-                  <animate attributeName="r" values="10;18;10" dur="3s" repeatCount="indefinite" begin="1s" />
-                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite" begin="1s" />
-                </circle>
-                <circle cx="520" cy="135" r="6" fill="rgba(196,167,118,0.3)">
-                  <animate attributeName="r" values="4;8;4" dur="3s" repeatCount="indefinite" begin="1s" />
-                </circle>
-                <circle cx="520" cy="135" r="3.5" fill="#C4A776" />
-
-                {/* Labels */}
-                <text x="230" y="255" textAnchor="middle" fill="white" fontSize="11" fontWeight="600">
-                  CDMX
-                </text>
-                <text x="480" y="170" textAnchor="middle" fill="white" fontSize="11" fontWeight="600">
-                  ESP
-                </text>
-                <text x="520" y="160" textAnchor="middle" fill="white" fontSize="11" fontWeight="600">
-                  CZE
-                </text>
+              {/* Connection lines between locations */}
+              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 10 }}>
+                {/* CDMX to Spain */}
+                <line x1="25%" y1="55%" x2="48%" y2="35%" stroke="rgba(196,167,118,0.35)" strokeWidth="1" strokeDasharray="4 4">
+                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="2s" repeatCount="indefinite" />
+                </line>
+                {/* Spain to Czech Republic */}
+                <line x1="48%" y1="35%" x2="54%" y2="32%" stroke="rgba(196,167,118,0.35)" strokeWidth="1" strokeDasharray="4 4">
+                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="2s" repeatCount="indefinite" />
+                </line>
+                {/* CDMX to Czech Republic */}
+                <line x1="25%" y1="55%" x2="54%" y2="32%" stroke="rgba(196,167,118,0.2)" strokeWidth="1" strokeDasharray="4 4">
+                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="3s" repeatCount="indefinite" />
+                </line>
               </svg>
+
+              {/* Location markers */}
+              {[
+                { label: 'CDMX', top: '55%', left: '25%', delay: '0s' },
+                { label: 'ESP', top: '35%', left: '48%', delay: '0.5s' },
+                { label: 'CZE', top: '32%', left: '54%', delay: '1s' },
+              ].map(loc => (
+                <div key={loc.label} className="absolute" style={{ top: loc.top, left: loc.left, zIndex: 20, transform: 'translate(-50%, -50%)' }}>
+                  <div className="relative flex items-center justify-center">
+                    {/* Ping ring */}
+                    <div className="absolute w-8 h-8 rounded-full bg-accent/20"
+                      style={{ animation: `ping 3s cubic-bezier(0,0,0.2,1) infinite`, animationDelay: loc.delay }} />
+                    {/* Pulse ring */}
+                    <div className="absolute w-5 h-5 rounded-full bg-accent/30"
+                      style={{ animation: `pulse 3s ease-in-out infinite`, animationDelay: loc.delay }} />
+                    {/* Dot */}
+                    <div className="w-3 h-3 bg-accent rounded-full shadow-lg"
+                      style={{ boxShadow: '0 0 12px rgba(196,167,118,0.6)' }} />
+                    {/* Label */}
+                    <span className="absolute left-6 top-1/2 -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap bg-primary-dark/80 px-2 py-1 rounded backdrop-blur-sm">
+                      {loc.label}
+                    </span>
+                  </div>
+                </div>
+              ))}
             </div>
           </AnimatedSection>
         </div>
