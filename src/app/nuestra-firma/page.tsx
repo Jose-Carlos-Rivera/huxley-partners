@@ -12,101 +12,94 @@ export default function NuestraFirma() {
   return (
     <>
       {/* Hero */}
-      <section className="py-16 lg:py-24 bg-surface mt-20">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
+      <section className="pt-32 pb-20 bg-gradient-to-b from-primary-dark to-primary">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Firm Description */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
               Quiénes Somos
             </span>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-8 leading-tight">
+            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6">
               Nuestra Firma
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <p className="text-text-light leading-relaxed mb-6 text-lg">
-              Huxley Partners es una firma de abogados mexicana que asesora a
-              corporaciones multinacionales, inversionistas institucionales y
-              empresas globales en sus asuntos legales más estratégicos en el
-              mercado mexicano.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="text-text-light leading-relaxed mb-6 text-lg">
-              Operamos en la intersección entre transacciones, regulación y
-              gobierno corporativo, apoyando decisiones de alto impacto que
-              definen resultados de largo plazo.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.3}>
-            <p className="text-text-light leading-relaxed text-lg">
-              Nuestra práctica está profundamente arraigada en el marco legal,
-              regulatorio e institucional de México, y plenamente alineada con
-              estándares internacionales de transacciones y gobierno corporativo.
+            </h1>
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
+              Una firma legal con visión, innovación y cercanía.
             </p>
           </AnimatedSection>
         </div>
       </section>
 
-      {/* Live Work Create Divider */}
-      <section className="py-16 lg:py-24 bg-surface">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-[url('/images/dividers/live-work-create.jpg')] bg-cover bg-center" />
-            </div>
-          </AnimatedSection>
+      {/* Firm Description: Text LEFT + Live Work Create RIGHT */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <p className="text-text-light leading-relaxed mb-6 text-lg">
+                Huxley Partners es una firma de abogados mexicana que asesora a
+                corporaciones multinacionales, inversionistas institucionales y
+                empresas globales en sus asuntos legales más estratégicos en el
+                mercado mexicano.
+              </p>
+              <p className="text-text-light leading-relaxed mb-6 text-lg">
+                Operamos en la intersección entre transacciones, regulación y
+                gobierno corporativo, apoyando decisiones de alto impacto que
+                definen resultados de largo plazo.
+              </p>
+              <p className="text-text-light leading-relaxed text-lg">
+                Nuestra práctica está profundamente arraigada en el marco legal,
+                regulatorio e institucional de México, y plenamente alineada con
+                estándares internacionales de transacciones y gobierno
+                corporativo.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/dividers/live-work-create.jpg"
+                  alt="Live, Work, Create"
+                  fill
+                  className="object-cover object-right"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
-      {/* Philosophy */}
+      {/* Philosophy: Text LEFT + Do Something Great RIGHT */}
       <section className="py-24 lg:py-32 bg-surface">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
-              Lo que nos mueve
-            </span>
-            <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-8">
-              Enfoque en el negocio, no solo en lo legal
-            </h2>
-          </AnimatedSection>
-          <AnimatedSection delay={0.1}>
-            <p className="text-text-light leading-relaxed mb-6 text-lg">
-              No concebimos la asesoría legal de manera aislada. Nuestro rol es
-              apoyar los objetivos del negocio, gestionar riesgos y facilitar la
-              toma de decisiones informadas en todas las etapas de una inversión,
-              transacción u operación.
-            </p>
-          </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <p className="text-text-light leading-relaxed text-lg">
-              Ya sea en procesos de entrada a México, gobierno corporativo, M&A,
-              exposición regulatoria u operaciones diarias, nuestro análisis está
-              basado en una comprensión práctica de cómo operan las empresas en
-              México.
-            </p>
-          </AnimatedSection>
-        </div>
-      </section>
-
-      {/* Do Something Great Divider */}
-      <section className="py-16 lg:py-24 bg-surface">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-[url('/images/dividers/do-something-great.jpg')] bg-cover bg-center" />
-            </div>
-          </AnimatedSection>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                Lo que nos mueve
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark mb-8">
+                Enfoque en el negocio, no solo en lo legal
+              </h2>
+              <p className="text-text-light leading-relaxed mb-6 text-lg">
+                No concebimos la asesoría legal de manera aislada. Nuestro rol
+                es apoyar los objetivos del negocio, gestionar riesgos y
+                facilitar la toma de decisiones informadas en todas las etapas
+                de una inversión, transacción u operación.
+              </p>
+              <p className="text-text-light leading-relaxed text-lg">
+                Ya sea en procesos de entrada a México, gobierno corporativo,
+                M&A, exposición regulatoria u operaciones diarias, nuestro
+                análisis está basado en una comprensión práctica de cómo operan
+                las empresas en México.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="relative aspect-square rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/dividers/do-something-great.jpg"
+                  alt="Do Something Great"
+                  fill
+                  className="object-cover object-center"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 

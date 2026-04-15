@@ -71,12 +71,12 @@ export default function Ubicaciones() {
         </div>
       </section>
 
-      {/* Interactive Map Section */}
+      {/* World Map Section */}
       <section className="py-24 lg:py-32 bg-primary-dark relative overflow-hidden">
         <div className="max-w-6xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-12">
-              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/60 mb-4 block">
                 Red Global
               </span>
               <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-white mb-4">
@@ -86,111 +86,72 @@ export default function Ubicaciones() {
           </AnimatedSection>
 
           <AnimatedSection delay={0.2}>
-            <div className="relative w-[300px] h-[300px] md:w-[400px] md:h-[400px] lg:w-[500px] lg:h-[500px] mx-auto"
-              style={{ perspective: '1000px' }}>
-              {/* Globe glow */}
-              <div className="absolute inset-0 rounded-full bg-primary/20 blur-3xl scale-110" />
+            <div className="relative max-w-4xl mx-auto">
+              {/* Flat world map using dot matrix */}
+              <svg viewBox="0 0 1000 500" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+                {/* Grid background */}
+                <defs>
+                  <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+                    <circle cx="10" cy="10" r="0.8" fill="rgba(255,255,255,0.06)" />
+                  </pattern>
+                </defs>
+                <rect width="1000" height="500" fill="url(#grid)" />
 
-              {/* Globe sphere */}
-              <div className="relative w-full h-full rounded-full overflow-hidden border-2 border-primary-light/30 shadow-2xl"
-                style={{
-                  background: 'radial-gradient(circle at 30% 30%, #4A7AC4 0%, #325EA8 40%, #1B3A6B 70%, #0f2440 100%)',
-                  boxShadow: '0 0 80px rgba(74,122,196,0.3), inset 0 0 60px rgba(0,0,0,0.3)',
-                }}>
-
-                {/* Animated meridian lines */}
-                <div className="absolute inset-0"
-                  style={{ animation: 'spin 20s linear infinite' }}>
-                  {[0, 30, 60, 90, 120, 150].map(deg => (
-                    <div key={deg} className="absolute inset-[8%] rounded-full border border-white/10"
-                      style={{ transform: `rotateY(${deg}deg)` }} />
-                  ))}
-                </div>
-
-                {/* Latitude lines */}
-                {[25, 40, 55, 70, 85].map(pct => {
-                  const widthPct = Math.sin((pct / 100) * Math.PI) * 100;
-                  return (
-                    <div key={pct} className="absolute left-1/2 rounded-full border border-white/[0.06]"
-                      style={{
-                        top: `${pct}%`,
-                        width: `${widthPct}%`,
-                        height: '0px',
-                        transform: 'translateX(-50%)',
-                      }} />
-                  );
-                })}
-
-                {/* Continent-like patches */}
-                <div className="absolute opacity-[0.12]">
+                {/* Simplified continent outlines as filled paths */}
+                <g opacity="0.15" fill="white">
                   {/* North America */}
-                  <div className="absolute rounded-full bg-white/40"
-                    style={{ top: '28%', left: '12%', width: '22%', height: '18%', filter: 'blur(8px)' }} />
+                  <ellipse cx="220" cy="170" rx="110" ry="80" />
+                  {/* Central America */}
+                  <ellipse cx="230" cy="260" rx="30" ry="30" />
                   {/* South America */}
-                  <div className="absolute rounded-full bg-white/30"
-                    style={{ top: '52%', left: '22%', width: '14%', height: '22%', filter: 'blur(8px)' }} />
+                  <ellipse cx="300" cy="350" rx="60" ry="90" />
                   {/* Europe */}
-                  <div className="absolute rounded-full bg-white/40"
-                    style={{ top: '22%', left: '42%', width: '16%', height: '14%', filter: 'blur(6px)' }} />
+                  <ellipse cx="500" cy="150" rx="60" ry="50" />
                   {/* Africa */}
-                  <div className="absolute rounded-full bg-white/30"
-                    style={{ top: '40%', left: '44%', width: '14%', height: '24%', filter: 'blur(8px)' }} />
+                  <ellipse cx="510" cy="300" rx="55" ry="80" />
                   {/* Asia */}
-                  <div className="absolute rounded-full bg-white/30"
-                    style={{ top: '20%', left: '58%', width: '28%', height: '22%', filter: 'blur(10px)' }} />
+                  <ellipse cx="680" cy="180" rx="120" ry="70" />
+                  {/* SE Asia */}
+                  <ellipse cx="740" cy="290" rx="40" ry="30" />
                   {/* Australia */}
-                  <div className="absolute rounded-full bg-white/25"
-                    style={{ top: '58%', left: '74%', width: '14%', height: '12%', filter: 'blur(6px)' }} />
-                </div>
+                  <ellipse cx="800" cy="380" rx="50" ry="35" />
+                </g>
 
-                {/* Specular highlight */}
-                <div className="absolute rounded-full"
-                  style={{
-                    top: '8%', left: '15%', width: '35%', height: '35%',
-                    background: 'radial-gradient(circle, rgba(255,255,255,0.12) 0%, transparent 70%)',
-                  }} />
-              </div>
+                {/* Connection lines (animated dashes) */}
+                <line x1="220" y1="230" x2="490" y2="155" stroke="rgba(74,122,196,0.4)" strokeWidth="1.5" strokeDasharray="6 4">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="2s" repeatCount="indefinite" />
+                </line>
+                <line x1="490" y1="155" x2="530" y2="145" stroke="rgba(74,122,196,0.4)" strokeWidth="1.5" strokeDasharray="6 4">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="1.5s" repeatCount="indefinite" />
+                </line>
+                <line x1="220" y1="230" x2="530" y2="145" stroke="rgba(74,122,196,0.2)" strokeWidth="1" strokeDasharray="4 6">
+                  <animate attributeName="stroke-dashoffset" from="10" to="0" dur="3s" repeatCount="indefinite" />
+                </line>
 
-              {/* Connection lines between locations */}
-              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 10 }}>
-                {/* CDMX to Spain */}
-                <line x1="25%" y1="55%" x2="48%" y2="35%" stroke="rgba(196,167,118,0.35)" strokeWidth="1" strokeDasharray="4 4">
-                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="2s" repeatCount="indefinite" />
-                </line>
-                {/* Spain to Czech Republic */}
-                <line x1="48%" y1="35%" x2="54%" y2="32%" stroke="rgba(196,167,118,0.35)" strokeWidth="1" strokeDasharray="4 4">
-                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="2s" repeatCount="indefinite" />
-                </line>
-                {/* CDMX to Czech Republic */}
-                <line x1="25%" y1="55%" x2="54%" y2="32%" stroke="rgba(196,167,118,0.2)" strokeWidth="1" strokeDasharray="4 4">
-                  <animate attributeName="stroke-dashoffset" from="8" to="0" dur="3s" repeatCount="indefinite" />
-                </line>
+                {/* Location: CDMX */}
+                <circle cx="220" cy="230" r="12" fill="rgba(50,94,168,0.3)">
+                  <animate attributeName="r" values="12;18;12" dur="3s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="220" cy="230" r="5" fill="#325EA8" stroke="white" strokeWidth="2" />
+                <text x="220" y="258" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="system-ui">Ciudad de México</text>
+
+                {/* Location: España */}
+                <circle cx="490" cy="155" r="12" fill="rgba(50,94,168,0.3)">
+                  <animate attributeName="r" values="12;18;12" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" begin="0.5s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="490" cy="155" r="5" fill="#325EA8" stroke="white" strokeWidth="2" />
+                <text x="490" y="183" textAnchor="middle" fill="white" fontSize="12" fontWeight="bold" fontFamily="system-ui">España</text>
+
+                {/* Location: Rep. Checa */}
+                <circle cx="530" cy="140" r="12" fill="rgba(50,94,168,0.3)">
+                  <animate attributeName="r" values="12;18;12" dur="3s" begin="1s" repeatCount="indefinite" />
+                  <animate attributeName="opacity" values="0.3;0.1;0.3" dur="3s" begin="1s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="530" cy="140" r="5" fill="#325EA8" stroke="white" strokeWidth="2" />
+                <text x="560" y="130" textAnchor="start" fill="white" fontSize="12" fontWeight="bold" fontFamily="system-ui">Rep. Checa</text>
               </svg>
-
-              {/* Location markers */}
-              {[
-                { label: 'CDMX', top: '55%', left: '25%', delay: '0s' },
-                { label: 'ESP', top: '35%', left: '48%', delay: '0.5s' },
-                { label: 'CZE', top: '32%', left: '54%', delay: '1s' },
-              ].map(loc => (
-                <div key={loc.label} className="absolute" style={{ top: loc.top, left: loc.left, zIndex: 20, transform: 'translate(-50%, -50%)' }}>
-                  <div className="relative flex items-center justify-center">
-                    {/* Ping ring */}
-                    <div className="absolute w-8 h-8 rounded-full bg-accent/20"
-                      style={{ animation: `ping 3s cubic-bezier(0,0,0.2,1) infinite`, animationDelay: loc.delay }} />
-                    {/* Pulse ring */}
-                    <div className="absolute w-5 h-5 rounded-full bg-accent/30"
-                      style={{ animation: `pulse 3s ease-in-out infinite`, animationDelay: loc.delay }} />
-                    {/* Dot */}
-                    <div className="w-3 h-3 bg-accent rounded-full shadow-lg"
-                      style={{ boxShadow: '0 0 12px rgba(196,167,118,0.6)' }} />
-                    {/* Label */}
-                    <span className="absolute left-6 top-1/2 -translate-y-1/2 text-xs font-bold text-white whitespace-nowrap bg-primary-dark/80 px-2 py-1 rounded backdrop-blur-sm">
-                      {loc.label}
-                    </span>
-                  </div>
-                </div>
-              ))}
             </div>
           </AnimatedSection>
         </div>

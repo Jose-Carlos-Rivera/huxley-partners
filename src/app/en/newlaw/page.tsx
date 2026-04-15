@@ -56,7 +56,7 @@ export default function NewLaw() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-8">
-              <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-center" />
+              <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-bottom" />
             </div>
             <div className="text-center">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-primary mb-4 block">

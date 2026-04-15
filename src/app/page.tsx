@@ -160,17 +160,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Passion Image Divider */}
-      <section className="py-16 lg:py-24 bg-surface">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-[url('/images/dividers/passion-led-us-here.jpg')] bg-cover bg-center" />
-            </div>
-          </AnimatedSection>
-        </div>
-      </section>
-
       {/* Services Section */}
       <section className="py-24 lg:py-32 bg-primary-dark">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
