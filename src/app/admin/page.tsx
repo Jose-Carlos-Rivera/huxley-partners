@@ -510,7 +510,7 @@ export default function AdminPanel() {
         <SectionHeader title="Ubicaciones" subtitle={`${locations.length} ubicaciones configuradas`} />
         <button
           onClick={() => {
-            const newLoc: LocationItem = { id: genId(), city: "Nueva Ubicación", country: "", badge: "", badgeColor: "bg-primary text-white", address: null, area: null, description: "" };
+            const newLoc: LocationItem = { id: genId(), city: "Nueva Ubicación", country: "", badge: "", badgeColor: "bg-primary text-white", address: null, area: null, description: "", googleMapsUrl: "" };
             setLocations([...locations, newLoc]);
             setEditingId(newLoc.id);
             markChanged();
