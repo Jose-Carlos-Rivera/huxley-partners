@@ -14,6 +14,7 @@ const linksEs = [
   { href: "/newlaw", label: "NewLaw" },
   { href: "/blog", label: "Blog" },
   { href: "/ubicaciones", label: "Ubicaciones" },
+  { href: "/servicios-europa", label: "Global Presence" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -24,6 +25,7 @@ const linksEn = [
   { href: "/en/newlaw", label: "NewLaw" },
   { href: "/en/blog", label: "Blog" },
   { href: "/en/ubicaciones", label: "Locations" },
+  { href: "/en/servicios-europa", label: "Global Presence" },
   { href: "/en/contacto", label: "Contact" },
 ];
 
@@ -62,12 +64,12 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden lg:flex items-center gap-4">
             {links.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-sm font-medium text-text-light hover:text-primary transition-colors duration-200 tracking-wide uppercase"
+                className="text-xs font-medium text-text-light hover:text-primary transition-colors duration-200 tracking-wide uppercase whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -76,7 +78,7 @@ export default function Navbar() {
           </div>
 
           {/* Mobile controls */}
-          <div className="md:hidden flex items-center gap-3">
+          <div className="lg:hidden flex items-center gap-3">
             <LanguageToggle />
             <button
               onClick={() => setOpen(!open)}
@@ -108,7 +110,7 @@ export default function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden bg-white border-t border-gray-100"
+            className="lg:hidden overflow-hidden bg-white border-t border-gray-100"
           >
             <div className="px-6 py-4 space-y-4">
               {links.map((link) => (

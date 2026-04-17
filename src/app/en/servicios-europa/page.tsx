@@ -88,7 +88,7 @@ export default function ServiciosEuropaEN() {
         <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
-              International Platform
+              International Desks: Strategic Cross Border Support
             </span>
             <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6">
               Global Presence

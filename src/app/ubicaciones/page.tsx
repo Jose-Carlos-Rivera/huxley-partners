@@ -251,7 +251,8 @@ export default function Ubicaciones() {
                 Huxley Partners cuenta con oficinas en Ciudad de México y Monterrey, desde donde se lidera
                 la ejecución de asuntos legales complejos, tanto nacionales como internacionales. Estas
                 oficinas constituyen el núcleo operativo de la firma y funcionan como centros de
-                coordinación para mandatos transfronterizos.
+                coordinación para mandatos transfronterizos, integrando equipos, especialidades y estrategias
+                legales en función de las necesidades de cada cliente.
               </p>
             </div>
           </AnimatedSection>

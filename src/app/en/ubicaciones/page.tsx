@@ -190,8 +190,10 @@ export default function UbicacionesEN() {
               </h2>
               <p className="text-text-light max-w-3xl mx-auto leading-relaxed">
                 Huxley Partners operates through two physical offices, located in Mexico City and
-                Monterrey, which serve as the firm's primary operational centers. From these offices,
-                we lead the execution of sophisticated legal matters and coordinate cross-border mandates.
+                Monterrey, which serve as the firm&apos;s primary operational centers. From these offices,
+                we lead the execution of sophisticated legal matters, both domestic and international,
+                and coordinate cross-border mandates, integrating teams, practice areas, and legal
+                strategies tailored to each client&apos;s objectives.
               </p>
             </div>
           </AnimatedSection>
