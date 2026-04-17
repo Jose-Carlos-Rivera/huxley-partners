@@ -10,6 +10,7 @@ const navLinksEs = [
   { href: "/newlaw", label: "NewLaw" },
   { href: "/blog", label: "Blog" },
   { href: "/ubicaciones", label: "Ubicaciones" },
+  { href: "/servicios-europa", label: "Global Presence" },
   { href: "/contacto", label: "Contacto" },
 ];
 
@@ -20,6 +21,7 @@ const navLinksEn = [
   { href: "/en/newlaw", label: "NewLaw" },
   { href: "/en/blog", label: "Blog" },
   { href: "/en/ubicaciones", label: "Locations" },
+  { href: "/en/servicios-europa", label: "Global Presence" },
   { href: "/en/contacto", label: "Contact" },
 ];
 

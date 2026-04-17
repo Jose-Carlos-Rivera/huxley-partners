@@ -55,7 +55,7 @@ export default function NewLaw() {
       <section className="pt-32 pb-16 bg-surface">
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-8">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-8">
               <div className="absolute inset-0 bg-[url('/images/dividers/dream-big.jpg')] bg-cover bg-bottom" />
             </div>
             <div className="text-center">
@@ -96,7 +96,7 @@ export default function NewLaw() {
       <section className="py-0 pb-24 lg:pb-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
-            <div className="relative aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-12">
+            <div className="relative aspect-[4/3] sm:aspect-[16/9] md:aspect-[16/7] rounded-2xl overflow-hidden shadow-xl mb-12">
               <Image src="/images/services/newlaw.jpg" alt="NewLaw" fill className="object-cover" />
             </div>
           </AnimatedSection>

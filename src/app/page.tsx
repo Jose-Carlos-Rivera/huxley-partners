@@ -143,7 +143,7 @@ export default function Home() {
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="relative">
+              <div className="relative px-6 lg:px-0">
                 <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl relative">
                   <Image
                     src="/images/hero/nuestra-firma.jpg"
@@ -152,8 +152,8 @@ export default function Home() {
                     className="object-cover"
                   />
                 </div>
-                <div className="absolute -bottom-6 -left-6 w-32 h-32 bg-accent/20 rounded-2xl -z-10" />
-                <div className="absolute -top-6 -right-6 w-32 h-32 bg-primary/10 rounded-2xl -z-10" />
+                <div className="hidden sm:block absolute -bottom-6 -left-6 w-24 h-24 lg:w-32 lg:h-32 bg-accent/20 rounded-2xl -z-10" />
+                <div className="hidden sm:block absolute -top-6 -right-6 w-24 h-24 lg:w-32 lg:h-32 bg-primary/10 rounded-2xl -z-10" />
               </div>
             </AnimatedSection>
           </div>
