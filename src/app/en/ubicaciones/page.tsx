@@ -92,11 +92,11 @@ export default function UbicacionesEN() {
         </div>
       </section>
 
-      {/* World Map */}
-      <section className="py-20 bg-primary-dark relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+      {/* World Map — 3D Globe */}
+      <section className="pt-20 pb-0 bg-primary-dark relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8 mb-10">
           <AnimatedSection>
-            <div className="text-center mb-10">
+            <div className="text-center">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/50 mb-3 block">
                 Global Network
               </span>
@@ -105,10 +105,10 @@ export default function UbicacionesEN() {
               </h2>
             </div>
           </AnimatedSection>
-          <AnimatedSection delay={0.2}>
-            <GlobeMap lang="en" />
-          </AnimatedSection>
         </div>
+        <AnimatedSection delay={0.2}>
+          <GlobeMap lang="en" />
+        </AnimatedSection>
       </section>
 
       {/* Our Offices */}

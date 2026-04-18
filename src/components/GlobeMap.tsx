@@ -41,7 +41,6 @@ export default function GlobeMap({ lang = "es" }: Props) {
     network: isEn ? "Our global" : "Nuestra red",
     networkEm: isEn ? "network" : "global",
     locations: isEn ? "05 LOCATIONS" : "05 UBICACIONES",
-    est: "EST. 2009",
     live: isEn ? "LIVE" : "EN VIVO",
     hqTag: "HQ",
     cornerTLSub: "Global Offices · MMXXVI",
@@ -108,7 +107,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
       group.position.copy(pos);
       group.lookAt(pos.clone().multiplyScalar(2));
 
-      const color = o.hq ? 0xc9a961 : 0x1e3660;
+      const color = o.hq ? 0x4a90d9 : 0x1e3660;
 
       const dot = new THREE.Mesh(
         new THREE.CircleGeometry(o.hq ? 0.028 : 0.018, 24),
@@ -127,7 +126,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
       if (o.hq) {
         const beam = new THREE.Mesh(
           new THREE.CylinderGeometry(0.003, 0.003, 0.18, 8),
-          new THREE.MeshBasicMaterial({ color: 0xc9a961, transparent: true, opacity: 0.7 })
+          new THREE.MeshBasicMaterial({ color: 0x4a90d9, transparent: true, opacity: 0.7 })
         );
         beam.rotation.x = Math.PI / 2;
         beam.position.z = 0.09;
@@ -135,7 +134,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
 
         const topDot = new THREE.Mesh(
           new THREE.CircleGeometry(0.012, 16),
-          new THREE.MeshBasicMaterial({ color: 0xe6c887 })
+          new THREE.MeshBasicMaterial({ color: 0xa8d4ff })
         );
         topDot.position.z = 0.18;
         group.add(topDot);
@@ -156,19 +155,21 @@ export default function GlobeMap({ lang = "es" }: Props) {
       const pts = buildArc(hqPos, destPos, 80);
       globeGroup.add(new THREE.Line(
         new THREE.BufferGeometry().setFromPoints(pts),
-        new THREE.LineBasicMaterial({ color: 0xc9a961, transparent: true, opacity: 0.35 })
+        new THREE.LineBasicMaterial({ color: 0x4a90d9, transparent: true, opacity: 0.35 })
       ));
       const particle = new THREE.Mesh(
         new THREE.SphereGeometry(0.012, 12, 12),
-        new THREE.MeshBasicMaterial({ color: 0xe6c887, transparent: true, opacity: 1 })
+        new THREE.MeshBasicMaterial({ color: 0xa8d4ff, transparent: true, opacity: 1 })
       );
       globeGroup.add(particle);
       arcs.push({ points: pts, particle, offset: i * 0.25, speed: 0.0025 + Math.random() * 0.001 });
     });
 
     // ==================== INTERACTION STATE ====================
+    // Correct formula: rotY = -π/2 - lng·π/180 brings the point to face camera (+z)
+    // rotX = lat·π/180 tilts to the correct latitude
     let autoRotate = true;
-    let targetRotY = -hqOffice.lng * Math.PI / 180;
+    let targetRotY = -Math.PI / 2 - hqOffice.lng * Math.PI / 180;
     let targetRotX = hqOffice.lat * Math.PI / 180;
     let rotY = targetRotY;
     let rotX = targetRotX;
@@ -260,11 +261,11 @@ export default function GlobeMap({ lang = "es" }: Props) {
       officesListRef.current.querySelectorAll<HTMLButtonElement>("[data-office-id]").forEach((el) => {
         const active = el.dataset.officeId === id;
         el.style.paddingLeft = active ? "10px" : "0";
-        el.style.background = active ? "rgba(201,169,97,0.06)" : "transparent";
+        el.style.background = active ? "rgba(74,144,217,0.10)" : "transparent";
         const city = el.querySelector<HTMLSpanElement>(".globe-city");
-        if (city) city.style.color = active ? "#c9a961" : "#ffffff";
+        if (city) city.style.color = active ? "#4a90d9" : "#ffffff";
         const arrow = el.querySelector<HTMLSpanElement>(".globe-arrow");
-        if (arrow) arrow.style.color = active ? "#c9a961" : "#4a6a9e";
+        if (arrow) arrow.style.color = active ? "#4a90d9" : "#4a6a9e";
       });
     }
 
@@ -273,7 +274,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
       autoRotate = false;
       if (interactionTimer) clearTimeout(interactionTimer);
       interactionTimer = setTimeout(() => { autoRotate = true; }, 6000);
-      const ey = normalizeAngle(-office.lng * Math.PI / 180, rotY);
+      const ey = normalizeAngle(-Math.PI / 2 - office.lng * Math.PI / 180, rotY);
       const ex = office.lat * Math.PI / 180;
       targetRotY = ey; targetRotX = ex;
       flyAnim = { start: performance.now(), duration: 1400, sx: rotX, sy: rotY, ex, ey };
@@ -348,8 +349,8 @@ export default function GlobeMap({ lang = "es" }: Props) {
       });
 
       if (coordsRef.current) {
-        const normLat = ((-(rotX * 180 / Math.PI) + 90) % 180) - 90;
-        const normLng = ((-(rotY * 180 / Math.PI) + 540) % 360) - 180;
+        const normLat = rotX * 180 / Math.PI;
+        const normLng = (((-rotY * 180 / Math.PI) - 90 + 540) % 360) - 180;
         coordsRef.current.textContent =
           Math.abs(normLat).toFixed(1) + "°" + (normLat >= 0 ? "N" : "S") +
           " · " +
@@ -410,7 +411,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
 
         {/* Legend */}
         <div style={{ position: "absolute", bottom: "24px", left: "50%", transform: "translateX(-50%)", display: "flex", gap: "24px", fontFamily: "monospace", fontSize: "10px", color: "#2d4a7a", letterSpacing: "0.1em", textTransform: "uppercase", zIndex: 2, pointerEvents: "none" }}>
-          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ ...dot, background: "#c9a961", boxShadow: "0 0 8px rgba(201,169,97,0.6)" }} />{labels.legendHQ}</span>
+          <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ ...dot, background: "#4a90d9", boxShadow: "0 0 8px rgba(201,169,97,0.6)" }} />{labels.legendHQ}</span>
           <span style={{ display: "flex", alignItems: "center", gap: "8px" }}><span style={{ ...dot, background: "#1e3660" }} />{labels.legendOffice}</span>
         </div>
 
@@ -423,15 +424,15 @@ export default function GlobeMap({ lang = "es" }: Props) {
 
       {/* Sidebar */}
       <aside style={{ background: "#0a1628", color: "#e4eaf3", display: "flex", flexDirection: "column", padding: "32px 28px", position: "relative", overflow: "hidden" }}>
-        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at top right, rgba(201,169,97,0.08), transparent 50%), radial-gradient(ellipse at bottom left, rgba(74,106,158,0.12), transparent 60%)", pointerEvents: "none" }} />
+        <div style={{ position: "absolute", inset: 0, background: "radial-gradient(ellipse at top right, rgba(74,144,217,0.08), transparent 50%), radial-gradient(ellipse at bottom left, rgba(74,106,158,0.12), transparent 60%)", pointerEvents: "none" }} />
 
         <div style={{ position: "relative", zIndex: 1, marginBottom: "28px" }}>
           <div style={{ fontFamily: "monospace", fontSize: "10px", letterSpacing: "0.18em", textTransform: "uppercase", color: "#7a93b8", marginBottom: "8px" }}>{labels.offices}</div>
           <h2 style={{ fontFamily: "Cormorant Garamond, Georgia, serif", fontSize: "26px", fontWeight: 400, lineHeight: 1.1, color: "#fff", letterSpacing: "0.01em", margin: 0 }}>
-            {labels.network} <em style={{ fontStyle: "italic", color: "#c9a961" }}>{labels.networkEm}</em>
+            {labels.network} <em style={{ fontStyle: "italic", color: "#4a90d9" }}>{labels.networkEm}</em>
           </h2>
           <div style={{ fontFamily: "monospace", fontSize: "10px", color: "#7a93b8", letterSpacing: "0.1em", marginTop: "12px", display: "flex", justifyContent: "space-between" }}>
-            <span>{labels.locations}</span><span>{labels.est}</span>
+            <span>{labels.locations}</span>
           </div>
         </div>
 
@@ -448,7 +449,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
                 </span>
               </span>
               {o.hq
-                ? <span style={{ fontFamily: "monospace", fontSize: "9px", letterSpacing: "0.15em", color: "#0a1628", background: "#c9a961", padding: "3px 6px", borderRadius: "1px", textTransform: "uppercase", fontWeight: 500 }}>HQ</span>
+                ? <span style={{ fontFamily: "monospace", fontSize: "9px", letterSpacing: "0.15em", color: "#0a1628", background: "#4a90d9", padding: "3px 6px", borderRadius: "1px", textTransform: "uppercase", fontWeight: 500 }}>HQ</span>
                 : <span className="globe-arrow" style={{ color: "#4a6a9e", fontFamily: "monospace", transition: "transform 0.2s ease, color 0.2s ease" }}>→</span>
               }
             </button>
@@ -456,7 +457,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
         </div>
 
         <div style={{ position: "relative", zIndex: 1, marginTop: "auto", paddingTop: "20px", borderTop: "1px solid rgba(255,255,255,0.08)", fontFamily: "monospace", fontSize: "10px", color: "#7a93b8", letterSpacing: "0.12em", textTransform: "uppercase", display: "flex", justifyContent: "space-between" }}>
-          <span><span style={{ display: "inline-block", width: "6px", height: "6px", borderRadius: "50%", background: "#c9a961", marginRight: "6px", verticalAlign: "middle", boxShadow: "0 0 8px rgba(201,169,97,0.8)" }} />{labels.live}</span>
+          <span><span style={{ display: "inline-block", width: "6px", height: "6px", borderRadius: "50%", background: "#4a90d9", marginRight: "6px", verticalAlign: "middle", boxShadow: "0 0 8px rgba(74,144,217,0.8)" }} />{labels.live}</span>
           <span>HXP · 2026</span>
         </div>
       </aside>
