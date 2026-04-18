@@ -535,6 +535,13 @@ export default function GlobeMap({ lang = "es" }: Props) {
                 </div>
               </div>
 
+              {/* Mobile-only compact label (header is hidden on mobile) */}
+              <div className="hxp-mobile-label" style={{ display:"none" }}>
+                <span style={{ fontFamily:"monospace", fontSize:"9px", letterSpacing:"0.18em", textTransform:"uppercase", color:"#7a93b8" }}>
+                  {labels.locations}
+                </span>
+              </div>
+
               {/* Office list */}
               <div ref={officesListRef} style={{ flex:1, display:"flex", flexDirection:"column", gap:"2px", overflowY:"auto" }}>
                 {OFFICES.map((o, i) => (
@@ -601,23 +608,21 @@ export default function GlobeMap({ lang = "es" }: Props) {
           .hxp-aside {
             height: 44vh !important;
             max-height: 44vh !important;
-            overflow: hidden !important;
+            overflow-y: auto !important;
           }
 
           /* List panel — compact padding */
           .hxp-list {
-            padding: 12px 14px !important;
+            padding: 8px 14px !important;
           }
+          /* Hide decorative header on mobile — saves ~60px so all 5 offices fit */
           .hxp-list-header {
-            margin-bottom: 8px !important;
-          }
-          .hxp-list-title {
-            font-size: 17px !important;
+            display: none !important;
           }
 
           /* Office buttons — tighter rows */
           .hxp-office-btn {
-            padding: 8px 0 !important;
+            padding: 9px 0 !important;
           }
           .hxp-city-name {
             font-size: 15px !important;
@@ -626,6 +631,11 @@ export default function GlobeMap({ lang = "es" }: Props) {
           /* Hide footer on mobile — save vertical space */
           .hxp-list-footer {
             display: none !important;
+          }
+          /* Show compact label on mobile */
+          .hxp-mobile-label {
+            display: block !important;
+            padding-bottom: 6px !important;
           }
 
           /* Detail panel — compact padding */
