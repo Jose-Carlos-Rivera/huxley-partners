@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import GlobeMap from "@/components/GlobeMap";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -105,74 +106,7 @@ export default function UbicacionesEN() {
             </div>
           </AnimatedSection>
           <AnimatedSection delay={0.2}>
-            <div className="relative rounded-2xl overflow-hidden border border-white/10 bg-[#0d1b2e]">
-              <svg viewBox="0 0 1000 500" className="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="dots-en" width="25" height="25" patternUnits="userSpaceOnUse">
-                    <circle cx="12.5" cy="12.5" r="0.7" fill="rgba(255,255,255,0.07)" />
-                  </pattern>
-                </defs>
-                <rect width="1000" height="500" fill="url(#dots-en)" />
-                <g fill="rgba(74,122,196,0.15)" stroke="rgba(74,122,196,0.35)" strokeWidth="0.8">
-                  <polygon points="325,28 385,18 418,44 400,72 358,82 328,60" />
-                  <polygon points="35,72 95,58 175,52 235,62 272,85 278,132 260,162 258,230 235,262 220,282 175,288 148,258 115,242 78,202 48,166 33,122" />
-                  <polygon points="220,282 258,230 262,284 242,314 220,298" />
-                  <polygon points="218,298 262,284 318,298 346,342 342,414 322,468 290,482 255,472 228,438 218,388 212,332" />
-                  <polygon points="398,58 430,52 438,72 415,80 398,68" />
-                  <polygon points="438,68 448,56 488,50 525,56 548,68 568,84 556,118 532,134 512,144 482,148 452,142 432,122 438,94" />
-                  <polygon points="452,142 482,148 478,168 455,165 448,148" />
-                  <polygon points="444,72 458,68 462,92 448,96 440,82" />
-                  <polygon points="438,202 515,196 568,212 588,258 584,334 572,402 542,448 502,478 468,468 448,424 432,362 432,272" />
-                  <polygon points="548,148 615,148 652,178 648,212 608,228 558,218 542,188" />
-                  <polygon points="552,68 622,52 752,50 905,58 965,72 968,148 938,202 872,252 805,292 742,308 688,278 642,258 608,232 558,212 542,182 542,148 562,102" />
-                  <polygon points="642,158 692,152 718,172 722,222 702,258 668,268 638,242 628,198" />
-                  <polygon points="738,242 795,248 842,262 838,298 798,312 758,302 732,272" />
-                  <polygon points="892,128 912,118 924,148 908,158 892,142" />
-                  <polygon points="818,328 898,322 962,332 978,388 958,438 908,452 858,452 822,418 812,372" />
-                  <polygon points="958,418 978,412 982,442 962,448 955,432" />
-                  <polygon points="578,332 592,318 602,352 594,388 578,392 570,358" />
-                </g>
-                {[
-                  { x1: 224, y1: 196, x2: 491, y2: 138 },
-                  { x1: 224, y1: 196, x2: 540, y2: 111 },
-                  { x1: 224, y1: 196, x2: 903, y2: 355 },
-                  { x1: 224, y1: 196, x2: 221, y2: 179 },
-                  { x1: 491, y1: 138, x2: 540, y2: 111 },
-                ].map((line, i) => (
-                  <line key={i} x1={line.x1} y1={line.y1} x2={line.x2} y2={line.y2}
-                    stroke="rgba(74,122,196,0.5)" strokeWidth="1" strokeDasharray="5 4">
-                    <animate attributeName="stroke-dashoffset" from="100" to="0" dur={`${2.5 + i * 0.4}s`} repeatCount="indefinite" />
-                  </line>
-                ))}
-                {markers.map((m, i) => (
-                  <g key={m.label}>
-                    <circle cx={m.x} cy={m.y} r="10" fill="rgba(50,94,168,0.2)">
-                      <animate attributeName="r" values="8;16;8" dur={`${2.5 + i * 0.3}s`} repeatCount="indefinite" />
-                      <animate attributeName="opacity" values="0.35;0.05;0.35" dur={`${2.5 + i * 0.3}s`} repeatCount="indefinite" />
-                    </circle>
-                    <circle cx={m.x} cy={m.y} r={m.type === "office" ? 5 : 4}
-                      fill={m.type === "office" ? "#ffffff" : "#7aaee0"}
-                      stroke={m.type === "office" ? "#325EA8" : "rgba(255,255,255,0.4)"} strokeWidth="1.5" />
-                    <text x={m.x} y={m.y + (m.label === "Prague" ? -14 : 22)}
-                      textAnchor={m.x > 500 ? "end" : "middle"}
-                      fill="rgba(255,255,255,0.85)" fontSize="11"
-                      fontFamily="system-ui, sans-serif" fontWeight="600">
-                      {m.label}
-                    </text>
-                  </g>
-                ))}
-              </svg>
-            </div>
-            <div className="flex items-center justify-center gap-8 mt-6">
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-white border-2 border-[#325EA8]" />
-                <span className="text-white/60 text-sm">Office</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full bg-[#7aaee0] border border-white/40" />
-                <span className="text-white/60 text-sm">International Desk</span>
-              </div>
-            </div>
+            <GlobeMap lang="en" />
           </AnimatedSection>
         </div>
       </section>
