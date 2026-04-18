@@ -118,7 +118,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
     locations:     isEn ? "05 LOCATIONS" : "05 UBICACIONES",
     live:          isEn ? "LIVE"       : "EN VIVO",
     backBtn:       isEn ? "← All offices" : "← Todas las oficinas",
-    cornerBL:      isEn ? "5 offices · 4 time zones" : "5 oficinas · 4 zonas horarias",
+    cornerBL:      isEn ? "5 offices" : "5 oficinas",
     cornerBR:      isEn ? "Interactive" : "Interactivo",
     cornerBRSub:   isEn ? "Drag · Click" : "Arrastra · Clic",
     legendHQ:      isEn ? "HQ" : "Sede",
@@ -543,7 +543,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
               </div>
 
               {/* Office list */}
-              <div ref={officesListRef} style={{ flex:1, display:"flex", flexDirection:"column", gap:"2px", overflowY:"auto" }}>
+              <div ref={officesListRef} className="hxp-offices-scroll" style={{ flex:1, display:"flex", flexDirection:"column", gap:"2px", overflowY:"auto" }}>
                 {OFFICES.map((o, i) => (
                   <button
                     key={o.id}
@@ -595,51 +595,63 @@ export default function GlobeMap({ lang = "es" }: Props) {
         .hxp-globe-wrap { height: 100%; }
 
         @media (max-width: 900px) {
-          /* Stack: globe top, sidebar bottom */
+          /* Stack vertically: globe fills 52vh, sidebar expands to show all offices */
           .hxp-globe-wrap {
             grid-template-columns: 1fr !important;
-            grid-template-rows: 1fr auto !important;
+            grid-template-rows: 52vh auto !important;
           }
           .hxp-globe-wrap > div:first-child {
-            min-height: 52vh !important;
+            height: 52vh !important;
+            min-height: 0 !important;
           }
 
-          /* Sidebar: fixed height so inner flex 100% works */
+          /* Sidebar: auto height — no fixed constraint, all offices render fully */
           .hxp-aside {
-            height: 44vh !important;
-            max-height: 44vh !important;
-            overflow-y: auto !important;
+            height: auto !important;
+            max-height: none !important;
+            overflow-y: visible !important;
+            overflow: visible !important;
           }
 
-          /* List panel — compact padding */
+          /* List panel — compact padding, auto height */
           .hxp-list {
-            padding: 8px 14px !important;
+            height: auto !important;
+            padding: 8px 14px 14px !important;
           }
-          /* Hide decorative header on mobile — saves ~60px so all 5 offices fit */
+
+          /* Offices scroll container — release from flex stretch */
+          .hxp-offices-scroll {
+            flex: none !important;
+            overflow-y: visible !important;
+          }
+
+          /* Hide decorative header on mobile */
           .hxp-list-header {
             display: none !important;
           }
 
-          /* Office buttons — tighter rows */
+          /* Office buttons — compact rows */
           .hxp-office-btn {
-            padding: 9px 0 !important;
+            padding: 8px 0 !important;
           }
           .hxp-city-name {
             font-size: 15px !important;
           }
 
-          /* Hide footer on mobile — save vertical space */
+          /* Hide footer on mobile */
           .hxp-list-footer {
             display: none !important;
           }
+
           /* Show compact label on mobile */
           .hxp-mobile-label {
             display: block !important;
-            padding-bottom: 6px !important;
+            padding-bottom: 4px !important;
           }
 
           /* Detail panel — compact padding */
           .hxp-detail {
+            height: auto !important;
             padding: 12px 14px !important;
           }
           .hxp-back-btn {
