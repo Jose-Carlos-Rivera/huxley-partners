@@ -10,6 +10,7 @@ interface FlipCardProps {
   image: string;
   details?: string[];
   icon: string;
+  tapLabel?: string;
 }
 
 export default function FlipCard({
@@ -18,6 +19,7 @@ export default function FlipCard({
   image,
   details,
   icon,
+  tapLabel = "Toca para ver más",
 }: FlipCardProps) {
   const [flipped, setFlipped] = useState(false);
 
@@ -67,7 +69,7 @@ export default function FlipCard({
                 {title}
               </h3>
               <p className="text-xs text-white/60 mt-2">
-                Toca para ver más
+                {tapLabel}
               </p>
             </div>
           </div>

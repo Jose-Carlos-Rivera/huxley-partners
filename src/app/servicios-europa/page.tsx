@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "@/components/AnimatedSection";
+import FlipCard from "@/components/FlipCard";
 import Link from "next/link";
 
 const services = [
@@ -8,7 +9,7 @@ const services = [
     title: "Corporate & Governance",
     subtitle: "Coordinación Internacional y Estructuración Corporativa",
     description:
-      "Asesoramos a corporaciones multinacionales, grupos empresariales y fondos de inversión en estructuración corporativa transfronteriza, diseño de gobierno y estrategias de cumplimiento internacional en Europa y Latinoamérica. Nuestro rol se centra en la estructuración estratégica, coordinación y alineación con las mejores prácticas internacionales, trabajando en estrecha colaboración con despachos locales cuando se requiere asesoría legal local.",
+      "Asesoramos a corporaciones multinacionales, grupos empresariales y fondos de inversión en estructuración corporativa transfronteriza, diseño de gobierno y estrategias de cumplimiento internacional en Europa y Latinoamérica.",
     details: [
       "Estructuración de entidades transfronterizas y diseño de grupo",
       "Coordinación de procesos de constitución y reestructuración con despachos locales",
@@ -18,21 +19,23 @@ const services = [
       "Revisiones corporativas y estrategias de corporate housekeeping",
     ],
     icon: "M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4",
+    image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
   },
   {
     title: "Cross-Border M&A y Transacciones Estratégicas",
     subtitle: "Estrategia y Coordinación de Transacciones",
     description:
-      "Acompañamos a clientes en operaciones complejas de M&A transfronterizas y transacciones estratégicas a través de estructuración de transacciones, estrategia de negociación y coordinación multijurisdiccional, con particular experiencia en transacciones regidas por derecho inglés.",
+      "Acompañamos a clientes en operaciones complejas de M&A transfronterizas y transacciones estratégicas a través de estructuración, estrategia de negociación y coordinación multijurisdiccional.",
     details: [
       "Estructuración de transacciones y estrategia de ejecución",
-      "Redacción y negociación de documentos transaccionales transfronterizos donde corresponda",
+      "Redacción y negociación de documentos transaccionales transfronterizos",
       "Coordinación de due diligence multijurisdiccional con despachos locales",
       "Asignación de riesgo legal y mecánica de la transacción",
-      "Reorganizaciones pre-venta, carve-outs y reestructuraciones de grupo (estructuración y coordinación)",
+      "Reorganizaciones pre-venta, carve-outs y reestructuraciones de grupo",
       "Planificación de integración post-fusión (workstreams legales)",
     ],
     icon: "M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4",
+    image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=800&q=80",
   },
   {
     title: "Expansion & Structuring",
@@ -40,14 +43,15 @@ const services = [
     description:
       "Ayudamos a empresas a planificar y ejecutar su expansión internacional en Europa, el Reino Unido y Latinoamérica, proporcionando estructuración legal, coordinación regulatoria y gestión de la ejecución.",
     details: [
-      "Estructuración de entrada a mercado y análisis de viabilidad (a alto nivel)",
+      "Estructuración de entrada a mercado y análisis de viabilidad",
       "Coordinación y supervisión de despachos locales",
       "Diseño de estrategia de cumplimiento normativo cross-border",
       "Estructuración de inversiones extranjeras",
       "Coordinación de constitución de filiales, sucursales u oficinas de representación",
-      "Estructuración y negociación de joint ventures y alianzas (capa estratégica)",
+      "Estructuración y negociación de joint ventures y alianzas",
     ],
     icon: "M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9",
+    image: "https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?w=800&q=80",
   },
   {
     title: "Contratación Mercantil Internacional",
@@ -57,11 +61,12 @@ const services = [
     details: [
       "Estrategia de contratación y soporte en negociación",
       "Redacción y coordinación de acuerdos internacionales donde sea aplicable",
-      "Contratos de tecnología, SaaS, licencias y relacionados con datos (enfoque transfronterizo)",
+      "Contratos de tecnología, SaaS, licencias y relacionados con datos",
       "Modelos de asignación de riesgos y playbooks",
-      "Prevención de disputas y estrategia de reclamaciones (en coordinación con despachos locales)",
+      "Prevención de disputas y estrategia de reclamaciones",
     ],
     icon: "M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z",
+    image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=800&q=80",
   },
   {
     title: "Optimización de la Función Legal y de Contratos (NewLaw)",
@@ -77,6 +82,7 @@ const services = [
       "Gobierno corporativo y gestión societaria digital",
     ],
     icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+    image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80",
   },
 ];
 
@@ -122,45 +128,79 @@ export default function ServiciosEuropa() {
         </div>
       </section>
 
-      {/* Services */}
+      {/* European divider photo */}
+      <div className="relative h-56 md:h-72 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1539037116277-4db20889f2d4?w=1600&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-primary-dark/55" />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-white/50 mb-2">Desks Internacionales</span>
+          <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-white">
+            Madrid · Praga · Melbourne
+          </p>
+        </div>
+      </div>
+
+      {/* Services — FlipCards */}
       <section className="py-20 bg-surface">
-        <div className="max-w-6xl mx-auto px-6 lg:px-8">
-          <div className="space-y-8">
-            {services.map((service, i) => (
-              <AnimatedSection key={service.title} delay={i * 0.08}>
-                <div className="bg-white rounded-2xl p-8 md:p-10 shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100">
-                  <div className="flex items-start gap-6">
-                    <div className="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0 mt-1">
-                      <svg className="w-7 h-7 text-primary" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d={service.icon} />
-                      </svg>
-                    </div>
-                    <div className="flex-1">
-                      <p className="text-xs font-semibold tracking-[0.15em] uppercase text-accent mb-1">
-                        {service.subtitle}
-                      </p>
-                      <h2 className="font-[family-name:var(--font-display)] text-2xl font-bold text-primary-dark mb-3">
-                        {service.title}
-                      </h2>
-                      <p className="text-text-light leading-relaxed mb-6">{service.description}</p>
-                      <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                        {service.details.map((detail) => (
-                          <li key={detail} className="flex items-start gap-2 text-sm text-text-light">
-                            <svg className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4" />
-                            </svg>
-                            {detail}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <AnimatedSection>
+            <div className="text-center mb-14">
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                Áreas de Práctica
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark">
+                Servicios desde nuestra plataforma internacional
+              </h2>
+            </div>
+          </AnimatedSection>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {services.slice(0, 3).map((service, i) => (
+              <AnimatedSection key={service.title} delay={i * 0.1}>
+                <FlipCard
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  icon={service.icon}
+                  details={service.details}
+                  tapLabel="Toca para ver más"
+                />
+              </AnimatedSection>
+            ))}
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
+            {services.slice(3).map((service, i) => (
+              <AnimatedSection key={service.title} delay={(i + 3) * 0.1}>
+                <FlipCard
+                  title={service.title}
+                  description={service.description}
+                  image={service.image}
+                  icon={service.icon}
+                  details={service.details}
+                  tapLabel="Toca para ver más"
+                />
               </AnimatedSection>
             ))}
           </div>
         </div>
       </section>
+
+      {/* Melbourne / Asia-Pacific divider photo */}
+      <div className="relative h-56 md:h-72 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524820197278-540916411e20?w=1600&q=80')" }}
+        />
+        <div className="absolute inset-0 bg-primary-dark/55" />
+        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
+          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-white/50 mb-2">Desk Internacional</span>
+          <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-white">
+            Asia-Pacífico · Melbourne
+          </p>
+        </div>
+      </div>
 
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-primary-dark">
