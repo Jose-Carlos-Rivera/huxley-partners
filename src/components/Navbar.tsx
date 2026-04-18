@@ -44,11 +44,11 @@ export default function Navbar() {
             className="flex items-center gap-3"
           >
             <Image
-              src="/images/logos/logo-icon.jpeg"
+              src="/images/logos/huxley.png"
               alt="Huxley Partners"
               width={48}
               height={48}
-              className="rounded w-10 h-10 sm:w-12 sm:h-12"
+              className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
             />
             <div className="hidden sm:block">
               <span
