@@ -1,8 +1,8 @@
 "use client";
 
 import AnimatedSection from "@/components/AnimatedSection";
-import FlipCard from "@/components/FlipCard";
 import Link from "next/link";
+import { useState } from "react";
 
 const services = [
   {
@@ -87,6 +87,7 @@ const services = [
 ];
 
 export default function ServiciosEuropa() {
+  const [activeTab, setActiveTab] = useState(0);
   return (
     <>
       {/* Hero */}
@@ -143,9 +144,9 @@ export default function ServiciosEuropa() {
         </div>
       </div>
 
-      {/* Services — FlipCards */}
+      {/* Services — Tab Panel */}
       <section className="py-20 bg-surface">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
@@ -156,32 +157,88 @@ export default function ServiciosEuropa() {
               </h2>
             </div>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {services.slice(0, 3).map((service, i) => (
-              <AnimatedSection key={service.title} delay={i * 0.1}>
-                <FlipCard
-                  title={service.title}
-                  description={service.description}
-                  image={service.image}
-                  icon={service.icon}
-                  details={service.details}
-                  tapLabel="Toca para ver más"
-                />
-              </AnimatedSection>
-            ))}
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6 max-w-3xl mx-auto">
-            {services.slice(3).map((service, i) => (
-              <AnimatedSection key={service.title} delay={(i + 3) * 0.1}>
-                <FlipCard
-                  title={service.title}
-                  description={service.description}
-                  image={service.image}
-                  icon={service.icon}
-                  details={service.details}
-                  tapLabel="Toca para ver más"
-                />
-              </AnimatedSection>
+
+          {/* Tab buttons */}
+          <AnimatedSection delay={0.1}>
+            <div className="flex flex-wrap gap-2 mb-8 justify-center">
+              {services.map((s, i) => (
+                <button
+                  key={s.title}
+                  onClick={() => setActiveTab(i)}
+                  className={`px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase rounded-full transition-all duration-300 border ${
+                    activeTab === i
+                      ? "bg-primary-dark text-white border-primary-dark"
+                      : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
+                  }`}
+                >
+                  {String(i + 1).padStart(2, "0")} · {s.title.split("&")[0].trim()}
+                </button>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Content panel */}
+          <AnimatedSection delay={0.15}>
+            <div className="bg-primary-dark rounded-xl overflow-hidden">
+              {services.map((s, i) => (
+                <div
+                  key={s.title}
+                  className={`transition-all duration-500 ${activeTab === i ? "block" : "hidden"}`}
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-2">
+                    {/* Image */}
+                    <div
+                      className="h-56 lg:h-auto bg-cover bg-center relative"
+                      style={{ backgroundImage: `url('${s.image}')` }}
+                    >
+                      <div className="absolute inset-0 bg-primary-dark/40" />
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">
+                          {String(i + 1).padStart(2, "0")} / {String(services.length).padStart(2, "0")}
+                        </span>
+                      </div>
+                    </div>
+                    {/* Text */}
+                    <div className="p-8 lg:p-10 flex flex-col gap-5">
+                      <div>
+                        <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white mb-1">
+                          {s.title}
+                        </h3>
+                        <p className="font-mono text-[10px] tracking-[0.15em] uppercase text-accent/80">
+                          {s.subtitle}
+                        </p>
+                      </div>
+                      <p className="text-gray-300 text-sm leading-relaxed">
+                        {s.description}
+                      </p>
+                      {s.details && (
+                        <ul className="space-y-2">
+                          {s.details.map((d) => (
+                            <li key={d} className="flex items-start gap-3 text-sm text-gray-400">
+                              <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-accent flex-shrink-0" />
+                              {d}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </AnimatedSection>
+
+          {/* Tab indicators */}
+          <div className="flex justify-center gap-2 mt-6">
+            {services.map((_, i) => (
+              <button
+                key={i}
+                onClick={() => setActiveTab(i)}
+                className={`h-1 rounded-full transition-all duration-300 ${
+                  activeTab === i ? "w-8 bg-primary-dark" : "w-2 bg-primary-dark/25 hover:bg-primary-dark/50"
+                }`}
+                aria-label={`Servicio ${i + 1}`}
+              />
             ))}
           </div>
         </div>

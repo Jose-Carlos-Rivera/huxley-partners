@@ -1,5 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
-import FlipCard from "@/components/FlipCard";
+import MethodologyAccordion from "@/components/MethodologyAccordion";
 import Link from "next/link";
 import type { Metadata } from "next";
 
@@ -111,31 +111,21 @@ export default function NewLaw() {
         </div>
       </section>
 
-      {/* Methodology — FlipCards */}
-      <section className="py-16 pb-32 bg-surface">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      {/* Methodology — Accordion */}
+      <section className="py-16 pb-32 bg-primary-dark">
+        <div className="max-w-3xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <div className="text-center mb-14">
               <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
                 Enfoque Estratégico
               </span>
-              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-primary-dark">
+              <h2 className="font-[family-name:var(--font-display)] text-3xl md:text-4xl font-bold text-white">
                 Nuestra metodología combina:
               </h2>
             </div>
           </AnimatedSection>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {methodology.map((item, i) => (
-              <AnimatedSection key={item.title} delay={i * 0.1}>
-                <FlipCard
-                  title={item.title}
-                  description={item.description}
-                  image={item.image}
-                  icon={item.icon}
-                  tapLabel="Toca para ver más"
-                />
-              </AnimatedSection>
-            ))}
+          <div className="rounded-xl border border-white/10 overflow-hidden">
+            <MethodologyAccordion items={methodology} />
           </div>
         </div>
       </section>

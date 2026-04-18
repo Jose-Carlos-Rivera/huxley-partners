@@ -98,12 +98,15 @@ export default function GlobeMap({ lang = "es" }: Props) {
   const tipCountryRef   = useRef<HTMLDivElement>(null);
   const coordsRef       = useRef<HTMLSpanElement>(null);
   // Stable ref so flyTo (inside useEffect) can call setSelectedId
-  const setSelectedRef  = useRef<(id: string) => void>(() => {});
+  const setSelectedRef    = useRef<(id: string | null) => void>(() => {});
+  // Expose flyTo + markerHover to JSX (list buttons use React onClick)
+  const flyToRef          = useRef<((office: Office) => void) | null>(null);
+  const markerHoverRef    = useRef<((officeId: string | null) => void) | null>(null);
 
-  const [selectedId, setSelectedId] = useState<string>("cdmx");
+  const [selectedId, setSelectedId] = useState<string | null>(null);
 
-  // Keep ref in sync
-  useEffect(() => { setSelectedRef.current = setSelectedId; }, []);
+  // Keep setSelectedRef in sync so Three.js closures can trigger React state
+  useEffect(() => { setSelectedRef.current = setSelectedId; }, [setSelectedId]);
 
   const isEn  = lang === "en";
   const selectedOffice = OFFICES.find((o) => o.id === selectedId) ?? OFFICES[0];
@@ -137,6 +140,10 @@ export default function GlobeMap({ lang = "es" }: Props) {
     const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
     renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
     container.appendChild(renderer.domElement);
+    // Fix: set CSS size so canvas fills container on all DPR values
+    renderer.domElement.style.width   = "100%";
+    renderer.domElement.style.height  = "100%";
+    renderer.domElement.style.display = "block";
 
     const globeGroup = new THREE.Group();
     scene.add(globeGroup);
@@ -226,10 +233,10 @@ export default function GlobeMap({ lang = "es" }: Props) {
       arcs.push({ points: pts, particle, offset: i * 0.25, speed: 0.0025 + Math.random() * 0.001 });
     });
 
-    // State
+    // State — start with Atlantic world view (shows Europe, Americas, Africa)
     let autoRotate = true;
-    let targetRotY = -Math.PI / 2 - hqOffice.lng * Math.PI / 180;
-    let targetRotX = hqOffice.lat * Math.PI / 180;
+    let targetRotY = -1.047;   // ≈ lng -30° (mid-Atlantic)
+    let targetRotX =  0.35;    // slight northern tilt
     let rotY = targetRotY, rotX = targetRotX;
     let isDragging = false, lastX = 0, lastY = 0;
     let flyAnim: { start: number; duration: number; sx: number; sy: number; ex: number; ey: number } | null = null;
@@ -319,22 +326,27 @@ export default function GlobeMap({ lang = "es" }: Props) {
       flyAnim = { start: performance.now(), duration: 1400, sx: rotX, sy: rotY, ex, ey };
     }
 
-    // Sidebar list buttons
-    if (officesListRef.current) {
-      officesListRef.current.querySelectorAll<HTMLButtonElement>("[data-office-id]").forEach((btn) => {
-        const id = btn.dataset.officeId!;
-        const office = OFFICES.find((o) => o.id === id);
-        if (!office) return;
-        btn.addEventListener("click", () => flyTo(office));
-        btn.addEventListener("mouseenter", () => { const m = markers.find(mm => mm.office.id === id); if (m) { (m.ring.material as THREE.MeshBasicMaterial).opacity = 1; m.dot.scale.setScalar(1.4); } });
-        btn.addEventListener("mouseleave", () => { const m = markers.find(mm => mm.office.id === id); if (m) { (m.ring.material as THREE.MeshBasicMaterial).opacity = 0.6; m.dot.scale.setScalar(1); } });
+    function markerHover(officeId: string | null) {
+      markers.forEach((m) => {
+        if (officeId && m.office.id === officeId) {
+          (m.ring.material as THREE.MeshBasicMaterial).opacity = 1;
+          m.dot.scale.setScalar(1.4);
+        } else {
+          (m.ring.material as THREE.MeshBasicMaterial).opacity = 0.6;
+          m.dot.scale.setScalar(1);
+        }
       });
     }
+
+    // Expose to JSX via refs (list remounts on state changes, so addEventListener won't work)
+    flyToRef.current      = flyTo;
+    markerHoverRef.current = markerHover;
 
     // Resize
     function resize() {
       if (!container) return;
       const w = container.clientWidth, h = container.clientHeight;
+      if (!w || !h) return;
       renderer.setSize(w, h, false);
       camera.aspect = w / h;
       camera.updateProjectionMatrix();
@@ -460,7 +472,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
             <div style={{ position:"relative", zIndex:1, display:"flex", flexDirection:"column", height:"100%", padding:"28px 24px" }}>
               {/* Back button */}
               <button
-                onClick={() => setSelectedId("cdmx")}
+                onClick={() => setSelectedId(null)}
                 style={{ background:"transparent", border:"none", color:"#4a6a9e", fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", textAlign:"left", padding:"0 0 20px 0", display:"flex", alignItems:"center", gap:"6px", transition:"color 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color="#a8d4ff")}
                 onMouseLeave={(e) => (e.currentTarget.style.color="#4a6a9e")}
@@ -527,11 +539,13 @@ export default function GlobeMap({ lang = "es" }: Props) {
                 {OFFICES.map((o, i) => (
                   <button
                     key={o.id}
-                    data-office-id={o.id}
+                    onClick={() => { const off = OFFICES.find(x => x.id === o.id); if (off) flyToRef.current?.(off); }}
+                    onMouseEnter={() => markerHoverRef.current?.(o.id)}
+                    onMouseLeave={() => markerHoverRef.current?.(null)}
                     style={{
-                      background: o.id === selectedId ? "rgba(74,144,217,0.10)" : "transparent",
+                      background: "transparent",
                       border:"none", color:"#e4eaf3", textAlign:"left",
-                      padding:"14px 0", paddingLeft: o.id === selectedId ? "10px" : "0",
+                      padding:"14px 0",
                       cursor:"pointer",
                       display:"grid", gridTemplateColumns:"28px 1fr auto",
                       alignItems:"center", gap:"12px",

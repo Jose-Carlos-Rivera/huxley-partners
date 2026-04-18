@@ -40,23 +40,41 @@ export default function UbicacionesEN() {
         <GlobeMap lang="en" />
       </section>
 
-      {/* Extended text */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <div className="space-y-6 text-text-light leading-relaxed text-lg">
-              <p>
-                Whether advising on European investment into the Americas, international expansion
-                initiatives, or complex multi-jurisdictional transactions, we have the structure,
-                experience, and capabilities to support each stage of the process.
-              </p>
-              <p>
-                Our network of offices and international desks enables us to coordinate teams, align
-                regulatory strategies, and ensure consistent legal execution, in accordance with the
-                highest professional standards in every jurisdiction involved.
-              </p>
-            </div>
-          </AnimatedSection>
+      {/* Extended text — premium two-card layout */}
+      <section className="py-20 bg-surface">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <AnimatedSection delay={0}>
+              <div className="h-full bg-primary-dark rounded-lg p-8 flex flex-col gap-5 border border-white/5 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-blue-400 to-transparent" />
+                <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+                <p className="text-gray-300 leading-relaxed text-base flex-1">
+                  Whether advising on European investment into the Americas, international expansion
+                  initiatives, or complex multi-jurisdictional transactions, we have the structure,
+                  experience, and capabilities to support each stage of the process.
+                </p>
+              </div>
+            </AnimatedSection>
+            <AnimatedSection delay={0.1}>
+              <div className="h-full bg-primary-dark rounded-lg p-8 flex flex-col gap-5 border border-white/5 relative overflow-hidden">
+                <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-accent via-blue-400 to-transparent" />
+                <div className="w-10 h-10 rounded-full bg-accent/15 flex items-center justify-center flex-shrink-0">
+                  <svg className="w-5 h-5 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  </svg>
+                </div>
+                <p className="text-gray-300 leading-relaxed text-base flex-1">
+                  Our network of offices and international desks enables us to coordinate teams, align
+                  regulatory strategies, and ensure consistent legal execution, in accordance with the
+                  highest professional standards in every jurisdiction involved.
+                </p>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
