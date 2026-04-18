@@ -36,7 +36,7 @@ export default function Ubicaciones() {
       </section>
 
       {/* World Map — 3D Globe — full viewport height minus navbar */}
-      <section style={{ height: "calc(100vh - 80px)" }} className="bg-primary-dark relative overflow-hidden">
+      <section className="bg-primary-dark relative overflow-hidden h-[calc(100vh-80px)] max-[900px]:h-auto max-[900px]:overflow-visible">
         <GlobeMap lang="es" />
       </section>
 

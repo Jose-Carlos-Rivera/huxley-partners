@@ -599,6 +599,8 @@ export default function GlobeMap({ lang = "es" }: Props) {
           .hxp-globe-wrap {
             grid-template-columns: 1fr !important;
             grid-template-rows: 52vh auto !important;
+            overflow: visible !important;
+            height: auto !important;
           }
           .hxp-globe-wrap > div:first-child {
             height: 52vh !important;
