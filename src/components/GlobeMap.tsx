@@ -463,16 +463,17 @@ export default function GlobeMap({ lang = "es" }: Props) {
       </div>
 
       {/* ── Sidebar ── */}
-      <aside style={{ background:"#0a1628", color:"#e4eaf3", display:"flex", flexDirection:"column", position:"relative", overflow:"hidden" }}>
+      <aside className="hxp-aside" style={{ background:"#0a1628", color:"#e4eaf3", display:"flex", flexDirection:"column", position:"relative", overflow:"hidden" }}>
         {/* Ambient radial */}
         <div style={{ position:"absolute", inset:0, background:"radial-gradient(ellipse at top right, rgba(74,144,217,0.08), transparent 50%), radial-gradient(ellipse at bottom left, rgba(74,106,158,0.12), transparent 60%)", pointerEvents:"none" }} />
 
         {selectedId
           ? /* ── DETAIL PANEL ── */
-            <div style={{ position:"relative", zIndex:1, display:"flex", flexDirection:"column", height:"100%", padding:"28px 24px" }}>
+            <div className="hxp-detail" style={{ position:"relative", zIndex:1, display:"flex", flexDirection:"column", height:"100%", padding:"28px 24px" }}>
               {/* Back button */}
               <button
                 onClick={() => setSelectedId(null)}
+                className="hxp-back-btn"
                 style={{ background:"transparent", border:"none", color:"#4a6a9e", fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.12em", textTransform:"uppercase", cursor:"pointer", textAlign:"left", padding:"0 0 20px 0", display:"flex", alignItems:"center", gap:"6px", transition:"color 0.2s" }}
                 onMouseEnter={(e) => (e.currentTarget.style.color="#a8d4ff")}
                 onMouseLeave={(e) => (e.currentTarget.style.color="#4a6a9e")}
@@ -486,7 +487,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
               </span>
 
               {/* City + Country */}
-              <h2 style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"clamp(24px,2.2vw,32px)", fontWeight:400, color:"#ffffff", margin:"0 0 4px 0", lineHeight:1.1, letterSpacing:"0.01em" }}>
+              <h2 className="hxp-detail-city" style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"clamp(24px,2.2vw,32px)", fontWeight:400, color:"#ffffff", margin:"0 0 4px 0", lineHeight:1.1, letterSpacing:"0.01em" }}>
                 {isEn ? selectedOffice.cityEn : selectedOffice.city}
               </h2>
               <p style={{ fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.15em", textTransform:"uppercase", color:"#7a93b8", margin:"0 0 20px 0" }}>
@@ -522,11 +523,11 @@ export default function GlobeMap({ lang = "es" }: Props) {
             </div>
 
           : /* ── LIST ── */
-            <div style={{ position:"relative", zIndex:1, display:"flex", flexDirection:"column", height:"100%", padding:"32px 28px" }}>
+            <div className="hxp-list" style={{ position:"relative", zIndex:1, display:"flex", flexDirection:"column", height:"100%", padding:"32px 28px" }}>
               {/* Header */}
-              <div style={{ marginBottom:"24px" }}>
+              <div className="hxp-list-header" style={{ marginBottom:"24px" }}>
                 <div style={{ fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.18em", textTransform:"uppercase", color:"#7a93b8", marginBottom:"8px" }}>{labels.officesLabel}</div>
-                <h2 style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"26px", fontWeight:400, lineHeight:1.1, color:"#fff", letterSpacing:"0.01em", margin:0 }}>
+                <h2 className="hxp-list-title" style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"26px", fontWeight:400, lineHeight:1.1, color:"#fff", letterSpacing:"0.01em", margin:0 }}>
                   {labels.networkTitle} <em style={{ fontStyle:"italic", color:"#4a90d9" }}>{labels.networkEm}</em>
                 </h2>
                 <div style={{ fontFamily:"monospace", fontSize:"10px", color:"#7a93b8", letterSpacing:"0.1em", marginTop:"10px" }}>
@@ -539,6 +540,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
                 {OFFICES.map((o, i) => (
                   <button
                     key={o.id}
+                    className="hxp-office-btn"
                     onClick={() => { const off = OFFICES.find(x => x.id === o.id); if (off) flyToRef.current?.(off); }}
                     onMouseEnter={() => markerHoverRef.current?.(o.id)}
                     onMouseLeave={() => markerHoverRef.current?.(null)}
@@ -555,7 +557,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
                   >
                     <span style={{ fontFamily:"monospace", fontSize:"10px", color:"#4a6a9e", letterSpacing:"0.1em" }}>{String(i+1).padStart(2,"0")}</span>
                     <span style={{ display:"flex", flexDirection:"column", gap:"2px" }}>
-                      <span style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"20px", fontWeight:500, color: o.id===selectedId ? "#4a90d9" : "#ffffff", letterSpacing:"0.01em", lineHeight:1.1, transition:"color 0.2s ease" }}>
+                      <span className="hxp-city-name" style={{ fontFamily:"Cormorant Garamond, Georgia, serif", fontSize:"20px", fontWeight:500, color: o.id===selectedId ? "#4a90d9" : "#ffffff", letterSpacing:"0.01em", lineHeight:1.1, transition:"color 0.2s ease" }}>
                         {isEn ? o.cityEn : o.city}
                       </span>
                       <span style={{ fontFamily:"monospace", fontSize:"10px", color:"#7a93b8", letterSpacing:"0.12em", textTransform:"uppercase" }}>
@@ -571,7 +573,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
               </div>
 
               {/* Footer */}
-              <div style={{ marginTop:"auto", paddingTop:"16px", borderTop:"1px solid rgba(255,255,255,0.08)", fontFamily:"monospace", fontSize:"10px", color:"#7a93b8", letterSpacing:"0.12em", textTransform:"uppercase", display:"flex", justifyContent:"space-between" }}>
+              <div className="hxp-list-footer" style={{ marginTop:"auto", paddingTop:"16px", borderTop:"1px solid rgba(255,255,255,0.08)", fontFamily:"monospace", fontSize:"10px", color:"#7a93b8", letterSpacing:"0.12em", textTransform:"uppercase", display:"flex", justifyContent:"space-between" }}>
                 <span>
                   <span style={{ display:"inline-block", width:"6px", height:"6px", borderRadius:"50%", background:"#4a90d9", marginRight:"6px", verticalAlign:"middle", boxShadow:"0 0 8px rgba(74,144,217,0.8)" }} />
                   {labels.live}
@@ -584,13 +586,58 @@ export default function GlobeMap({ lang = "es" }: Props) {
 
       <style>{`
         .hxp-globe-wrap { height: 100%; }
+
         @media (max-width: 900px) {
+          /* Stack: globe top, sidebar bottom */
           .hxp-globe-wrap {
             grid-template-columns: 1fr !important;
             grid-template-rows: 1fr auto !important;
           }
-          .hxp-globe-wrap > div:first-child { min-height: 55vh !important; }
-          .hxp-globe-wrap > aside { max-height: 45vh; }
+          .hxp-globe-wrap > div:first-child {
+            min-height: 52vh !important;
+          }
+
+          /* Sidebar: fixed height so inner flex 100% works */
+          .hxp-aside {
+            height: 44vh !important;
+            max-height: 44vh !important;
+            overflow: hidden !important;
+          }
+
+          /* List panel — compact padding */
+          .hxp-list {
+            padding: 12px 14px !important;
+          }
+          .hxp-list-header {
+            margin-bottom: 8px !important;
+          }
+          .hxp-list-title {
+            font-size: 17px !important;
+          }
+
+          /* Office buttons — tighter rows */
+          .hxp-office-btn {
+            padding: 8px 0 !important;
+          }
+          .hxp-city-name {
+            font-size: 15px !important;
+          }
+
+          /* Hide footer on mobile — save vertical space */
+          .hxp-list-footer {
+            display: none !important;
+          }
+
+          /* Detail panel — compact padding */
+          .hxp-detail {
+            padding: 12px 14px !important;
+          }
+          .hxp-back-btn {
+            padding: 0 0 10px 0 !important;
+          }
+          .hxp-detail-city {
+            font-size: 20px !important;
+          }
         }
       `}</style>
     </div>
