@@ -54,19 +54,14 @@ export default function NewLawEN() {
 
   return (
     <>
-      {/* Hero — Dream Big completa + título debajo */}
-      <section className="bg-primary-dark">
-        <div className="pt-20" />
-        <div className="relative">
-          <img
-            src="/images/dividers/dream-big.jpg"
-            alt="Dream Big"
-            className="w-full block"
-            style={{ maxHeight: "52vh", objectFit: "contain" }}
-          />
-          <div className="absolute inset-0 bg-black/10" />
-        </div>
-        <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-10 pb-14 text-center">
+      {/* Hero — Dream Big full-bleed, positioned to show text */}
+      <section className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover"
+          style={{ backgroundImage: "url('/images/dividers/dream-big.jpg')", backgroundPosition: "75% center" }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/50 via-black/10 to-primary-dark/60" />
+        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-36 pb-16 text-center">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/70 mb-5 block">
               Legal Innovation
@@ -74,7 +69,7 @@ export default function NewLawEN() {
             <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               NewLaw &amp; Legal AI
             </h1>
-            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
               We drive a legal practice that evolves with digital transformation,
               integrating cutting-edge technology with strategic thinking.
             </p>
@@ -107,22 +102,39 @@ export default function NewLawEN() {
             </div>
           </AnimatedSection>
 
-          {/* Pills */}
+          {/* Pills — row 1: first 4, row 2: last 2 */}
           <AnimatedSection delay={0.1}>
-            <div className="flex flex-wrap gap-2 mb-8 justify-center">
-              {methodology.map((m, i) => (
-                <button
-                  key={m.label}
-                  onClick={() => setActiveTab(i)}
-                  className={`px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase rounded-full transition-all duration-300 border ${
-                    activeTab === i
-                      ? "bg-primary-dark text-white border-primary-dark"
-                      : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
-                  }`}
-                >
-                  {m.label}
-                </button>
-              ))}
+            <div className="flex flex-col items-center gap-2 mb-8">
+              <div className="flex flex-wrap gap-2 justify-center">
+                {methodology.slice(0, 4).map((m, i) => (
+                  <button
+                    key={m.label}
+                    onClick={() => setActiveTab(i)}
+                    className={`px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase rounded-full transition-all duration-300 border ${
+                      activeTab === i
+                        ? "bg-primary-dark text-white border-primary-dark"
+                        : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
+                    }`}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
+              <div className="flex gap-2 justify-center">
+                {methodology.slice(4).map((m, i) => (
+                  <button
+                    key={m.label}
+                    onClick={() => setActiveTab(i + 4)}
+                    className={`px-4 py-2 text-xs font-semibold tracking-[0.12em] uppercase rounded-full transition-all duration-300 border ${
+                      activeTab === i + 4
+                        ? "bg-primary-dark text-white border-primary-dark"
+                        : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
+                    }`}
+                  >
+                    {m.label}
+                  </button>
+                ))}
+              </div>
             </div>
           </AnimatedSection>
 
