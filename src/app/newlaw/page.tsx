@@ -1,6 +1,7 @@
 "use client";
 
 import AnimatedSection from "@/components/AnimatedSection";
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -54,22 +55,17 @@ export default function NewLaw() {
 
   return (
     <>
-      {/* Hero — Dream Big full-bleed, posicionada para ver el texto */}
-      <section className="relative min-h-[70vh] flex flex-col justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover"
-          style={{ backgroundImage: "url('/images/dividers/dream-big.jpg')", backgroundPosition: "75% center" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/50 via-black/10 to-primary-dark/60" />
-        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-36 pb-16 text-center">
+      {/* Hero */}
+      <section className="pt-32 pb-20 bg-gradient-to-b from-primary-dark to-primary">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 text-center">
           <AnimatedSection>
-            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/70 mb-5 block">
+            <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/80 mb-4 block">
               Innovación Jurídica
             </span>
-            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+            <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6">
               NewLaw &amp; Legal AI
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Impulsamos una práctica legal que evoluciona al ritmo de la transformación digital,
               integrando tecnología de vanguardia con pensamiento estratégico.
             </p>
@@ -77,14 +73,26 @@ export default function NewLaw() {
         </div>
       </section>
 
-      {/* Quote */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8 text-center">
-          <AnimatedSection>
-            <p className="text-xl md:text-2xl text-primary-dark font-[family-name:var(--font-display)] italic leading-relaxed">
-              Nuestra propuesta no es solo adoptar herramientas; es poner la innovación al servicio del valor legal.
-            </p>
-          </AnimatedSection>
+      {/* Quote + Dream Big image */}
+      <section className="py-24 lg:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            <AnimatedSection>
+              <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl text-primary-dark italic leading-relaxed">
+                &ldquo;Nuestra propuesta no es solo adoptar herramientas; es poner la innovación al servicio del valor legal.&rdquo;
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.2}>
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/images/dividers/dream-big.jpg"
+                  alt="Dream Big"
+                  fill
+                  className="object-cover object-right-bottom"
+                />
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
@@ -147,7 +155,6 @@ export default function NewLaw() {
                   className={`transition-all duration-500 ${activeTab === i ? "block" : "hidden"}`}
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-2">
-                    {/* Image */}
                     <div
                       className="h-56 lg:h-auto bg-cover bg-center relative"
                       style={{ backgroundImage: `url('${m.image}')` }}
@@ -159,7 +166,6 @@ export default function NewLaw() {
                         </span>
                       </div>
                     </div>
-                    {/* Text */}
                     <div className="p-8 lg:p-10 flex flex-col gap-5">
                       <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white">
                         {m.title}
