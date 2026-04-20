@@ -34,21 +34,39 @@ export default function NuestraFirma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Huxley Partners es una firma de abogados mexicana que asesora a
+                Huxley Partners actúa como un socio legal estratégico para
                 corporaciones multinacionales, inversionistas institucionales y
-                empresas globales en sus asuntos legales más estratégicos en el
-                mercado mexicano.
+                empresas globales que enfrentan desafíos legales y regulatorios
+                complejos en un entorno empresarial cada vez más interconectado.
               </p>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Operamos en la intersección entre transacciones, regulación y
-                gobierno corporativo, apoyando decisiones de alto impacto que
-                definen resultados de largo plazo.
+                Nuestro trabajo se sustenta en un enfoque profundamente integrado
+                que combina experiencia transaccional, conocimiento regulatorio y
+                asesoría en gobierno corporativo, lo que nos permite acompañar a
+                nuestros clientes a lo largo de todo el ciclo de vida de asuntos
+                de alto valor y carácter transfronterizo. Estamos particularmente
+                atentos a las necesidades de organizaciones que operan en
+                múltiples jurisdicciones, donde la estrategia legal debe
+                alinearse de manera fluida con las prioridades comerciales y los
+                objetivos de largo plazo.
+              </p>
+              <p className="text-text-light leading-relaxed mb-6 text-lg">
+                Concebida como una plataforma internacional, nuestra firma está
+                estructurada para ofrecer asesoría legal coordinada y de alto
+                nivel a través de distintas geografías y áreas de práctica. Al
+                combinar un entendimiento profundo de los mercados locales con
+                una perspectiva global, ayudamos a nuestros clientes a gestionar
+                riesgos, ejecutar transacciones complejas y responder eficazmente
+                a eventos transformacionales que definen la evolución de sus
+                negocios.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                Nuestra práctica está profundamente arraigada en el marco legal,
-                regulatorio e institucional de México, y plenamente alineada con
-                estándares internacionales de transacciones y gobierno
-                corporativo.
+                A través de nuestra presencia internacional y de relaciones
+                estratégicas consolidadas a lo largo del tiempo, Huxley Partners
+                ofrece un acompañamiento legal sofisticado y orientado a la
+                ejecución, apoyando a sus clientes en procesos de expansión,
+                despliegue de capital, obtención de certidumbre regulatoria y
+                crecimiento sostenible en mercados clave a nivel global.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
@@ -77,16 +95,20 @@ export default function NuestraFirma() {
                 Enfoque en el negocio, no solo en lo legal
               </h2>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                No concebimos la asesoría legal de manera aislada. Nuestro rol
-                es apoyar los objetivos del negocio, gestionar riesgos y
-                facilitar la toma de decisiones informadas en todas las etapas
-                de una inversión, transacción u operación.
+                No concebimos la asesoría legal como un ejercicio aislado.
+                Nuestro rol es acompañar a nuestros clientes en la consecución
+                de sus objetivos de negocio, la gestión estratégica del riesgo y
+                la toma de decisiones informadas a lo largo de todo el ciclo de
+                una inversión, transacción u operación.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                Ya sea en procesos de entrada a México, gobierno corporativo,
-                M&A, exposición regulatoria u operaciones diarias, nuestro
-                análisis está basado en una comprensión práctica de cómo operan
-                las empresas en México.
+                Ya sea en procesos de expansión internacional, estructuración de
+                gobierno corporativo, fusiones y adquisiciones, exposición
+                regulatoria o en la operación cotidiana de negocios complejos,
+                nuestro análisis se basa en una comprensión práctica de cómo
+                operan las organizaciones en entornos jurídicos, regulatorios y
+                comerciales diversos, y de cómo integrar la estrategia legal
+                dentro de un contexto empresarial global.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>

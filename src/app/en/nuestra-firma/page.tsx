@@ -34,19 +34,34 @@ export default function OurFirm() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Huxley Partners is a Mexico-based law firm advising multinational
-                corporations, institutional investors and global enterprises on
-                their most strategic legal matters in the Mexican market.
+                Huxley Partners serves as a strategic legal partner to
+                multinational corporations, institutional investors, and global
+                enterprises facing complex legal and regulatory challenges in an
+                increasingly interconnected business environment.
               </p>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                We operate at the intersection of transactions, regulation and
-                governance, supporting clients in high-impact decisions that
-                define long-term outcomes.
+                Our work is grounded in a deeply integrated approach that brings
+                together transactional expertise, regulatory insight, and
+                governance advisory, allowing us to support clients across the
+                full lifecycle of high value and cross-border matters. We are
+                particularly attuned to the needs of organizations operating
+                across multiple jurisdictions, where legal strategy must align
+                seamlessly with commercial priorities and long-term objectives.
+              </p>
+              <p className="text-text-light leading-relaxed mb-6 text-lg">
+                Designed as an international platform, our firm is structured to
+                deliver coordinated, senior-level legal advice across geographies
+                and practice areas. By combining local market understanding with
+                a global perspective, we help clients manage risk, execute
+                complex transactions, and respond effectively to transformational
+                events that shape their businesses.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                Our practice is deeply rooted in Mexico&apos;s legal, regulatory,
-                and institutional framework, and fully aligned with international
-                standards for transactions and corporate governance.
+                Through our international footprint and long-standing strategic
+                relationships, Huxley Partners provides sophisticated,
+                execution-focused legal support to clients pursuing expansion,
+                capital deployment, regulatory certainty, and sustainable growth
+                across key markets worldwide.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
@@ -75,15 +90,22 @@ export default function OurFirm() {
                 Business-First, Not Just Legal
               </h2>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                We do not conceive legal advice in isolation. Our role is to
-                support business objectives, manage risks, and facilitate
-                informed decision-making at every stage of an investment,
-                transaction, or operation.
+                We do not view legal advice as an isolated exercise. Our role is
+                to serve as a strategic partner to our clients, supporting the
+                achievement of their business objectives, the strategic
+                management of risk, and informed decision making throughout the
+                full lifecycle of an investment, transaction, or operation.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                Whether in market entry processes, corporate governance, M&A,
-                regulatory exposure, or daily operations, our analysis is based
-                on a practical understanding of how businesses operate in Mexico.
+                Whether advising on international expansion initiatives,
+                corporate governance structuring, mergers and acquisitions,
+                regulatory exposure, or the ongoing operation of complex
+                businesses, our analysis is grounded in a practical
+                understanding of how organizations operate across diverse legal,
+                regulatory, and commercial environments. We focus on integrating
+                legal strategy seamlessly within a global business context,
+                ensuring alignment between execution, commercial priorities, and
+                long-term objectives.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
