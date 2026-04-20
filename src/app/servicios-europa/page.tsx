@@ -177,7 +177,7 @@ export default function ServiciosEuropa() {
                       : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
                   }`}
                 >
-                  {String(i + 1).padStart(2, "0")} · {s.title.split("&")[0].trim()}
+                  {s.title.split("&")[0].trim()}
                 </button>
               ))}
             </div>
@@ -249,21 +249,6 @@ export default function ServiciosEuropa() {
           </div>
         </div>
       </section>
-
-      {/* Melbourne / Asia-Pacific divider photo */}
-      <div className="relative h-56 md:h-72 overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1524820197278-540916411e20?w=1600&q=80')" }}
-        />
-        <div className="absolute inset-0 bg-primary-dark/55" />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center px-6">
-          <span className="text-xs font-semibold tracking-[0.25em] uppercase text-white/50 mb-2">Desk Internacional</span>
-          <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-white">
-            Asia-Pacífico · Melbourne
-          </p>
-        </div>
-      </div>
 
       {/* CTA */}
       <section className="py-24 lg:py-32 bg-primary-dark">
