@@ -291,6 +291,7 @@ export default function Services() {
                   image={service.image}
                   details={service.details}
                   icon={service.icon}
+                  tapLabel="Click to see more"
                 />
               </AnimatedSection>
             ))}
