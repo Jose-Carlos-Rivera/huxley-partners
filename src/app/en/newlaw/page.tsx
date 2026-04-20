@@ -54,23 +54,27 @@ export default function NewLawEN() {
 
   return (
     <>
-      {/* Hero — Dream Big visible, minimal scrim */}
-      <section className="relative min-h-[85vh] flex flex-col justify-center overflow-hidden">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{ backgroundImage: "url('/images/dividers/dream-big.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/50" />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 lg:px-8 pt-40 pb-16 text-center">
+      {/* Hero — Dream Big completa + título debajo */}
+      <section className="bg-primary-dark">
+        <div className="pt-20" />
+        <div className="relative">
+          <img
+            src="/images/dividers/dream-big.jpg"
+            alt="Dream Big"
+            className="w-full block"
+            style={{ maxHeight: "52vh", objectFit: "contain" }}
+          />
+          <div className="absolute inset-0 bg-black/10" />
+        </div>
+        <div className="max-w-5xl mx-auto px-6 lg:px-8 pt-10 pb-14 text-center">
           <AnimatedSection>
             <span className="text-sm font-semibold tracking-[0.2em] uppercase text-white/70 mb-5 block">
               Legal Innovation
             </span>
-            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+            <h1 className="font-[family-name:var(--font-display)] text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
               NewLaw &amp; Legal AI
             </h1>
-            <p className="text-lg md:text-xl text-gray-200 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-lg md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
               We drive a legal practice that evolves with digital transformation,
               integrating cutting-edge technology with strategic thinking.
             </p>
@@ -116,7 +120,7 @@ export default function NewLawEN() {
                       : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
                   }`}
                 >
-                  {String(i + 1).padStart(2, "0")} · {m.label}
+                  {m.label}
                 </button>
               ))}
             </div>
