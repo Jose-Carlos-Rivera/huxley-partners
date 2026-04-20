@@ -77,8 +77,8 @@ const OFFICES: Office[] = [
     country: "Australia", countryEn: "Australia",
     lat: -37.8136, lng: 144.9631, hq: false,
     badge: "Desk Internacional", badgeEn: "International Desk",
-    address: "Elizabeth Street",
-    area: "Melbourne, VIC 3000",
+    address: "",
+    area: "",
     description:
       "Respalda el desarrollo de oportunidades y la coordinación de asuntos legales en la región de Asia-Pacífico, apoyando la ejecución de operaciones transfronterizas y la alineación de estrategias legales en múltiples jurisdicciones.",
     descriptionEn:

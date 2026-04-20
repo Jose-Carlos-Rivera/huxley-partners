@@ -7,6 +7,7 @@ import { useState } from "react";
 const services = [
   {
     title: "Corporate & Governance",
+    label: "Corporate & Governance",
     subtitle: "Coordinación Internacional y Estructuración Corporativa",
     description:
       "Asesoramos a corporaciones multinacionales, grupos empresariales y fondos de inversión en estructuración corporativa transfronteriza, diseño de gobierno y estrategias de cumplimiento internacional en Europa y Latinoamérica.",
@@ -23,6 +24,7 @@ const services = [
   },
   {
     title: "Cross-Border M&A y Transacciones Estratégicas",
+    label: "Cross-Border M&A",
     subtitle: "Estrategia y Coordinación de Transacciones",
     description:
       "Acompañamos a clientes en operaciones complejas de M&A transfronterizas y transacciones estratégicas a través de estructuración, estrategia de negociación y coordinación multijurisdiccional.",
@@ -39,6 +41,7 @@ const services = [
   },
   {
     title: "Expansion & Structuring",
+    label: "Expansion & Structuring",
     subtitle: "Soporte para Expansión Internacional",
     description:
       "Ayudamos a empresas a planificar y ejecutar su expansión internacional en Europa, el Reino Unido y Latinoamérica, proporcionando estructuración legal, coordinación regulatoria y gestión de la ejecución.",
@@ -55,6 +58,7 @@ const services = [
   },
   {
     title: "Contratación Mercantil Internacional",
+    label: "Contratación Mercantil",
     subtitle: "Estrategia de Contratos Transfronterizos",
     description:
       "Asesoramos en la estrategia, negociación y coordinación de contratos mercantiles internacionales complejos, particularmente en entornos de derecho inglés y common law.",
@@ -70,6 +74,7 @@ const services = [
   },
   {
     title: "Optimización de la Función Legal y de Contratos (NewLaw)",
+    label: "NewLaw",
     subtitle: "Innovación Legal y Eficiencia Operativa",
     description:
       "Asesoramos a empresas y equipos legales a nivel global en operaciones legales, Legal Tech e iniciativas de Legal AI para optimizar la gestión legal y reducir el riesgo contractual.",
@@ -177,7 +182,7 @@ export default function ServiciosEuropa() {
                       : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
                   }`}
                 >
-                  {s.title.split("&")[0].trim()}
+                  {s.label}
                 </button>
               ))}
             </div>

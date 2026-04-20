@@ -76,10 +76,10 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
                 <a
-                  href="mailto:contacto@huxleypartners.com"
+                  href="mailto:contacto@huxleylegal.com"
                   className="hover:text-white transition-colors"
                 >
-                  contacto@huxleypartners.com
+                  contacto@huxleylegal.com
                 </a>
               </li>
               <li>

@@ -7,6 +7,7 @@ import { useState } from "react";
 const services = [
   {
     title: "Corporate & Governance",
+    label: "Corporate & Governance",
     subtitle: "International Coordination & Structuring Support",
     description:
       "We support multinational corporations, business groups, and investment funds on cross-border corporate structuring, governance design, and international compliance strategies across Europe and Latin America.",
@@ -23,6 +24,7 @@ const services = [
   },
   {
     title: "Cross-Border M&A & Strategic Transactions",
+    label: "Cross-Border M&A",
     subtitle: "Transaction Strategy & Coordination",
     description:
       "We support clients on complex cross-border M&A and strategic transactions through transaction structuring, negotiation strategy, and multi-jurisdictional coordination, with particular experience in English law governed transactions.",
@@ -39,6 +41,7 @@ const services = [
   },
   {
     title: "Expansion & Structuring",
+    label: "Expansion & Structuring",
     subtitle: "International Expansion Support",
     description:
       "We assist companies in planning and executing international expansion across Europe, the United Kingdom, and Latin America by providing legal structuring, regulatory coordination, and execution management.",
@@ -55,6 +58,7 @@ const services = [
   },
   {
     title: "International Commercial Contracts",
+    label: "Int'l Contracts",
     subtitle: "Cross-Border Contract Strategy",
     description:
       "We advise on the strategy, negotiation, and coordination of complex international commercial agreements, particularly in English law and common law environments.",
@@ -70,6 +74,7 @@ const services = [
   },
   {
     title: "Legal Function & Contract Optimisation (NewLaw)",
+    label: "Legal Function (NewLaw)",
     subtitle: "Legal Innovation & Operational Efficiency",
     description:
       "We advise companies and legal teams globally on legal operations, Legal Tech, and Legal AI initiatives to optimize legal management and reduce contractual risk.",
@@ -176,7 +181,7 @@ export default function ServiciosEuropaEN() {
                       : "bg-transparent text-primary-dark/60 border-primary-dark/20 hover:border-primary-dark/50 hover:text-primary-dark"
                   }`}
                 >
-                  {s.title.split("&")[0].trim()}
+                  {s.label}
                 </button>
               ))}
             </div>
