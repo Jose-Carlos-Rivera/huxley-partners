@@ -103,7 +103,7 @@ export default function FlipCard({
               {description}
             </p>
             {details && details.length > 0 && (
-              <ul className="space-y-1.5 mt-auto">
+              <ul className="space-y-1.5">
                 {details.map((detail) => (
                   <li
                     key={detail}
