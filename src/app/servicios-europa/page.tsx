@@ -101,9 +101,9 @@ export default function ServiciosEuropa() {
               Global Presence
             </h1>
             <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              La presencia internacional de Huxley Partners está diseñada para apoyar asuntos
-              transfronterizos a través de coordinación estratégica, estructuración y gestión de
-              la ejecución, sin duplicar ni sustituir la práctica legal local en jurisdicciones extranjeras.
+              Huxley Partners asesora a clientes en múltiples jurisdicciones, ofreciendo asesoría legal
+              integrada en transacciones transfronterizas, marcos regulatorios internacionales y desafíos
+              complejos de gobierno corporativo a nivel global.
             </p>
           </AnimatedSection>
         </div>
@@ -114,16 +114,22 @@ export default function ServiciosEuropa() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-text-light leading-relaxed text-lg mb-6">
-              A través de nuestros desks internacionales, asistimos a clientes en la navegación de
-              transacciones multijurisdiccionales complejas e iniciativas de expansión, alineando la
-              estrategia legal, coordinando asesores y asegurando que la ejecución sea consistente con
-              los estándares globales y los objetivos comerciales.
+              Nuestra plataforma internacional está diseñada para adaptarse a las realidades del entorno
+              empresarial global, combinando un profundo conocimiento de los mercados locales con un enfoque
+              coordinado y multijurisdiccional. Esta estructura permite a nuestros clientes ejecutar
+              transacciones, desplegar capital y gestionar riesgos de manera eficiente a través de distintas
+              fronteras, sectores y entornos regulatorios.
+            </p>
+            <p className="text-text-light leading-relaxed text-lg mb-6">
+              Integramos sólidas capacidades transaccionales, experiencia regulatoria y coordinación
+              transfronteriza para apoyar asuntos legales de alta sofisticación que requieren tanto una
+              perspectiva estratégica como una ejecución precisa.
             </p>
             <p className="text-text-light leading-relaxed text-lg">
-              Nuestros desks internacionales no operan como despachos de derecho local. En su lugar,
-              funcionan como puntos de coordinación estratégica dentro de nuestra red internacional,
-              trabajando en estrecha colaboración con nuestras oficinas y con despachos locales debidamente
-              habilitados en cada jurisdicción.
+              Aprovechando nuestra presencia internacional y nuestras relaciones estratégicas, ofrecemos
+              soluciones legales integrales alineadas con los objetivos comerciales de nuestros clientes—ya
+              sea para expandir operaciones, gestionar procesos de transformación, administrar riesgos
+              regulatorios o impulsar el crecimiento sostenible en distintos mercados.
             </p>
           </AnimatedSection>
         </div>

@@ -110,15 +110,22 @@ export default function Home() {
                 A legal firm with vision, innovation, and proximity
               </h2>
               <p className="text-text-light leading-relaxed mb-6">
-                Huxley Partners is a Mexico-based law firm advising
-                multinational corporations, institutional investors and global
-                enterprises on their most strategic legal matters in the
-                Mexican market.
+                Huxley Partners is a law firm trusted by multinational corporations,
+                institutional investors, and global enterprises to advise on their
+                most consequential legal matters across key markets.
+              </p>
+              <p className="text-text-light leading-relaxed mb-6">
+                Through our international platform, we advise at the convergence of
+                transactions, regulation, and governance, helping clients navigate
+                cross-border complexity and make high-impact decisions with enduring
+                strategic significance.
               </p>
               <p className="text-text-light leading-relaxed mb-8">
-                We operate at the intersection of transactions, regulation and
-                governance, supporting clients in high-impact decisions that
-                define long-term outcomes.
+                Leveraging our international footprint and strategic relationships,
+                we deliver seamless legal solutions aligned with our clients&apos;
+                commercial objectives—whether expanding operations, executing
+                transformational transactions, managing regulatory risk, or pursuing
+                long-term growth across jurisdictions.
               </p>
               <Link
                 href="/en/nuestra-firma"

@@ -101,9 +101,9 @@ export default function ServiciosEuropaEN() {
               Global Presence
             </h1>
             <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
-              Huxley Partners&apos; international presence is designed to support cross-border matters
-              through strategic coordination, structuring, and execution management, without duplicating
-              or substituting local legal practice in foreign jurisdictions.
+              Huxley Partners supports clients across multiple jurisdictions, delivering integrated legal
+              advice on cross-border transactions, international regulatory frameworks, and complex global
+              governance challenges.
             </p>
           </AnimatedSection>
         </div>
@@ -114,15 +114,21 @@ export default function ServiciosEuropaEN() {
         <div className="max-w-4xl mx-auto px-6 lg:px-8">
           <AnimatedSection>
             <p className="text-text-light leading-relaxed text-lg mb-6">
-              Through our international desks, we assist clients in navigating complex,
-              multi-jurisdictional transactions and expansion initiatives by aligning legal strategy,
-              coordinating advisors, and ensuring that execution remains consistent with global
-              standards and commercial objectives.
+              Our international platform is designed to adapt to the realities of global business,
+              combining deep local market insight with a coordinated, multi-jurisdictional approach.
+              This structure enables clients to execute transactions, deploy capital, and manage risk
+              efficiently across borders, sectors, and regulatory environments.
+            </p>
+            <p className="text-text-light leading-relaxed text-lg mb-6">
+              We bring together strong transactional capabilities, regulatory expertise, and cross-border
+              coordination to support sophisticated legal matters that require both strategic perspective
+              and precise execution.
             </p>
             <p className="text-text-light leading-relaxed text-lg">
-              Our international desks do not operate as local law practices. Instead, they function
-              as strategic coordination points within our international network, working closely with
-              our offices and with duly licensed local counsel in each jurisdiction.
+              Through our international footprint and strategic relationships, we deliver seamless legal
+              solutions aligned with our clients&apos; commercial objectives—whether expanding operations,
+              navigating transformational events, managing regulatory risk, or pursuing long-term growth
+              across markets.
             </p>
           </AnimatedSection>
         </div>

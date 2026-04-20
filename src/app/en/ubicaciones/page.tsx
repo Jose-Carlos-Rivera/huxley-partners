@@ -88,15 +88,23 @@ export default function UbicacionesEN() {
             <p className="text-lg text-gray-300 mb-10 max-w-2xl mx-auto leading-relaxed">
               Our international team is ready to assist you. Contact us for an initial consultation.
             </p>
-            <Link
-              href="/en/contacto"
-              className="inline-flex items-center gap-3 px-8 py-4 bg-white text-primary-dark font-semibold rounded-lg hover:bg-gray-100 transition-colors tracking-wide"
-            >
-              Contact Us
-              <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Link
+                href="/en/contacto"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-white text-primary-dark font-semibold rounded-lg hover:bg-gray-100 transition-colors tracking-wide"
+              >
+                Contact Us
+                <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link
+                href="/en/servicios-europa"
+                className="inline-flex items-center justify-center gap-3 px-8 py-4 border border-white/30 text-white font-semibold rounded-lg hover:bg-white/10 transition-colors tracking-wide"
+              >
+                View Global Presence
+              </Link>
+            </div>
           </AnimatedSection>
         </div>
       </section>

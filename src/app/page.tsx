@@ -111,15 +111,23 @@ export default function Home() {
                 Una firma legal con visión, innovación y cercanía
               </h2>
               <p className="text-text-light leading-relaxed mb-6">
-                Huxley Partners es una firma de abogados mexicana que asesora a
-                corporaciones multinacionales, inversionistas institucionales y
-                empresas globales en sus asuntos legales más estratégicos en el
-                mercado mexicano.
+                Huxley Partners es una firma legal en la que confían corporaciones
+                multinacionales, inversionistas institucionales y empresas globales
+                para asesorarles en sus asuntos legales más trascendentes en mercados clave.
+              </p>
+              <p className="text-text-light leading-relaxed mb-6">
+                A través de nuestra plataforma internacional, asesoramos en la convergencia
+                de transacciones, regulación y gobierno corporativo, ayudando a nuestros
+                clientes a gestionar la complejidad transfronteriza y a tomar decisiones
+                de alto impacto con una relevancia estratégica duradera.
               </p>
               <p className="text-text-light leading-relaxed mb-8">
-                Operamos en la intersección entre transacciones, regulación y
-                gobierno corporativo, apoyando decisiones de alto impacto que
-                definen resultados de largo plazo.
+                Aprovechando nuestra presencia internacional y nuestras relaciones
+                estratégicas, ofrecemos soluciones legales integradas y eficientes,
+                alineadas con los objetivos comerciales de nuestros clientes, ya sea
+                para expandir operaciones, ejecutar transacciones transformacionales,
+                gestionar riesgos regulatorios o impulsar el crecimiento de largo plazo
+                en distintas jurisdicciones.
               </p>
               <Link
                 href="/nuestra-firma"

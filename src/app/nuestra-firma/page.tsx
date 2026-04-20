@@ -112,7 +112,7 @@ export default function NuestraFirma() {
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
-              <div className="relative aspect-[16/9] lg:aspect-square rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/images/dividers/do-something-great.jpg"
                   alt="Do Something Great"

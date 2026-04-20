@@ -161,10 +161,10 @@ export default function Contacto() {
                       <div>
                         <p className="text-sm font-medium text-text">Email</p>
                         <a
-                          href="mailto:contacto@huxleypartners.com"
+                          href="mailto:contacto@huxleylegal.com"
                           className="text-sm text-primary hover:text-primary-dark transition-colors"
                         >
-                          contacto@huxleypartners.com
+                          contacto@huxleylegal.com
                         </a>
                       </div>
                     </div>
