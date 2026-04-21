@@ -69,7 +69,7 @@ export default function Navbar() {
               const isActive =
                 link.href === (isEnglish ? "/en" : "/")
                   ? pathname === link.href
-                  : pathname.startsWith(link.href);
+                  : pathname === link.href || pathname.startsWith(link.href + "/");
               return (
                 <Link
                   key={link.href}

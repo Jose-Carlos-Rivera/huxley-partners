@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 const navLinksEs = [
   { href: "/", label: "Inicio" },
@@ -25,10 +26,44 @@ const navLinksEn = [
   { href: "/en/contacto", label: "Contact" },
 ];
 
+const DEFAULTS = {
+  email: "contacto@huxleylegal.com",
+  phone: "",
+  address: "Bosque de Ciruelos 160, Piso 1",
+  area: "Bosque de las Lomas",
+  city: "Ciudad de México",
+  postalCode: "11700",
+  country: "MX",
+  linkedinUrl: "https://www.linkedin.com/company/huxley-partners",
+};
+
 export default function Footer() {
   const pathname = usePathname();
   const isEnglish = pathname.startsWith("/en");
   const navLinks = isEnglish ? navLinksEn : navLinksEs;
+
+  const [contact, setContact] = useState(DEFAULTS);
+
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem("huxley-admin-data");
+      if (saved) {
+        const data = JSON.parse(saved);
+        if (data.general) {
+          setContact({
+            email:      data.general.email      || DEFAULTS.email,
+            phone:      data.general.phone      || "",
+            address:    data.general.address    || DEFAULTS.address,
+            area:       data.general.area       || DEFAULTS.area,
+            city:       data.general.city       || DEFAULTS.city,
+            postalCode: data.general.postalCode || DEFAULTS.postalCode,
+            country:    data.general.country    || DEFAULTS.country,
+            linkedinUrl:data.general.linkedinUrl|| DEFAULTS.linkedinUrl,
+          });
+        }
+      }
+    } catch {}
+  }, []);
 
   return (
     <footer className="bg-primary-dark text-white">
@@ -76,23 +111,33 @@ export default function Footer() {
             <ul className="space-y-3 text-sm text-gray-300">
               <li>
                 <a
-                  href="mailto:contacto@huxleylegal.com"
+                  href={`mailto:${contact.email}`}
                   className="hover:text-white transition-colors"
                 >
-                  contacto@huxleylegal.com
+                  {contact.email}
                 </a>
               </li>
+              {contact.phone && (
+                <li>
+                  <a
+                    href={`tel:${contact.phone}`}
+                    className="hover:text-white transition-colors"
+                  >
+                    {contact.phone}
+                  </a>
+                </li>
+              )}
               <li>
-                Bosque de Ciruelos 160, Piso 1
+                {contact.address}
                 <br />
-                Bosque de las Lomas
+                {contact.area}
                 <br />
-                Ciudad de México 11700, MX
+                {contact.city} {contact.postalCode}, {contact.country}
               </li>
             </ul>
             <div className="mt-6 flex flex-col gap-3">
               <a
-                href="https://www.linkedin.com/company/huxley-partners"
+                href={contact.linkedinUrl}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"

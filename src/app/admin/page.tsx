@@ -85,7 +85,7 @@ interface ContentPages {
 const defaultGeneral: GeneralInfo = {
   firmName: "Huxley Partners",
   tagline: "Transformamos su estrategia de negocios a través de nuestra experiencia internacional, innovación jurídica e integridad profesional.",
-  email: "contacto@huxleypartners.com",
+  email: "contacto@huxleylegal.com",
   phone: "",
   address: "Bosque de Ciruelos 160, Piso 1",
   area: "Bosque de las Lomas",
