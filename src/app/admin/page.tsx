@@ -230,6 +230,8 @@ export default function AdminPanel() {
 
   // Track changes
   const [hasChanges, setHasChanges] = useState(false);
+  const [isPublishing, setIsPublishing] = useState(false);
+  const [publishStatus, setPublishStatus] = useState<"idle" | "success" | "error">("idle");
 
   // Load from localStorage
   useEffect(() => {
@@ -300,19 +302,30 @@ export default function AdminPanel() {
     );
   }
 
-  // ─── Export ──────────────────────────────────────────────────────────────
+  // ─── Publish to GitHub ───────────────────────────────────────────────────
 
-  function downloadJSON() {
-    const data = { general, servicesMx, servicesEu, locations, blog, content, exportedAt: new Date().toISOString() };
-    const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json" });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `huxley-content-${new Date().toISOString().slice(0, 10)}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    setHasChanges(false);
-    showToast("JSON exportado correctamente", "success");
+  async function publishSite() {
+    setIsPublishing(true);
+    setPublishStatus("idle");
+    try {
+      const res = await fetch("/api/publish", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ general }),
+      });
+      if (!res.ok) {
+        const err = await res.json();
+        throw new Error(err.error || "Error desconocido");
+      }
+      setHasChanges(false);
+      setPublishStatus("success");
+      showToast("✅ Publicado correctamente. El sitio se actualizará en ~1-2 min.", "success");
+    } catch (e: unknown) {
+      setPublishStatus("error");
+      showToast(`❌ Error al publicar: ${e instanceof Error ? e.message : String(e)}`, "error");
+    } finally {
+      setIsPublishing(false);
+    }
   }
 
   function resetToDefaults() {
@@ -366,7 +379,7 @@ export default function AdminPanel() {
           <FieldTextarea label="Texto del Newsletter" value={general.newsletterText} onChange={(v) => { setGeneral({ ...general, newsletterText: v }); markChanged(); }} rows={2} />
           <FieldTextarea label="Disclaimer" value={general.newsletterDisclaimer} onChange={(v) => { setGeneral({ ...general, newsletterDisclaimer: v }); markChanged(); }} rows={2} />
         </div>
-        <SaveButton onClick={() => showToast("Información general guardada", "success")} />
+        <SaveButton onClick={publishSite} label={isPublishing ? "Publicando…" : "Publicar en el Sitio"} disabled={isPublishing} />
       </div>
     );
   }
@@ -782,16 +795,38 @@ export default function AdminPanel() {
               {hasChanges && (
                 <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-amber-600 bg-amber-50 px-3 py-1.5 rounded-full">
                   <span className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse" />
-                  Cambios sin exportar
+                  Cambios sin publicar
+                </span>
+              )}
+              {publishStatus === "success" && (
+                <span className="hidden sm:inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600 bg-emerald-50 px-3 py-1.5 rounded-full">
+                  <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full" />
+                  Publicado — actualizando sitio…
                 </span>
               )}
               <button onClick={resetToDefaults} className="hidden sm:inline-flex items-center gap-2 px-4 py-2 text-slate-500 hover:text-slate-700 hover:bg-slate-100 text-sm font-medium rounded-lg transition-colors">
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" /></svg>
                 Restaurar
               </button>
-              <button onClick={downloadJSON} className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-lg hover:bg-blue-700 transition-colors shadow-sm">
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Exportar JSON
+              <button
+                onClick={publishSite}
+                disabled={isPublishing}
+                className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600 text-white text-sm font-medium rounded-lg hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors shadow-sm"
+              >
+                {isPublishing ? (
+                  <>
+                    <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
+                    </svg>
+                    Publicando…
+                  </>
+                ) : (
+                  <>
+                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" /></svg>
+                    Publicar en el Sitio
+                  </>
+                )}
               </button>
             </div>
           </div>
@@ -862,11 +897,11 @@ function FieldTextarea({ label, value, onChange, rows = 3 }: { label: string; va
   );
 }
 
-function SaveButton({ onClick }: { onClick: () => void }) {
+function SaveButton({ onClick, label = "Guardar Cambios", disabled = false }: { onClick: () => void; label?: string; disabled?: boolean }) {
   return (
-    <button onClick={onClick} className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 transition-colors shadow-sm">
+    <button onClick={onClick} disabled={disabled} className="inline-flex items-center gap-2 px-6 py-3 bg-emerald-600 text-white text-sm font-semibold rounded-lg hover:bg-emerald-700 disabled:opacity-60 disabled:cursor-not-allowed transition-colors shadow-sm">
       <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-      Guardar Cambios
+      {label}
     </button>
   );
 }

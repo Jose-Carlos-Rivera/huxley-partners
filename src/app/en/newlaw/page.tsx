@@ -76,12 +76,12 @@ export default function NewLawEN() {
       {/* Dream Big — full-width image + quote below */}
       <section className="bg-white">
         <AnimatedSection>
-          <div className="relative w-full h-48 md:h-64 overflow-hidden">
+          <div className="relative w-full h-72 md:h-96 overflow-hidden">
             <Image
               src="/images/dividers/dream-big.jpg"
               alt="Dream Big"
               fill
-              className="object-cover object-bottom"
+              className="object-cover object-center"
               priority
             />
             <div className="absolute inset-0 bg-primary-dark/20" />

@@ -45,24 +45,23 @@ export default function Footer() {
   const [contact, setContact] = useState(DEFAULTS);
 
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("huxley-admin-data");
-      if (saved) {
-        const data = JSON.parse(saved);
-        if (data.general) {
+    fetch("/site-config.json")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data?.general) {
           setContact({
-            email:      data.general.email      || DEFAULTS.email,
-            phone:      data.general.phone      || "",
-            address:    data.general.address    || DEFAULTS.address,
-            area:       data.general.area       || DEFAULTS.area,
-            city:       data.general.city       || DEFAULTS.city,
-            postalCode: data.general.postalCode || DEFAULTS.postalCode,
-            country:    data.general.country    || DEFAULTS.country,
-            linkedinUrl:data.general.linkedinUrl|| DEFAULTS.linkedinUrl,
+            email:       data.general.email       || DEFAULTS.email,
+            phone:       data.general.phone       || "",
+            address:     data.general.address     || DEFAULTS.address,
+            area:        data.general.area        || DEFAULTS.area,
+            city:        data.general.city        || DEFAULTS.city,
+            postalCode:  data.general.postalCode  || DEFAULTS.postalCode,
+            country:     data.general.country     || DEFAULTS.country,
+            linkedinUrl: data.general.linkedinUrl || DEFAULTS.linkedinUrl,
           });
         }
-      }
-    } catch {}
+      })
+      .catch(() => {});
   }, []);
 
   return (
