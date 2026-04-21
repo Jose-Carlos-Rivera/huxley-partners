@@ -3,13 +3,15 @@
     "firmName": "Huxley Partners",
     "tagline": "Transformamos su estrategia de negocios a través de nuestra experiencia internacional, innovación jurídica e integridad profesional.",
     "email": "contacto@huxleylegal.com",
-    "phone": "",
+    "phone": "55 9816 5416",
     "address": "Bosque de Ciruelos 160, Piso 1",
     "area": "Bosque de las Lomas",
     "city": "Ciudad de México",
     "postalCode": "11700",
     "country": "MX",
     "linkedinUrl": "https://www.linkedin.com/company/huxley-partners/",
+    "twitterUrl": "https://twitter.com/HuxleyPartners",
+    "twitterHandle": "@HuxleyPartners",
     "newsletterHeading": "Suscríbete",
     "newsletterText": "Suscríbete a nuestro boletín y mantente actualizado con las últimas novedades legales. No te preocupes, no te enviaremos demasiado contenido.",
     "newsletterDisclaimer": "Al suscribirte, aceptas recibir comunicaciones electrónicas. Puedes cancelar tu suscripción en cualquier momento."
@@ -459,5 +461,16 @@
       "aboutText1": "Huxley Partners es una firma de abogados mexicana que asesora a corporaciones multinacionales, inversionistas institucionales y empresas globales en sus asuntos legales más estratégicos en el mercado mexicano.",
       "aboutText2": "Operamos en la intersección entre transacciones, regulación y gobierno corporativo, apoyando decisiones de alto impacto que definen resultados de largo plazo."
     }
+  },
+  "privacyPolicy": {
+    "title": "Aviso de Privacidad",
+    "body": ""
+  },
+  "nosotros": {
+    "heroSubtitle": "El Equipo",
+    "heroTitle": "Nosotros",
+    "intro": "",
+    "teamTitle": "Nuestro Equipo",
+    "team": []
   }
 }
