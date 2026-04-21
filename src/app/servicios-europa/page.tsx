@@ -103,7 +103,7 @@ export default function ServiciosEuropa() {
               Plataforma Internacional
             </span>
             <h1 className="font-[family-name:var(--font-display)] text-4xl md:text-6xl font-bold text-white mb-6">
-              Global Presence
+              Presencia Global
             </h1>
             <p className="text-lg text-gray-200 max-w-3xl mx-auto leading-relaxed">
               Huxley Partners asesora a clientes en múltiples jurisdicciones, ofreciendo asesoría legal

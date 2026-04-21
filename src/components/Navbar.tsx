@@ -14,7 +14,7 @@ const linksEs = [
   { href: "/newlaw", label: "NewLaw" },
   { href: "/blog", label: "Blog" },
   { href: "/ubicaciones", label: "Ubicaciones" },
-  { href: "/servicios-europa", label: "Global Presence" },
+  { href: "/servicios-europa", label: "Presencia Global" },
   { href: "/contacto", label: "Contacto" },
 ];
 

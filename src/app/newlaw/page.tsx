@@ -73,27 +73,27 @@ export default function NewLaw() {
         </div>
       </section>
 
-      {/* Quote + Dream Big image */}
-      <section className="py-24 lg:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection>
-              <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl text-primary-dark italic leading-relaxed">
-                &ldquo;Nuestra propuesta no es solo adoptar herramientas; es poner la innovación al servicio del valor legal.&rdquo;
-              </p>
-            </AnimatedSection>
-            <AnimatedSection delay={0.2}>
-              <div className="relative aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl">
-                <Image
-                  src="/images/dividers/dream-big.jpg"
-                  alt="Dream Big"
-                  fill
-                  className="object-cover object-right-bottom"
-                />
-              </div>
-            </AnimatedSection>
+      {/* Dream Big — full-width image + quote below */}
+      <section className="bg-white">
+        <AnimatedSection>
+          <div className="relative w-full aspect-[16/7] overflow-hidden">
+            <Image
+              src="/images/dividers/dream-big.jpg"
+              alt="Dream Big"
+              fill
+              className="object-cover object-center"
+              priority
+            />
+            <div className="absolute inset-0 bg-primary-dark/20" />
           </div>
-        </div>
+        </AnimatedSection>
+        <AnimatedSection delay={0.15}>
+          <div className="max-w-3xl mx-auto px-6 lg:px-8 py-16 text-center">
+            <p className="font-[family-name:var(--font-display)] text-2xl md:text-3xl lg:text-4xl text-primary-dark italic leading-relaxed text-balance">
+              &ldquo;Nuestra propuesta no es solo adoptar herramientas; es poner la innovación al servicio del valor legal.&rdquo;
+            </p>
+          </div>
+        </AnimatedSection>
       </section>
 
       {/* Methodology — Tab Panel */}
