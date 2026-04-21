@@ -35,6 +35,8 @@ const DEFAULTS = {
   postalCode: "11700",
   country: "MX",
   linkedinUrl: "https://www.linkedin.com/company/huxley-partners",
+  twitterUrl: "https://twitter.com/HuxleyPartners",
+  twitterHandle: "@HuxleyPartners",
 };
 
 export default function Footer() {
@@ -50,14 +52,16 @@ export default function Footer() {
       .then((data) => {
         if (data?.general) {
           setContact({
-            email:       data.general.email       || DEFAULTS.email,
-            phone:       data.general.phone       || "",
-            address:     data.general.address     || DEFAULTS.address,
-            area:        data.general.area        || DEFAULTS.area,
-            city:        data.general.city        || DEFAULTS.city,
-            postalCode:  data.general.postalCode  || DEFAULTS.postalCode,
-            country:     data.general.country     || DEFAULTS.country,
-            linkedinUrl: data.general.linkedinUrl || DEFAULTS.linkedinUrl,
+            email:         data.general.email         || DEFAULTS.email,
+            phone:         data.general.phone         || "",
+            address:       data.general.address       || DEFAULTS.address,
+            area:          data.general.area          || DEFAULTS.area,
+            city:          data.general.city          || DEFAULTS.city,
+            postalCode:    data.general.postalCode    || DEFAULTS.postalCode,
+            country:       data.general.country       || DEFAULTS.country,
+            linkedinUrl:   data.general.linkedinUrl   || DEFAULTS.linkedinUrl,
+            twitterUrl:    data.general.twitterUrl    || DEFAULTS.twitterUrl,
+            twitterHandle: data.general.twitterHandle || DEFAULTS.twitterHandle,
           });
         }
       })
@@ -146,28 +150,36 @@ export default function Footer() {
                 </svg>
                 LinkedIn
               </a>
-              <a
-                href="https://twitter.com/HuxleyPartners"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
-              >
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.258 5.63 5.907-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-                </svg>
-                @HuxleyPartners
-              </a>
+              {contact.twitterUrl && (
+                <a
+                  href={contact.twitterUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                >
+                  <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.258 5.63 5.907-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                  </svg>
+                  {contact.twitterHandle || contact.twitterUrl}
+                </a>
+              )}
             </div>
           </div>
         </div>
 
-        <div className="mt-16 pt-8 border-t border-gray-700 text-center">
+        <div className="mt-16 pt-8 border-t border-gray-700 flex flex-col sm:flex-row items-center justify-between gap-3 text-center">
           <p className="text-xs text-gray-500">
             &copy; {new Date().getFullYear()} Huxley Partners, S.C.{" "}
             {isEnglish
               ? "All rights reserved."
               : "Todos los derechos reservados."}
           </p>
+          <a
+            href={isEnglish ? "/en/aviso-de-privacidad" : "/aviso-de-privacidad"}
+            className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+          >
+            {isEnglish ? "Privacy Policy" : "Aviso de Privacidad"}
+          </a>
         </div>
       </div>
     </footer>

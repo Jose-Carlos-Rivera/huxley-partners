@@ -1,8 +1,46 @@
 "use client";
 
 import AnimatedSection from "@/components/AnimatedSection";
+import { useEffect, useState } from "react";
+
+const DEFAULTS = {
+  email: "contacto@huxleylegal.com",
+  phone: "",
+  address: "Bosque de Ciruelos 160, Floor 1",
+  area: "Bosque de las Lomas",
+  city: "Mexico City",
+  postalCode: "11700",
+  country: "MX",
+  linkedinUrl: "https://www.linkedin.com/company/huxley-partners",
+  twitterUrl: "https://twitter.com/HuxleyPartners",
+  twitterHandle: "@HuxleyPartners",
+};
 
 export default function Contact() {
+  const [contact, setContact] = useState(DEFAULTS);
+
+  useEffect(() => {
+    fetch("/site-config.json")
+      .then((r) => r.json())
+      .then((data) => {
+        if (data?.general) {
+          setContact({
+            email:         data.general.email         || DEFAULTS.email,
+            phone:         data.general.phone         || "",
+            address:       data.general.address       || DEFAULTS.address,
+            area:          data.general.area          || DEFAULTS.area,
+            city:          data.general.city          || DEFAULTS.city,
+            postalCode:    data.general.postalCode    || DEFAULTS.postalCode,
+            country:       data.general.country       || DEFAULTS.country,
+            linkedinUrl:   data.general.linkedinUrl   || DEFAULTS.linkedinUrl,
+            twitterUrl:    data.general.twitterUrl    || DEFAULTS.twitterUrl,
+            twitterHandle: data.general.twitterHandle || DEFAULTS.twitterHandle,
+          });
+        }
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <>
       {/* Hero */}
@@ -160,10 +198,10 @@ export default function Contact() {
                       <div>
                         <p className="text-sm font-medium text-text">Email</p>
                         <a
-                          href="mailto:contacto@huxleylegal.com"
+                          href={`mailto:${contact.email}`}
                           className="text-sm text-primary hover:text-primary-dark transition-colors"
                         >
-                          contacto@huxleylegal.com
+                          {contact.email}
                         </a>
                       </div>
                     </div>
@@ -195,11 +233,11 @@ export default function Contact() {
                           Location
                         </p>
                         <p className="text-sm text-text-light">
-                          Bosque de Ciruelos 160, Floor 1
+                          {contact.address}
                           <br />
-                          Bosque de las Lomas
+                          {contact.area}
                           <br />
-                          Mexico City 11700, MX
+                          {contact.city} {contact.postalCode}, {contact.country}
                         </p>
                       </div>
                     </div>
@@ -219,7 +257,7 @@ export default function Contact() {
                           LinkedIn
                         </p>
                         <a
-                          href="https://www.linkedin.com/company/huxley-partners"
+                          href={contact.linkedinUrl}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-sm text-primary hover:text-primary-dark transition-colors"
@@ -228,6 +266,27 @@ export default function Contact() {
                         </a>
                       </div>
                     </div>
+
+                    {contact.twitterUrl && (
+                      <div className="flex items-start gap-4">
+                        <div className="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center shrink-0">
+                          <svg className="w-5 h-5 text-primary" fill="currentColor" viewBox="0 0 24 24">
+                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.258 5.63 5.907-5.63Zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+                          </svg>
+                        </div>
+                        <div>
+                          <p className="text-sm font-medium text-text">X (Twitter)</p>
+                          <a
+                            href={contact.twitterUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-sm text-primary hover:text-primary-dark transition-colors"
+                          >
+                            {contact.twitterHandle || contact.twitterUrl}
+                          </a>
+                        </div>
+                      </div>
+                    )}
                   </div>
                 </div>
 
