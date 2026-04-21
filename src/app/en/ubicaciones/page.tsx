@@ -40,6 +40,50 @@ export default function UbicacionesEN() {
         <GlobeMap lang="en" />
       </section>
 
+      {/* Our Offices + International Reach */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <AnimatedSection>
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                Our Offices
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-primary-dark mb-6">
+                A global vision.
+              </h2>
+              <p className="text-text-light leading-relaxed mb-4">
+                Huxley Partners has offices in Mexico City and Monterrey, from which we lead the execution
+                of complex legal matters, both domestic and international.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                These offices form the operational core of the firm and serve as coordination hubs for
+                cross-border mandates, integrating teams, specialties, and legal strategies according to
+                each client&apos;s needs.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.15}>
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                International Reach
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-primary-dark mb-6">
+                Global Presence, Local Reach
+              </h2>
+              <p className="text-text-light leading-relaxed mb-4">
+                Through its international platform, Huxley Partners maintains desks in strategic jurisdictions,
+                including Spain, the Czech Republic, and Australia, enabling support for clients on matters
+                with international components and facilitating legal coordination in multi-jurisdictional
+                operations.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                Our international presence is not merely geographical, but functional and strategic. We work
+                in a coordinated manner across jurisdictions with our network to deliver comprehensive advice
+                that transcends borders and aligns with our clients&apos; commercial objectives.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Extended text — premium two-card layout */}
       <section className="py-20 bg-surface">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">

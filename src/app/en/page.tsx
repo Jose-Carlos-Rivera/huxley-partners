@@ -46,9 +46,8 @@ export default function Home() {
     <>
       {/* Hero Section */}
       <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
-        <div className="absolute inset-0 bg-[url('/images/hero/skyscraper.jpg')] bg-cover bg-center opacity-20" />
-        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/80 via-transparent to-primary-dark/40" />
+        <div className="absolute inset-0 bg-[url('/images/hero/skyscraper.jpg')] bg-cover bg-center" />
+        <div className="absolute inset-0 bg-gradient-to-t from-primary-dark/75 via-primary-dark/30 to-primary-dark/20" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 text-center pt-20">
           <AnimatedSection>

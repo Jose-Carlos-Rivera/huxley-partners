@@ -40,6 +40,51 @@ export default function Ubicaciones() {
         <GlobeMap lang="es" />
       </section>
 
+      {/* Nuestras Oficinas + Alcance Internacional */}
+      <section className="py-20 bg-white">
+        <div className="max-w-5xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+            <AnimatedSection>
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                Nuestras Oficinas
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-primary-dark mb-6">
+                Una visión global.
+              </h2>
+              <p className="text-text-light leading-relaxed mb-4">
+                Huxley Partners cuenta con oficinas en Ciudad de México y Monterrey, desde donde se lidera
+                la ejecución de asuntos legales complejos, tanto nacionales como internacionales.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                Estas oficinas constituyen el núcleo operativo de la firma y funcionan como centros de
+                coordinación para mandatos transfronterizos, integrando equipos, especialidades y estrategias
+                legales en función de las necesidades de cada cliente.
+              </p>
+            </AnimatedSection>
+            <AnimatedSection delay={0.15}>
+              <span className="text-sm font-semibold tracking-[0.2em] uppercase text-accent mb-4 block">
+                Alcance Internacional
+              </span>
+              <h2 className="font-[family-name:var(--font-display)] text-2xl md:text-3xl font-bold text-primary-dark mb-6">
+                Presencia Global, Alcance Local
+              </h2>
+              <p className="text-text-light leading-relaxed mb-4">
+                A través de su plataforma internacional, Huxley Partners mantiene desks en jurisdicciones
+                estratégicas, incluyendo España, la República Checa y Australia, que permiten apoyar a
+                clientes en asuntos con componentes internacionales y facilitar la coordinación legal en
+                operaciones multijurisdiccionales.
+              </p>
+              <p className="text-text-light leading-relaxed">
+                Nuestra presencia internacional no es únicamente geográfica, sino funcional y estratégica.
+                Trabajamos de manera coordinada entre jurisdicciones con nuestra red para ofrecer una
+                asesoría integral que trasciende fronteras y se alinea con los objetivos comerciales de
+                nuestros clientes.
+              </p>
+            </AnimatedSection>
+          </div>
+        </div>
+      </section>
+
       {/* Extended text — premium two-card layout */}
       <section className="py-20 bg-surface">
         <div className="max-w-5xl mx-auto px-6 lg:px-8">

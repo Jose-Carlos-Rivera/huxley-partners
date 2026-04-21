@@ -34,39 +34,23 @@ export default function NuestraFirma() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Huxley Partners actúa como un socio legal estratégico para
-                corporaciones multinacionales, inversionistas institucionales y
-                empresas globales que enfrentan desafíos legales y regulatorios
-                complejos en un entorno empresarial cada vez más interconectado.
+                Huxley Partners es una firma legal en la que confían corporaciones
+                multinacionales, inversionistas institucionales y empresas globales
+                para asesorarles en sus asuntos legales más trascendentes en mercados clave.
               </p>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Nuestro trabajo se sustenta en un enfoque profundamente integrado
-                que combina experiencia transaccional, conocimiento regulatorio y
-                asesoría en gobierno corporativo, lo que nos permite acompañar a
-                nuestros clientes a lo largo de todo el ciclo de vida de asuntos
-                de alto valor y carácter transfronterizo. Estamos particularmente
-                atentos a las necesidades de organizaciones que operan en
-                múltiples jurisdicciones, donde la estrategia legal debe
-                alinearse de manera fluida con las prioridades comerciales y los
-                objetivos de largo plazo.
-              </p>
-              <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Concebida como una plataforma internacional, nuestra firma está
-                estructurada para ofrecer asesoría legal coordinada y de alto
-                nivel a través de distintas geografías y áreas de práctica. Al
-                combinar un entendimiento profundo de los mercados locales con
-                una perspectiva global, ayudamos a nuestros clientes a gestionar
-                riesgos, ejecutar transacciones complejas y responder eficazmente
-                a eventos transformacionales que definen la evolución de sus
-                negocios.
+                A través de nuestra plataforma internacional, asesoramos en la convergencia
+                de transacciones, regulación y gobierno corporativo, ayudando a nuestros
+                clientes a gestionar la complejidad transfronteriza y a tomar decisiones
+                de alto impacto con una relevancia estratégica duradera.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                A través de nuestra presencia internacional y de relaciones
-                estratégicas consolidadas a lo largo del tiempo, Huxley Partners
-                ofrece un acompañamiento legal sofisticado y orientado a la
-                ejecución, apoyando a sus clientes en procesos de expansión,
-                despliegue de capital, obtención de certidumbre regulatoria y
-                crecimiento sostenible en mercados clave a nivel global.
+                Aprovechando nuestra presencia internacional y nuestras relaciones
+                estratégicas, ofrecemos soluciones legales integradas y eficientes,
+                alineadas con los objetivos comerciales de nuestros clientes, ya sea
+                para expandir operaciones, ejecutar transacciones transformacionales,
+                gestionar riesgos regulatorios o impulsar el crecimiento de largo plazo
+                en distintas jurisdicciones.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>

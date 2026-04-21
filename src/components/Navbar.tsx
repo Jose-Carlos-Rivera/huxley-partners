@@ -50,7 +50,7 @@ export default function Navbar() {
               height={48}
               className="w-10 h-10 sm:w-12 sm:h-12 object-contain"
             />
-            <div className="hidden sm:block">
+            <div className="block">
               <span
                 className="text-lg font-semibold tracking-wide"
                 style={{ color: "#325EA8" }}

@@ -34,34 +34,22 @@ export default function OurFirm() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Huxley Partners serves as a strategic legal partner to
-                multinational corporations, institutional investors, and global
-                enterprises facing complex legal and regulatory challenges in an
-                increasingly interconnected business environment.
+                Huxley Partners is a law firm trusted by multinational corporations,
+                institutional investors, and global enterprises to advise on their
+                most consequential legal matters across key markets.
               </p>
               <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Our work is grounded in a deeply integrated approach that brings
-                together transactional expertise, regulatory insight, and
-                governance advisory, allowing us to support clients across the
-                full lifecycle of high value and cross-border matters. We are
-                particularly attuned to the needs of organizations operating
-                across multiple jurisdictions, where legal strategy must align
-                seamlessly with commercial priorities and long-term objectives.
-              </p>
-              <p className="text-text-light leading-relaxed mb-6 text-lg">
-                Designed as an international platform, our firm is structured to
-                deliver coordinated, senior-level legal advice across geographies
-                and practice areas. By combining local market understanding with
-                a global perspective, we help clients manage risk, execute
-                complex transactions, and respond effectively to transformational
-                events that shape their businesses.
+                Through our international platform, we advise at the convergence of
+                transactions, regulation, and governance, helping clients navigate
+                cross-border complexity and make high-impact decisions with enduring
+                strategic significance.
               </p>
               <p className="text-text-light leading-relaxed text-lg">
-                Through our international footprint and long-standing strategic
-                relationships, Huxley Partners provides sophisticated,
-                execution-focused legal support to clients pursuing expansion,
-                capital deployment, regulatory certainty, and sustainable growth
-                across key markets worldwide.
+                Leveraging our international footprint and strategic relationships,
+                we deliver seamless legal solutions aligned with our clients&apos;
+                commercial objectives—whether expanding operations, executing
+                transformational transactions, managing regulatory risk, or pursuing
+                long-term growth across jurisdictions.
               </p>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
