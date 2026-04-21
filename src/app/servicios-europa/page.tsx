@@ -114,29 +114,73 @@ export default function ServiciosEuropa() {
         </div>
       </section>
 
-      {/* Intro */}
-      <section className="py-16 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-8">
-          <AnimatedSection>
-            <p className="text-text-light leading-relaxed text-lg mb-6">
-              Nuestra plataforma internacional está diseñada para adaptarse a las realidades del entorno
-              empresarial global, combinando un profundo conocimiento de los mercados locales con un enfoque
-              coordinado y multijurisdiccional. Esta estructura permite a nuestros clientes ejecutar
-              transacciones, desplegar capital y gestionar riesgos de manera eficiente a través de distintas
-              fronteras, sectores y entornos regulatorios.
-            </p>
-            <p className="text-text-light leading-relaxed text-lg mb-6">
-              Integramos sólidas capacidades transaccionales, experiencia regulatoria y coordinación
-              transfronteriza para apoyar asuntos legales de alta sofisticación que requieren tanto una
-              perspectiva estratégica como una ejecución precisa.
-            </p>
-            <p className="text-text-light leading-relaxed text-lg">
-              Aprovechando nuestra presencia internacional y nuestras relaciones estratégicas, ofrecemos
-              soluciones legales integrales alineadas con los objetivos comerciales de nuestros clientes—ya
-              sea para expandir operaciones, gestionar procesos de transformación, administrar riesgos
-              regulatorios o impulsar el crecimiento sostenible en distintos mercados.
-            </p>
-          </AnimatedSection>
+      {/* Intro — 3 feature cards */}
+      <section className="py-20 bg-white">
+        <div className="max-w-6xl mx-auto px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <AnimatedSection delay={0}>
+              <div className="group h-full flex flex-col gap-5 rounded-2xl border border-primary-dark/10 bg-surface p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300">
+                <div className="w-11 h-11 rounded-xl bg-primary-dark/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
+                  <svg className="w-5 h-5 text-primary-dark group-hover:text-accent transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-primary-dark mb-3 tracking-wide">
+                    Plataforma Multijurisdiccional
+                  </h3>
+                  <p className="text-text-light leading-relaxed text-sm">
+                    Nuestra plataforma internacional está diseñada para adaptarse a las realidades del entorno
+                    empresarial global, combinando un profundo conocimiento de los mercados locales con un enfoque
+                    coordinado y multijurisdiccional. Esta estructura permite a nuestros clientes ejecutar
+                    transacciones, desplegar capital y gestionar riesgos de manera eficiente a través de distintas
+                    fronteras, sectores y entornos regulatorios.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.1}>
+              <div className="group h-full flex flex-col gap-5 rounded-2xl border border-primary-dark/10 bg-surface p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300">
+                <div className="w-11 h-11 rounded-xl bg-primary-dark/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
+                  <svg className="w-5 h-5 text-primary-dark group-hover:text-accent transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-primary-dark mb-3 tracking-wide">
+                    Capacidades Integradas
+                  </h3>
+                  <p className="text-text-light leading-relaxed text-sm">
+                    Integramos sólidas capacidades transaccionales, experiencia regulatoria y coordinación
+                    transfronteriza para apoyar asuntos legales de alta sofisticación que requieren tanto una
+                    perspectiva estratégica como una ejecución precisa.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <div className="group h-full flex flex-col gap-5 rounded-2xl border border-primary-dark/10 bg-surface p-8 shadow-sm hover:shadow-md hover:border-accent/40 transition-all duration-300">
+                <div className="w-11 h-11 rounded-xl bg-primary-dark/5 flex items-center justify-center flex-shrink-0 group-hover:bg-accent/10 transition-colors duration-300">
+                  <svg className="w-5 h-5 text-primary-dark group-hover:text-accent transition-colors duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <div>
+                  <h3 className="font-[family-name:var(--font-display)] text-base font-bold text-primary-dark mb-3 tracking-wide">
+                    Soluciones Alineadas
+                  </h3>
+                  <p className="text-text-light leading-relaxed text-sm">
+                    Aprovechando nuestra presencia internacional y nuestras relaciones estratégicas, ofrecemos
+                    soluciones legales integrales alineadas con los objetivos comerciales de nuestros clientes—ya
+                    sea para expandir operaciones, gestionar procesos de transformación, administrar riesgos
+                    regulatorios o impulsar el crecimiento sostenible en distintos mercados.
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+          </div>
         </div>
       </section>
 
