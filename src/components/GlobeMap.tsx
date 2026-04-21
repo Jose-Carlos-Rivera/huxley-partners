@@ -59,6 +59,8 @@ const OFFICES: Office[] = [
       "Apoya en el desarrollo de mercado en la región, así como la coordinación de asuntos legales con clientes y nuestra red en Europa, facilitando la ejecución de operaciones transfronterizas y la alineación de estrategias legales en múltiples jurisdicciones.",
     descriptionEn:
       "Supports the development of new markets and the coordination of legal matters with clients and our network in Europe, facilitating the execution of cross-border transactions and the alignment of legal strategies across multiple jurisdictions.",
+    ctaLabel: "Ver Global Presence", ctaLabelEn: "View Global Presence",
+    ctaHref: "/servicios-europa",    ctaHrefEn: "/en/servicios-europa",
   },
   {
     id: "praga",
@@ -70,6 +72,8 @@ const OFFICES: Office[] = [
       "Actúa como un punto de apoyo estratégico para la coordinación de asuntos legales en Europa Central y del Este, facilitando la ejecución de operaciones transfronterizas y la integración de estrategias legales en entornos multijurisdiccionales.",
     descriptionEn:
       "Serves as a strategic point of support for opportunity development and the coordination of legal matters across Central and Eastern Europe, facilitating the execution of cross-border transactions and the integration of legal strategies in multi-jurisdictional environments.",
+    ctaLabel: "Ver Global Presence", ctaLabelEn: "View Global Presence",
+    ctaHref: "/servicios-europa",    ctaHrefEn: "/en/servicios-europa",
   },
   {
     id: "melbourne",
@@ -83,6 +87,8 @@ const OFFICES: Office[] = [
       "Respalda el desarrollo de oportunidades y la coordinación de asuntos legales en la región de Asia-Pacífico, apoyando la ejecución de operaciones transfronterizas y la alineación de estrategias legales en múltiples jurisdicciones.",
     descriptionEn:
       "Supports the development of opportunities and the coordination of legal matters across the Asia-Pacific region, enabling the execution of cross-border transactions and the alignment of legal strategies across multiple jurisdictions.",
+    ctaLabel: "Ver Global Presence", ctaLabelEn: "View Global Presence",
+    ctaHref: "/servicios-europa",    ctaHrefEn: "/en/servicios-europa",
   },
 ];
 
