@@ -160,11 +160,6 @@ export default function NewLaw() {
                       style={{ backgroundImage: `url('${m.image}')` }}
                     >
                       <div className="absolute inset-0 bg-primary-dark/40" />
-                      <div className="absolute bottom-0 left-0 right-0 p-6">
-                        <span className="font-mono text-[10px] tracking-[0.2em] uppercase text-white/50">
-                          {String(i + 1).padStart(2, "0")} / {String(methodology.length).padStart(2, "0")}
-                        </span>
-                      </div>
                     </div>
                     <div className="p-8 lg:p-10 flex flex-col gap-5">
                       <h3 className="font-[family-name:var(--font-display)] text-2xl font-bold text-white">

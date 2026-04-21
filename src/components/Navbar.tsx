@@ -65,15 +65,25 @@ export default function Navbar() {
 
           {/* Desktop nav */}
           <div className="hidden lg:flex items-center gap-4">
-            {links.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="text-xs font-medium text-text-light hover:text-primary transition-colors duration-200 tracking-wide uppercase whitespace-nowrap"
-              >
-                {link.label}
-              </Link>
-            ))}
+            {links.map((link) => {
+              const isActive =
+                link.href === (isEnglish ? "/en" : "/")
+                  ? pathname === link.href
+                  : pathname.startsWith(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`text-xs font-medium transition-colors duration-200 tracking-wide uppercase whitespace-nowrap ${
+                    isActive
+                      ? "text-primary font-semibold border-b border-primary pb-0.5"
+                      : "text-text-light hover:text-primary"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <LanguageToggle />
           </div>
 
@@ -113,16 +123,26 @@ export default function Navbar() {
             className="lg:hidden overflow-hidden bg-white border-t border-gray-100"
           >
             <div className="px-6 py-4 space-y-4">
-              {links.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="block text-sm font-medium text-text-light hover:text-primary tracking-wide uppercase"
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {links.map((link) => {
+                const isActive =
+                  link.href === (isEnglish ? "/en" : "/")
+                    ? pathname === link.href
+                    : pathname.startsWith(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setOpen(false)}
+                    className={`block text-sm font-medium tracking-wide uppercase ${
+                      isActive
+                        ? "text-primary font-semibold"
+                        : "text-text-light hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
             </div>
           </motion.div>
         )}

@@ -518,6 +518,7 @@ export default function GlobeMap({ lang = "es" }: Props) {
               {selectedOffice.ctaHref && (
                 <Link
                   href={isEn ? (selectedOffice.ctaHrefEn ?? selectedOffice.ctaHref) : selectedOffice.ctaHref}
+                  className="hxp-cta-link"
                   style={{ display:"inline-flex", alignItems:"center", gap:"8px", marginTop:"20px", padding:"10px 18px", background:"#4a90d9", color:"#ffffff", fontFamily:"monospace", fontSize:"10px", letterSpacing:"0.12em", textTransform:"uppercase", fontWeight:600, borderRadius:"2px", textDecoration:"none", transition:"background 0.2s", flexShrink:0 }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLAnchorElement).style.background="#2d6db5")}
                   onMouseLeave={(e) => ((e.currentTarget as HTMLAnchorElement).style.background="#4a90d9")}
@@ -667,6 +668,17 @@ export default function GlobeMap({ lang = "es" }: Props) {
           }
           .hxp-detail-city {
             font-size: 20px !important;
+          }
+          /* Always show CTA button — don't let description push it off-screen */
+          .hxp-detail p {
+            flex: none !important;
+            max-height: 140px;
+            overflow-y: auto;
+            margin-bottom: 0 !important;
+          }
+          .hxp-cta-link {
+            margin-top: 12px !important;
+            display: inline-flex !important;
           }
         }
       `}</style>
