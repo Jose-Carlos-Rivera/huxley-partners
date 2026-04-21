@@ -233,20 +233,37 @@ export default function AdminPanel() {
   const [isPublishing, setIsPublishing] = useState(false);
   const [publishStatus, setPublishStatus] = useState<"idle" | "success" | "error">("idle");
 
-  // Load from localStorage
+  // Load from server config (primary) then fall back to localStorage draft
   useEffect(() => {
-    try {
-      const saved = localStorage.getItem("huxley-admin-data");
-      if (saved) {
-        const data = JSON.parse(saved);
-        if (data.general) setGeneral(data.general);
-        if (data.servicesMx) setServicesMx(data.servicesMx);
-        if (data.servicesEu) setServicesEu(data.servicesEu);
-        if (data.locations) setLocations(data.locations);
-        if (data.blog) setBlog(data.blog);
-        if (data.content) setContent(data.content);
-      }
-    } catch {}
+    async function loadConfig() {
+      try {
+        const res = await fetch("/site-config.json?_=" + Date.now(), { cache: "no-store" });
+        if (res.ok) {
+          const data = await res.json();
+          if (data.general) setGeneral({ ...defaultGeneral, ...data.general });
+          if (data.servicesMx) setServicesMx(data.servicesMx);
+          if (data.servicesEu) setServicesEu(data.servicesEu);
+          if (data.locations) setLocations(data.locations);
+          if (data.blog) setBlog(data.blog);
+          if (data.content) setContent(data.content);
+          return;
+        }
+      } catch {}
+      // Fall back to localStorage draft
+      try {
+        const saved = localStorage.getItem("huxley-admin-data");
+        if (saved) {
+          const data = JSON.parse(saved);
+          if (data.general) setGeneral(data.general);
+          if (data.servicesMx) setServicesMx(data.servicesMx);
+          if (data.servicesEu) setServicesEu(data.servicesEu);
+          if (data.locations) setLocations(data.locations);
+          if (data.blog) setBlog(data.blog);
+          if (data.content) setContent(data.content);
+        }
+      } catch {}
+    }
+    loadConfig();
   }, []);
 
   // Save to localStorage on changes
@@ -308,10 +325,11 @@ export default function AdminPanel() {
     setIsPublishing(true);
     setPublishStatus("idle");
     try {
+      const payload = { general, servicesMx, servicesEu, locations, blog, content };
       const res = await fetch("/api/publish", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ general }),
+        body: JSON.stringify(payload),
       });
       if (!res.ok) {
         const err = await res.json();
