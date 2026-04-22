@@ -88,6 +88,16 @@ interface PrivacyPolicy {
   body: string;
 }
 
+interface Copyright {
+  title: string;
+  body: string;
+}
+
+interface Disclaimer {
+  title: string;
+  body: string;
+}
+
 interface TeamMember {
   name: string;
   role: string;
@@ -125,6 +135,16 @@ const defaultGeneral: GeneralInfo = {
 
 const defaultPrivacyPolicy: PrivacyPolicy = {
   title: "Aviso de Privacidad",
+  body: "",
+};
+
+const defaultCopyright: Copyright = {
+  title: "Derechos de Autor",
+  body: "",
+};
+
+const defaultDisclaimer: Disclaimer = {
+  title: "Liberación de Responsabilidad",
   body: "",
 };
 
@@ -257,6 +277,8 @@ export default function AdminPanel() {
   const [blog, setBlog] = useState<BlogArticle[]>(defaultBlog);
   const [content, setContent] = useState<ContentPages>(defaultContent);
   const [privacyPolicy, setPrivacyPolicy] = useState<PrivacyPolicy>(defaultPrivacyPolicy);
+  const [copyright, setCopyright] = useState<Copyright>(defaultCopyright);
+  const [disclaimer, setDisclaimer] = useState<Disclaimer>(defaultDisclaimer);
   const [nosotros, setNosotros] = useState<NosotrosData>(defaultNosotros);
 
   // Edit state
@@ -287,6 +309,8 @@ export default function AdminPanel() {
           if (data.blog) setBlog(data.blog);
           if (data.content) setContent(data.content);
           if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
+          if (data.copyright) setCopyright(data.copyright);
+          if (data.disclaimer) setDisclaimer(data.disclaimer);
           if (data.nosotros) setNosotros(data.nosotros);
           return;
         }
@@ -303,6 +327,8 @@ export default function AdminPanel() {
           if (data.blog) setBlog(data.blog);
           if (data.content) setContent(data.content);
           if (data.privacyPolicy) setPrivacyPolicy(data.privacyPolicy);
+          if (data.copyright) setCopyright(data.copyright);
+          if (data.disclaimer) setDisclaimer(data.disclaimer);
           if (data.nosotros) setNosotros(data.nosotros);
         }
       } catch {}
@@ -369,7 +395,7 @@ export default function AdminPanel() {
     setIsPublishing(true);
     setPublishStatus("idle");
     try {
-      const payload = { general, servicesMx, servicesEu, locations, blog, content, privacyPolicy, nosotros };
+      const payload = { general, servicesMx, servicesEu, locations, blog, content, privacyPolicy, copyright, disclaimer, nosotros };
       const res = await fetch("/api/publish", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -777,6 +803,20 @@ export default function AdminPanel() {
           <Field label="Título de la página" value={privacyPolicy.title} onChange={(v) => { setPrivacyPolicy({ ...privacyPolicy, title: v }); markChanged(); }} />
           <FieldTextarea label="Contenido del aviso (texto completo)" value={privacyPolicy.body} onChange={(v) => { setPrivacyPolicy({ ...privacyPolicy, body: v }); markChanged(); }} rows={12} />
           <p className="text-xs text-slate-400">El aviso se publica en <code className="bg-slate-100 px-1 rounded">/aviso-de-privacidad</code></p>
+        </ContentBlock>
+
+        {/* Derechos de Autor */}
+        <ContentBlock title="Derechos de Autor">
+          <Field label="Título de la página" value={copyright.title} onChange={(v) => { setCopyright({ ...copyright, title: v }); markChanged(); }} />
+          <FieldTextarea label="Contenido (texto completo)" value={copyright.body} onChange={(v) => { setCopyright({ ...copyright, body: v }); markChanged(); }} rows={12} />
+          <p className="text-xs text-slate-400">Se publica en <code className="bg-slate-100 px-1 rounded">/derechos-de-autor</code></p>
+        </ContentBlock>
+
+        {/* Liberación de Responsabilidad */}
+        <ContentBlock title="Liberación de Responsabilidad">
+          <Field label="Título de la página" value={disclaimer.title} onChange={(v) => { setDisclaimer({ ...disclaimer, title: v }); markChanged(); }} />
+          <FieldTextarea label="Contenido (texto completo)" value={disclaimer.body} onChange={(v) => { setDisclaimer({ ...disclaimer, body: v }); markChanged(); }} rows={12} />
+          <p className="text-xs text-slate-400">Se publica en <code className="bg-slate-100 px-1 rounded">/liberacion-de-responsabilidad</code></p>
         </ContentBlock>
 
         {/* Nosotros */}

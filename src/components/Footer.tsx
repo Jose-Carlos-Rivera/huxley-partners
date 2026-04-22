@@ -174,12 +174,26 @@ export default function Footer() {
               ? "All rights reserved."
               : "Todos los derechos reservados."}
           </p>
-          <a
-            href={isEnglish ? "/en/aviso-de-privacidad" : "/aviso-de-privacidad"}
-            className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
-          >
-            {isEnglish ? "Privacy Policy" : "Aviso de Privacidad"}
-          </a>
+          <div className="flex flex-wrap items-center justify-center sm:justify-end gap-x-4 gap-y-1">
+            <a
+              href={isEnglish ? "/en/aviso-de-privacidad" : "/aviso-de-privacidad"}
+              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              {isEnglish ? "Privacy Policy" : "Aviso de Privacidad"}
+            </a>
+            <a
+              href={isEnglish ? "/en/derechos-de-autor" : "/derechos-de-autor"}
+              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              {isEnglish ? "Copyright" : "Derechos de Autor"}
+            </a>
+            <a
+              href={isEnglish ? "/en/liberacion-de-responsabilidad" : "/liberacion-de-responsabilidad"}
+              className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
+            >
+              {isEnglish ? "Disclaimer" : "Liberación de Responsabilidad"}
+            </a>
+          </div>
         </div>
       </div>
     </footer>

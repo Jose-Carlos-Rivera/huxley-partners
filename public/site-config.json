@@ -473,5 +473,13 @@
     "intro": "",
     "teamTitle": "Nuestro Equipo",
     "team": []
+  },
+  "copyright": {
+    "title": "Derechos de Autor",
+    "body": ""
+  },
+  "disclaimer": {
+    "title": "Liberación de Responsabilidad",
+    "body": ""
   }
 }
