@@ -1,11 +1,23 @@
 "use client";
 
 import { motion } from "framer-motion";
+import { useEffect, useState } from "react";
 
 export default function WhatsAppButton() {
+  const [phone, setPhone] = useState("525598165416");
+
+  useEffect(() => {
+    fetch("/site-config.json")
+      .then((r) => r.json())
+      .then((cfg) => {
+        if (cfg?.general?.whatsappNumber) setPhone(cfg.general.whatsappNumber);
+      })
+      .catch(() => {});
+  }, []);
+
   return (
     <motion.a
-      href="https://wa.me/5215500000000?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios."
+      href={`https://wa.me/${phone}?text=Hola%2C%20me%20gustar%C3%ADa%20obtener%20m%C3%A1s%20informaci%C3%B3n%20sobre%20sus%20servicios.`}
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-6 right-6 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:shadow-xl"

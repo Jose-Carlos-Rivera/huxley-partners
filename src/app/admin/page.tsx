@@ -9,6 +9,7 @@ interface GeneralInfo {
   tagline: string;
   email: string;
   phone: string;
+  whatsappNumber: string;
   address: string;
   area: string;
   city: string;
@@ -108,6 +109,7 @@ const defaultGeneral: GeneralInfo = {
   tagline: "Transformamos su estrategia de negocios a través de nuestra experiencia internacional, innovación jurídica e integridad profesional.",
   email: "contacto@huxleylegal.com",
   phone: "",
+  whatsappNumber: "525598165416",
   address: "Bosque de Ciruelos 160, Piso 1",
   area: "Bosque de las Lomas",
   city: "Ciudad de México",
@@ -419,6 +421,7 @@ export default function AdminPanel() {
             <Field label="Nombre de la Firma" value={general.firmName} onChange={(v) => { setGeneral({ ...general, firmName: v }); markChanged(); }} />
             <Field label="Email" value={general.email} onChange={(v) => { setGeneral({ ...general, email: v }); markChanged(); }} />
             <Field label="Teléfono" value={general.phone} onChange={(v) => { setGeneral({ ...general, phone: v }); markChanged(); }} placeholder="(Opcional)" />
+            <Field label="WhatsApp (número completo)" value={general.whatsappNumber} onChange={(v) => { setGeneral({ ...general, whatsappNumber: v }); markChanged(); }} placeholder="525598165416" />
             <Field label="LinkedIn URL" value={general.linkedinUrl} onChange={(v) => { setGeneral({ ...general, linkedinUrl: v }); markChanged(); }} />
             <Field label="X (Twitter) URL" value={general.twitterUrl} onChange={(v) => { setGeneral({ ...general, twitterUrl: v }); markChanged(); }} placeholder="https://twitter.com/..." />
             <Field label="X (Twitter) Handle" value={general.twitterHandle} onChange={(v) => { setGeneral({ ...general, twitterHandle: v }); markChanged(); }} placeholder="@handle" />

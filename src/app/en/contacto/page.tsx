@@ -16,8 +16,12 @@ const DEFAULTS = {
   twitterHandle: "@HuxleyPartners",
 };
 
+type FormStatus = "idle" | "sending" | "success" | "error";
+
 export default function Contact() {
   const [contact, setContact] = useState(DEFAULTS);
+  const [formStatus, setFormStatus] = useState<FormStatus>("idle");
+  const [formError, setFormError] = useState("");
 
   useEffect(() => {
     fetch("/site-config.json")
@@ -40,6 +44,32 @@ export default function Contact() {
       })
       .catch(() => {});
   }, []);
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    setFormStatus("sending");
+    setFormError("");
+    const form = e.currentTarget;
+    const data = Object.fromEntries(new FormData(form));
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (res.ok) {
+        setFormStatus("success");
+        form.reset();
+      } else {
+        const body = await res.json().catch(() => ({}));
+        setFormError(body.error || "Error sending message. Please try again.");
+        setFormStatus("error");
+      }
+    } catch {
+      setFormError("Connection error. Please try again.");
+      setFormStatus("error");
+    }
+  }
 
   return (
     <>
@@ -67,7 +97,7 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Form */}
             <AnimatedSection>
-              <form className="space-y-6">
+              <form className="space-y-6" onSubmit={handleSubmit}>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
                     <label
@@ -162,11 +192,23 @@ export default function Contact() {
                   </label>
                 </div>
 
+                {formStatus === "success" && (
+                  <div className="p-4 bg-emerald-50 border border-emerald-200 rounded-lg text-sm text-emerald-700 font-medium text-center">
+                    ✓ Message sent. We will be in touch shortly.
+                  </div>
+                )}
+                {formStatus === "error" && (
+                  <div className="p-4 bg-red-50 border border-red-200 rounded-lg text-sm text-red-700 text-center">
+                    {formError}
+                  </div>
+                )}
+
                 <button
                   type="submit"
-                  className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors tracking-wide"
+                  disabled={formStatus === "sending" || formStatus === "success"}
+                  className="w-full px-8 py-4 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors tracking-wide disabled:opacity-60 disabled:cursor-not-allowed"
                 >
-                  Send message
+                  {formStatus === "sending" ? "Sending…" : "Send message"}
                 </button>
               </form>
             </AnimatedSection>

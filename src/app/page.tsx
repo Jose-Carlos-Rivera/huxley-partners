@@ -1,4 +1,5 @@
 import AnimatedSection from "@/components/AnimatedSection";
+import NewsletterForm from "@/components/NewsletterForm";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -270,20 +271,11 @@ export default function Home() {
               últimas novedades legales. No te preocupes, no te enviaremos
               demasiado contenido.
             </p>
-            <form className="flex flex-col sm:flex-row gap-4 max-w-lg mx-auto">
-              <input
-                type="email"
-                placeholder="Tu dirección de email"
-                className="flex-1 px-5 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary text-sm"
-                required
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-primary text-white font-semibold rounded-lg hover:bg-primary-dark transition-colors text-sm tracking-wide"
-              >
-                Suscribir
-              </button>
-            </form>
+            <NewsletterForm
+              placeholder="Tu dirección de email"
+              buttonLabel="Suscribir"
+              successMessage="¡Suscrito! Te mantendremos al tanto."
+            />
             <p className="text-xs text-text-light mt-4">
               Al suscribirte, aceptas recibir comunicaciones electrónicas.
               Puedes cancelar tu suscripción en cualquier momento.
